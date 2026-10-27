@@ -1,0 +1,17 @@
+{
+  "hash": "2b63b83bf5859967debd7be06df11b62",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"10. Tabelas e gráficos\"\n---\n\n\n\n::: {.callout-note}\n## Objetivos\n- Montar uma tabela com as estatísticas da metanálise.\n- Fazer gráficos de floresta simplificados por subgrupo.\n:::\n\n## Tabela com estatísticas\n\nUma boa tabela traz, por subgrupo: número de estudos ($k$), efeito médio,\nIC 95%, $\\tau^2$, $I^2$ e o teste $Q$ [ver @paul2005; @paul2011].\n\n\n::: {.cell}\n\n```{.r .cell-code}\najusta <- function(d) {\n  m <- rma(yi, vi, data = d)\n  p <- predict(m)\n  tibble(k = m$k, D = p$pred, ic_inf = p$ci.lb, ic_sup = p$ci.ub,\n         tau2 = m$tau2, I2 = m$I2, Q = m$QE, p_Q = m$QEp)\n}\n\ntabela <- dat |>\n  as_tibble() |>\n  group_by(pressao) |>\n  group_modify(~ ajusta(.x))\n\ntabela\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n# A tibble: 2 × 9\n# Groups:   pressao [2]\n  pressao     k     D ic_inf ic_sup  tau2    I2     Q   p_Q\n  <chr>   <int> <dbl>  <dbl>  <dbl> <dbl> <dbl> <dbl> <dbl>\n1 Alta       12  453.  353.    553. 8842.  30.8  14.1 0.230\n2 Baixa      18  154.   76.4   232.    0    0    16.3 0.501\n```\n\n\n:::\n:::\n\n\n## Forest simplificado por subgrupo\n\n\n::: {.cell}\n\n```{.r .cell-code}\ntabela |>\n  ggplot(aes(D, pressao)) +\n  geom_vline(xintercept = 0, linetype = 2) +\n  geom_errorbar(aes(xmin = ic_inf, xmax = ic_sup), width = 0.1) +\n  geom_point(aes(size = k)) +\n  labs(x = \"Diferença de produtividade (kg/ha, IC 95%)\",\n       y = \"Pressão de doença\")\n```\n\n::: {.cell-output-display}\n![](10-apresentacao_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n\n<!-- TODO: piano plot e forest simplificado dos slides (Ngugi 2011, Paul 2011) -->\n\n::: {.callout-important}\n## Exercício 10.1\nMonte a mesma tabela e o mesmo gráfico agrupando os ensaios por `regiao`.\n:::\n",
+    "supporting": [
+      "10-apresentacao_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

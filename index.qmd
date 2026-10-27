@@ -1,0 +1,61 @@
+---
+title: "Metanálise nas Ciências Agrárias"
+subtitle: "Introdução e prática no R"
+---
+
+Bem-vindo(a) ao material da disciplina. Aqui a teoria da metanálise vem
+sempre acompanhada de exercícios em R, com exemplos de fitopatologia,
+fitotecnia, entomologia e solos.
+
+## Sobre o instrutor
+
+**Prof. Emerson Del Ponte**, agrônomo com doutorado em Fitopatologia,
+coordenador do Laboratório de Epidemiologia da UFV, editor-chefe da
+*Tropical Plant Pathology* e cofundador da Open Plant Pathology. Publicou
+mais de 15 metanálises desde 2015 sobre efeitos de tratamentos e relações
+entre variáveis em doenças de plantas.
+
+## Objetivos da disciplina
+
+Ao final, você será capaz de:
+
+- Explicar o que é uma metanálise e quando ela é apropriada.
+- Planejar uma revisão sistemática e extrair dados de estudos primários.
+- Calcular medidas de efeito para dados contínuos, binários e correlações.
+- Ajustar modelos de efeito fixo e aleatório no R com o pacote `metafor`.
+- Quantificar e explicar a heterogeneidade (subgrupos e meta-regressão).
+- Avaliar viés de publicação e lidar com efeitos dependentes (modelos multinível).
+- Apresentar resultados em tabelas e gráficos de qualidade para publicação.
+
+## Como usar este site
+
+Cada capítulo segue a mesma estrutura:
+
+1. **Teoria**, com os conceitos centrais.
+2. **No R**, com código comentado que você pode copiar e executar.
+3. **Exercícios**, com a solução escondida (clique para abrir).
+
+::: {.callout-tip}
+## Antes de começar
+Configure seu computador seguindo o apêndice
+[Configuração do R](apendices/configuracao-r.qmd).
+:::
+
+## Roteiro
+
+| Parte | Capítulo | Tema |
+|---|---|---|
+| I | [1](capitulos/01-introducao.qmd) | O que é metanálise |
+| I | [2](capitulos/02-revisao-sistematica.qmd) | Revisão sistemática e passos de uma metanálise |
+| II | [3](capitulos/03-extracao-dados.qmd) | Seleção de estudos, extração de dados e planilha |
+| II | [4](capitulos/04-efeito-continuos.qmd) | Medidas de efeito: dados contínuos |
+| II | [5](capitulos/05-efeito-binarios.qmd) | Medidas de efeito: dados binários |
+| II | [6](capitulos/06-correlacao.qmd) | Medidas de efeito: correlação |
+| III | [7](capitulos/07-modelos.qmd) | Modelos de efeito fixo e aleatório |
+| III | [8](capitulos/08-heterogeneidade.qmd) | Heterogeneidade |
+| III | [9](capitulos/09-moderadores.qmd) | Subgrupos e meta-regressão |
+| III | [10](capitulos/10-apresentacao.qmd) | Tabelas e gráficos |
+| IV | [11](capitulos/11-vies-publicacao.qmd) | Viés de publicação |
+| IV | [12](capitulos/12-multinivel.qmd) | Modelos multinível |
+| V | [Exemplo 1](exemplos/01-formigas-cortadeiras.qmd) | Formigas cortadeiras, solo e plantas (entomologia) |
+| V | [Exemplo 2](exemplos/02-posicionamento-fertilizantes.qmd) | Posicionamento de fertilizantes e produtividade (solos e fitotecnia) |

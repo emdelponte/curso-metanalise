@@ -1,0 +1,60 @@
+---
+title: "10. Tabelas e gráficos"
+---
+
+```{r}
+#| include: false
+source("R/setup.R")
+fungicida <- read_csv("dados/fungicida_soja.csv") |>
+  mutate(sd = cv / 100 * media_geral)
+dat <- escalc(measure = "MD",
+              m1i = prod_trat, sd1i = sd, n1i = n,
+              m2i = prod_ctrl, sd2i = sd, n2i = n,
+              data = fungicida, slab = estudo)
+```
+
+::: {.callout-note}
+## Objetivos
+- Montar uma tabela com as estatísticas da metanálise.
+- Fazer gráficos de floresta simplificados por subgrupo.
+:::
+
+## Tabela com estatísticas
+
+Uma boa tabela traz, por subgrupo: número de estudos ($k$), efeito médio,
+IC 95%, $\tau^2$, $I^2$ e o teste $Q$ [ver @paul2005; @paul2011].
+
+```{r}
+ajusta <- function(d) {
+  m <- rma(yi, vi, data = d)
+  p <- predict(m)
+  tibble(k = m$k, D = p$pred, ic_inf = p$ci.lb, ic_sup = p$ci.ub,
+         tau2 = m$tau2, I2 = m$I2, Q = m$QE, p_Q = m$QEp)
+}
+
+tabela <- dat |>
+  as_tibble() |>
+  group_by(pressao) |>
+  group_modify(~ ajusta(.x))
+
+tabela
+```
+
+## Forest simplificado por subgrupo
+
+```{r}
+tabela |>
+  ggplot(aes(D, pressao)) +
+  geom_vline(xintercept = 0, linetype = 2) +
+  geom_errorbar(aes(xmin = ic_inf, xmax = ic_sup), width = 0.1) +
+  geom_point(aes(size = k)) +
+  labs(x = "Diferença de produtividade (kg/ha, IC 95%)",
+       y = "Pressão de doença")
+```
+
+<!-- TODO: piano plot e forest simplificado dos slides (Ngugi 2011, Paul 2011) -->
+
+::: {.callout-important}
+## Exercício 10.1
+Monte a mesma tabela e o mesmo gráfico agrupando os ensaios por `regiao`.
+:::

@@ -1,0 +1,72 @@
+project:
+  type: book
+  execute-dir: project
+  output-dir: _book
+
+lang: pt
+
+book:
+  title: "Metanálise nas Ciências Agrárias"
+  subtitle: "Introdução e prática no R"
+  author: "Prof. Emerson Del Ponte"
+  date: today
+  date-format: "YYYY"
+  description: "Teoria e prática em R para síntese quantitativa de estudos"
+  reader-mode: true
+  search: true
+  page-navigation: true
+  sidebar:
+    style: docked
+    collapse-level: 1
+  page-footer:
+    center: "Prof. Emerson Del Ponte · Universidade Federal de Viçosa"
+  chapters:
+    - index.qmd
+    - part: "Parte I · Fundamentos"
+      chapters:
+        - capitulos/01-introducao.qmd
+        - capitulos/02-revisao-sistematica.qmd
+    - part: "Parte II · Medidas de efeito"
+      chapters:
+        - capitulos/03-extracao-dados.qmd
+        - capitulos/04-efeito-continuos.qmd
+        - capitulos/05-efeito-binarios.qmd
+        - capitulos/06-correlacao.qmd
+    - part: "Parte III · Modelos"
+      chapters:
+        - capitulos/07-modelos.qmd
+        - capitulos/08-heterogeneidade.qmd
+        - capitulos/09-moderadores.qmd
+        - capitulos/10-apresentacao.qmd
+    - part: "Parte IV · Tópicos avançados"
+      chapters:
+        - capitulos/11-vies-publicacao.qmd
+        - capitulos/12-multinivel.qmd
+    - part: "Parte V · Exemplos de análise"
+      chapters:
+        - exemplos/01-formigas-cortadeiras.qmd
+        - exemplos/02-posicionamento-fertilizantes.qmd
+    - referencias.qmd
+  appendices:
+    - apendices/configuracao-r.qmd
+    - apendices/dados.qmd
+
+bibliography: referencias.bib
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    toc-title: "Nesta página"
+    number-sections: false
+    code-copy: true
+    code-tools: true
+    callout-appearance: simple
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto

@@ -1,0 +1,8 @@
+id_estudo,referencia,id_ensaio,id_comparacao,cultura,pais,ano_ensaio,tratamento,controle,desfecho,unidade,tipo_dado,n_trat,n_ctrl,media_trat,media_ctrl,sd_trat,sd_ctrl,qme,cv,media_geral,dms,eventos_trat,total_trat,eventos_ctrl,total_ctrl,r,n_r,moderadora_dose,moderadora_pressao,fonte_dado,extraido_por,obs
+S01,Silva2015,S01-1,S01-1-a,soja,Brasil,2012,tiofanato metilico,testemunha,produtividade,kg/ha,continuo,4,4,2618,2265,,,,6,2773.6,,,,,,,,,Alta,Tabela 3,ED,CV e media geral; sem SD
+S01,Silva2015,S01-2,S01-2-a,soja,Brasil,2013,tiofanato metilico,testemunha,produtividade,kg/ha,continuo,4,4,3010,2810,,,,8,2910,,,,,,,,,Baixa,Tabela 3,ED,
+S02,Souza2018,S02-1,S02-1-a,soja,Brasil,2016,fluazinam,testemunha,produtividade,kg/ha,continuo,4,4,3450,3010,,,,,3230,160,,,,,,,,Alta,Tabela 2,ED,DMS 5%; t=2.45 (gl=6)
+S02,Souza2018,S02-1,S02-1-b,soja,Brasil,2016,procimidona,testemunha,produtividade,kg/ha,continuo,4,4,3390,3010,,,,,3200,160,,,,,,,,Alta,Tabela 2,ED,controle compartilhado com S02-1-a
+S03,Lima2020,S03-1,S03-1-a,trigo,Brasil,2018,tebuconazol,testemunha,severidade giberela,%,continuo,5,5,12.4,31.8,4.1,9.2,,,,,,,,,,,,Alta,Figura 2 (WebPlotDigitizer),ED,SD obtido de barras de erro (EP convertido em SD)
+S04,Costa2019,S04-1,S04-1-a,feijao,Brasil,2017,tratamento de sementes,sem tratamento,tombamento,plantas,binario,,,,,,,,,,,18,200,52,200,,,,,Tabela 1,ED,
+S05,Pereira2014,S05-1,S05-1-a,milho,Brasil,2011,severidade x produtividade,,correlacao,r,correlacao,,,,,,,,,,,,,,,-0.62,24,,,Texto (resultados),ED,r de Pearson reportado

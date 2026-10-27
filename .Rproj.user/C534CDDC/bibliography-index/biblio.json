@@ -1,0 +1,503 @@
+{
+    "sources": [
+        {
+            "author": [
+                {
+                    "family": "Borenstein",
+                    "given": "Michael"
+                },
+                {
+                    "family": "Hedges",
+                    "given": "Larry V."
+                },
+                {
+                    "family": "Higgins",
+                    "given": "Julian P. T."
+                },
+                {
+                    "family": "Rothstein",
+                    "given": "Hannah R."
+                }
+            ],
+            "id": "borenstein2009",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009
+                    ]
+                ]
+            },
+            "publisher": "John Wiley & Sons",
+            "title": "Introduction to meta-analysis",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Hunter",
+                    "given": "John E."
+                },
+                {
+                    "family": "Schmidt",
+                    "given": "Frank L."
+                }
+            ],
+            "edition": "2",
+            "id": "hunter2004",
+            "issued": {
+                "date-parts": [
+                    [
+                        2004
+                    ]
+                ]
+            },
+            "publisher": "Sage",
+            "title": "Methods of meta-analysis: Correcting error and bias in research findings",
+            "title-short": "Methods of meta-analysis",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1037/0003-066X.32.9.752",
+            "author": [
+                {
+                    "family": "Smith",
+                    "given": "Mary L."
+                },
+                {
+                    "family": "Glass",
+                    "given": "Gene V."
+                }
+            ],
+            "container-title": "American Psychologist",
+            "id": "smith1977",
+            "issue": "9",
+            "issued": {
+                "date-parts": [
+                    [
+                        1977
+                    ]
+                ]
+            },
+            "page": "752-760",
+            "title": "Meta-analysis of psychotherapy outcome studies",
+            "type": "article-journal",
+            "volume": "32"
+        },
+        {
+            "DOI": "10.18637/jss.v036.i03",
+            "author": [
+                {
+                    "family": "Viechtbauer",
+                    "given": "Wolfgang"
+                }
+            ],
+            "container-title": "Journal of Statistical Software",
+            "id": "viechtbauer2010",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010
+                    ]
+                ]
+            },
+            "page": "1-48",
+            "title": "Conducting meta-analyses in R with the metafor package",
+            "type": "article-journal",
+            "volume": "36"
+        },
+        {
+            "DOI": "10.1094/PHYTO-03-10-0068",
+            "author": [
+                {
+                    "family": "Ngugi",
+                    "given": "H. K."
+                },
+                {
+                    "family": "Esker",
+                    "given": "P. D."
+                },
+                {
+                    "family": "Scherm",
+                    "given": "H."
+                }
+            ],
+            "container-title": "Phytopathology",
+            "id": "ngugi2011",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2011
+                    ]
+                ]
+            },
+            "page": "31-41",
+            "title": "Meta-analysis to determine the effects of plant disease management measures: Review and case studies on soybean and apple",
+            "title-short": "Meta-analysis to determine the effects of plant disease management measures",
+            "type": "article-journal",
+            "volume": "101"
+        },
+        {
+            "author": [
+                {
+                    "family": "Paul",
+                    "given": "P. A."
+                },
+                {
+                    "family": "Madden",
+                    "given": "L. V."
+                },
+                {
+                    "family": "Bradley",
+                    "given": "C. A."
+                },
+                {
+                    "family": "Robertson",
+                    "given": "A. E."
+                },
+                {
+                    "family": "Munkvold",
+                    "given": "G. P."
+                },
+                {
+                    "family": "Shaner",
+                    "given": "G."
+                },
+                {
+                    "family": "Wise",
+                    "given": "K. A."
+                },
+                {
+                    "family": "Malvick",
+                    "given": "D. K."
+                },
+                {
+                    "family": "Allen",
+                    "given": "T. W."
+                },
+                {
+                    "family": "Grybauskas",
+                    "given": "A."
+                },
+                {
+                    "family": "Vincelli",
+                    "given": "P."
+                },
+                {
+                    "family": "Esker",
+                    "given": "P."
+                }
+            ],
+            "container-title": "Phytopathology",
+            "id": "paul2011",
+            "issued": {
+                "date-parts": [
+                    [
+                        2011
+                    ]
+                ]
+            },
+            "page": "1122-1132",
+            "title": "Meta-analysis of yield response of hybrid field corn to foliar fungicides in the U.S. Corn belt",
+            "type": "article-journal",
+            "volume": "101"
+        },
+        {
+            "author": [
+                {
+                    "family": "Paul",
+                    "given": "P. A."
+                },
+                {
+                    "family": "Lipps",
+                    "given": "P. E."
+                },
+                {
+                    "family": "Madden",
+                    "given": "L. V."
+                }
+            ],
+            "container-title": "Phytopathology",
+            "id": "paul2005",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005
+                    ]
+                ]
+            },
+            "page": "1225-1236",
+            "title": "Relationship between visual estimates of Fusarium head blight intensity and deoxynivalenol accumulation in harvested wheat grain: A meta-analysis",
+            "title-short": "Relationship between visual estimates of Fusarium head blight intensity and deoxynivalenol accumulation in harvested wheat grain",
+            "type": "article-journal",
+            "volume": "95"
+        },
+        {
+            "DOI": "10.1111/j.2041-210X.2010.00056.x",
+            "author": [
+                {
+                    "family": "Harrison",
+                    "given": "Freya"
+                }
+            ],
+            "container-title": "Methods in Ecology and Evolution",
+            "id": "harrison2011",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2011
+                    ]
+                ]
+            },
+            "page": "1-10",
+            "title": "Meta-analysis: Methods for quantitative data synthesis in ecology and evolution",
+            "title-short": "Meta-analysis",
+            "type": "article-journal",
+            "volume": "2"
+        },
+        {
+            "URL": "https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/",
+            "author": [
+                {
+                    "family": "Harrer",
+                    "given": "Mathias"
+                },
+                {
+                    "family": "Cuijpers",
+                    "given": "Pim"
+                },
+                {
+                    "family": "Furukawa",
+                    "given": "Toshi A."
+                },
+                {
+                    "family": "Ebert",
+                    "given": "David D."
+                }
+            ],
+            "id": "harrer2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "publisher": "Chapman & Hall/CRC",
+            "title": "Doing meta-analysis with R: A hands-on guide",
+            "title-short": "Doing meta-analysis with R",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1136/bmj.n71",
+            "author": [
+                {
+                    "family": "Page",
+                    "given": "Matthew J."
+                },
+                {
+                    "literal": "others"
+                }
+            ],
+            "container-title": "BMJ",
+            "id": "page2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "page": "n71",
+            "title": "The PRISMA 2020 statement: An updated guideline for reporting systematic reviews",
+            "title-short": "The PRISMA 2020 statement",
+            "type": "article-journal",
+            "volume": "372"
+        },
+        {
+            "DOI": "10.1111/een.12169",
+            "author": [
+                {
+                    "family": "Farji-Brener",
+                    "given": "Alejandro G."
+                },
+                {
+                    "family": "Werenkraut",
+                    "given": "Victoria"
+                }
+            ],
+            "container-title": "Ecological Entomology",
+            "id": "farji2015",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "page": "150-158",
+            "title": "A meta-analysis of leaf-cutting ant nest effects on soil fertility and plant performance",
+            "type": "article-journal",
+            "volume": "40"
+        },
+        {
+            "author": [
+                {
+                    "family": "Rosenberg",
+                    "given": "Michael S."
+                },
+                {
+                    "family": "Adams",
+                    "given": "Dean C."
+                },
+                {
+                    "family": "Gurevitch",
+                    "given": "Jessica"
+                }
+            ],
+            "id": "rosenberg2000",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000
+                    ]
+                ]
+            },
+            "publisher": "Sinauer Associates",
+            "title": "MetaWin: Statistical software for meta-analysis. Version 2",
+            "title-short": "MetaWin",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Mengersen",
+                    "given": "Kerrie"
+                },
+                {
+                    "family": "Jennions",
+                    "given": "Michael D."
+                },
+                {
+                    "family": "Schmid",
+                    "given": "Christopher H."
+                }
+            ],
+            "container-title": "Handbook of Meta-analysis in Ecology and Evolution",
+            "id": "mengersen2013",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "page": "89-107",
+            "publisher": "Princeton University Press",
+            "title": "Statistical models and approaches to compare effect sizes from several studies",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.1016/j.fcr.2016.07.018",
+            "author": [
+                {
+                    "family": "Nkebiwe",
+                    "given": "Peteh Mehdi"
+                },
+                {
+                    "family": "Weinmann",
+                    "given": "Markus"
+                },
+                {
+                    "family": "Bar-Tal",
+                    "given": "Asher"
+                },
+                {
+                    "family": "Müller",
+                    "given": "Torsten"
+                }
+            ],
+            "container-title": "Field Crops Research",
+            "id": "nkebiwe2016",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "page": "389-401",
+            "title": "Fertilizer placement to improve crop nutrient acquisition and yield: A review and meta-analysis",
+            "title-short": "Fertilizer placement to improve crop nutrient acquisition and yield",
+            "type": "article-journal",
+            "volume": "196"
+        },
+        {
+            "author": [
+                {
+                    "family": "Furukawa",
+                    "given": "Toshi A."
+                },
+                {
+                    "family": "Barbui",
+                    "given": "Corrado"
+                },
+                {
+                    "family": "Cipriani",
+                    "given": "Andrea"
+                },
+                {
+                    "family": "Brambilla",
+                    "given": "Paolo"
+                },
+                {
+                    "family": "Watanabe",
+                    "given": "Norio"
+                }
+            ],
+            "container-title": "Journal of Clinical Epidemiology",
+            "id": "furukawa2006",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2006
+                    ]
+                ]
+            },
+            "page": "7-10",
+            "title": "Imputing missing standard deviations in meta-analyses can provide accurate results",
+            "type": "article-journal",
+            "volume": "59"
+        },
+        {
+            "author": [
+                {
+                    "family": "Rosenberg",
+                    "given": "Michael S."
+                }
+            ],
+            "container-title": "Evolution",
+            "id": "rosenberg2005",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005
+                    ]
+                ]
+            },
+            "page": "464-468",
+            "title": "The file-drawer problem revisited: A general weighted method for calculating fail-safe numbers in meta-analysis",
+            "title-short": "The file-drawer problem revisited",
+            "type": "article-journal",
+            "volume": "59"
+        }
+    ],
+    "project_biblios": [
+        "referencias.bib"
+    ]
+}

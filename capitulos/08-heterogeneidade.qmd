@@ -1,0 +1,70 @@
+---
+title: "8. Heterogeneidade"
+---
+
+```{r}
+#| include: false
+source("R/setup.R")
+fungicida <- read_csv("dados/fungicida_soja.csv") |>
+  mutate(sd = cv / 100 * media_geral)
+dat <- escalc(measure = "MD",
+              m1i = prod_trat, sd1i = sd, n1i = n,
+              m2i = prod_ctrl, sd2i = sd, n2i = n,
+              data = fungicida, slab = estudo)
+m <- rma(yi, vi, data = dat)
+```
+
+::: {.callout-note}
+## Objetivos
+- Testar e quantificar a heterogeneidade entre estudos.
+- Interpretar $Q$, $I^2$, $\tau^2$ e o intervalo de predição.
+:::
+
+## Medidas de heterogeneidade
+
+- **Q de Cochran**: teste de hipótese baseado na distribuição qui-quadrado;
+  um p-valor pequeno indica mais variação entre estudos do que o esperado
+  pelo erro amostral.
+- **$\tau^2$**: variância dos efeitos verdadeiros (na escala do efeito).
+- **$I^2$**: proporção da variação total atribuída à heterogeneidade.
+- **Intervalo de predição**: onde esperamos o efeito de um novo estudo.
+
+## No R
+
+Usando os ensaios de fungicida (`fungicida_soja.csv`):
+
+
+```{r}
+m
+confint(m)   # IC para tau², I² e H²
+predict(m)   # pi.lb e pi.ub = intervalo de predição
+```
+
+## Representação gráfica
+
+```{r}
+#| fig-height: 8
+forest(m, refline = 0, addpred = TRUE,
+       xlab = "Diferença de produtividade (kg/ha)",
+       header = c("Ensaio", "D [IC 95%]"))
+```
+
+<!-- TODO: exemplo de forest plot "completo" (Toxins 2019) do slide -->
+
+::: {.callout-important}
+## Exercício 8.1
+Simule 15 estudos com $\tau^2 = 0$ e outros 15 com $\tau^2 = 0{,}1$.
+Compare $Q$, $I^2$ e o intervalo de predição.
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+simula <- function(k, mu, tau2) {
+  vi <- runif(k, 0.01, 0.05)
+  yi <- rnorm(k, mu + rnorm(k, 0, sqrt(tau2)), sqrt(vi))
+  rma(yi, vi)
+}
+simula(15, 0.3, 0)
+simula(15, 0.3, 0.1)
+```

@@ -1,0 +1,121 @@
+---
+title: "11. Viés de publicação"
+---
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+::: {.callout-note}
+## Objetivos
+- Entender por que estudos podem estar "faltando" na metanálise.
+- Avaliar assimetria com o gráfico de funil e o teste de Egger.
+- Estimar o efeito corrigido com *trim-and-fill* e avaliar a robustez com
+  o *fail-safe N*.
+:::
+
+## O problema
+
+Estudos com resultados significativos têm mais chance de serem publicados
+(e publicados mais rápido) do que estudos com resultados nulos. Se os
+estudos pequenos e "não significativos" ficam na gaveta, a média da
+metanálise fica **superestimada**. Na agricultura isso aparece, por
+exemplo, quando ensaios de produtos sem resposta não são divulgados.
+
+Formas de reduzir o problema na revisão sistemática:
+
+- incluir literatura cinzenta (teses, anais, relatórios técnicos);
+- buscar redes de ensaios cooperativos, em que todos os resultados são
+  publicados;
+- contatar pesquisadores e empresas.
+
+## Gráfico de funil
+
+Cada estudo é plotado com o efeito no eixo x e a precisão (erro padrão) no
+eixo y. Sem viés, os pontos formam um funil **simétrico** em torno da
+média: estudos grandes no topo, próximos da média, e estudos pequenos
+espalhados igualmente para os dois lados na base.
+
+O arquivo `vies_publicacao.csv` foi simulado de forma que parte dos
+estudos pequenos não significativos não foi "publicada". O efeito
+verdadeiro é de 60 kg/ha.
+
+```{r}
+vies <- read_csv("dados/vies_publicacao.csv")
+m <- rma(yi, vi, data = vies)
+m
+```
+
+```{r}
+funnel(m, xlab = "Diferença de produtividade (kg/ha)")
+```
+
+O funil com contornos de significância ajuda a ver se os estudos "faltam"
+justamente na região não significativa (área branca):
+
+```{r}
+funnel(m, level = c(90, 95, 99), shade = c("white", "gray55", "gray75"),
+       refline = 0, legend = TRUE, xlab = "Diferença de produtividade (kg/ha)")
+```
+
+## Teste de Egger
+
+Testa formalmente a assimetria: uma regressão do efeito contra o erro
+padrão. Um coeficiente diferente de zero indica que estudos menos precisos
+tendem a ter efeitos maiores.
+
+```{r}
+regtest(m)
+```
+
+## Trim-and-fill
+
+Estima quantos estudos estariam faltando de um lado do funil, "preenche"
+esses estudos por simetria e recalcula a média.
+
+```{r}
+tf <- trimfill(m)
+tf
+funnel(tf, xlab = "Diferença de produtividade (kg/ha)")
+```
+
+Os pontos vazios são os estudos imputados.
+
+## Fail-safe N
+
+Quantos estudos com efeito nulo seriam necessários para tornar o efeito
+médio não significativo? Quanto maior esse número, mais robusta a
+conclusão.
+
+```{r}
+fsn(yi, vi, data = vies)
+```
+
+::: {.callout-warning}
+## Cuidado na interpretação
+Assimetria no funil não é sinônimo de viés de publicação. Ela também pode
+vir de heterogeneidade real (estudos pequenos feitos em condições
+diferentes) ou do acaso, especialmente com poucos estudos (menos de 10).
+:::
+
+::: {.callout-important}
+## Exercício 11.1
+Faça o gráfico de funil e o teste de Egger para os ensaios de fungicida
+(`fungicida_soja.csv`). Há indício de assimetria? Compare com o resultado
+de `vies_publicacao.csv`.
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+fungicida <- read_csv("dados/fungicida_soja.csv") |>
+  mutate(sd = cv / 100 * media_geral)
+dat <- escalc(measure = "MD",
+              m1i = prod_trat, sd1i = sd, n1i = n,
+              m2i = prod_ctrl, sd2i = sd, n2i = n,
+              data = fungicida)
+m_f <- rma(yi, vi, data = dat)
+funnel(m_f)
+regtest(m_f)
+```

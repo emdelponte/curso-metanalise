@@ -1,0 +1,28 @@
+---
+title: "Conjuntos de dados"
+---
+
+Todos os exercícios leem arquivos CSV da pasta `dados/`. Por enquanto eles
+são **simulados** pelo script `R/gerar-dados.R`; cada arquivo será
+substituído por dados reais mantendo os mesmos nomes de colunas.
+
+| Arquivo | Capítulos | Conteúdo |
+|---|---|---|
+| `fungicida_soja.csv` | 3, 4, 7–11 | 30 ensaios de fungicida na soja: produtividade tratada e testemunha, CV, *n*, região, latitude, pressão de doença |
+| `giberela_tebuconazol.csv` | 4, 7 | 20 ensaios: severidade média e desvio padrão de giberela com e sem tebuconazol |
+| `tombamento_sementes.csv` | 5 | 15 estudos: plântulas doentes e sadias com e sem tratamento de sementes |
+| `ferrugem_parcelas.csv` | 6, 7 | Parcelas de 15 estudos com severidade de ferrugem e produtividade |
+| `ensaios_multinivel.csv` | 12 | 12 estudos com 2 a 6 ensaios cada |
+| `vies_publicacao.csv` | 11 | Estudos "publicados" após seleção por significância |
+| `formigas_cortadeiras.csv` | Exemplo 1 | Efeitos (médias, DP e *n* de ninho e controle) de 34 estudos sobre formigas cortadeiras, solo e plantas, simulados no desenho de Farji-Brener & Werenkraut (2015); gerado por `R/gerar-dados-formigas.R` |
+| `fertilizantes_posicionamento.csv` | Exemplo 2 | 772 conjuntos de dados de 39 estudos (média, DP e *n* com fertilizante posicionado e a lanço, por cultura, técnica, profundidade e tipo de fertilizante), simulados no desenho de Nkebiwe et al. (2016); DP vazio quando não reportado; gerado por `R/gerar-dados-fertilizantes.R` |
+| `nkebiwe_razoes_publicadas.csv` | Exemplo 2 | Razões de produtividade (posicionado / lanço) extraídas da Tabela A.1 do apêndice de Nkebiwe et al. (2016): 90 tratamentos, sem DP nem *n* |
+| `modelo_planilha_extracao.csv` | 3 | Planilha-modelo de extração (33 colunas, 7 linhas de exemplo) com dados contínuos, binários e de correlação; não é usada em análises |
+
+Para ler um arquivo:
+
+```{r}
+#| eval: false
+library(tidyverse)
+fungicida <- read_csv("dados/fungicida_soja.csv")
+```

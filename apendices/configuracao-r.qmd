@@ -1,0 +1,23 @@
+---
+title: "Configuração do R"
+---
+
+1. Instale o [R](https://cran.r-project.org/) e o
+   [RStudio](https://posit.co/download/rstudio-desktop/) (ou Positron).
+2. Instale os pacotes usados na disciplina:
+
+```{r}
+#| eval: false
+install.packages(c("tidyverse", "metafor"))
+```
+
+3. Teste a instalação:
+
+```{r}
+library(metafor)
+dat <- escalc(measure = "RR", ai = tpos, bi = tneg, ci = cpos, di = cneg,
+              data = dat.bcg)
+rma(yi, vi, data = dat)
+```
+
+Se a última linha imprimir um resumo do modelo, está tudo pronto.

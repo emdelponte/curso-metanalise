@@ -1,0 +1,116 @@
+---
+title: "12. Modelos multinível"
+---
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+::: {.callout-note}
+## Objetivos
+- Reconhecer a dependência entre efeitos de um mesmo estudo.
+- Ajustar um modelo de três níveis com `rma.mv()`.
+- Decompor a heterogeneidade entre e dentro de estudos.
+:::
+
+## Efeitos não independentes
+
+Os modelos dos capítulos anteriores assumem que cada efeito vem de um
+estudo independente. Nas ciências agrárias é comum um mesmo artigo relatar
+**vários ensaios** (locais, safras, cultivares). Ensaios do mesmo estudo
+tendem a ser mais parecidos entre si, e tratá-los como independentes
+subestima a incerteza da média.
+
+O **modelo multinível** (três níveis) separa as fontes de variação:
+
+$$y_{ij} = \mu + u_j + w_{ij} + \varepsilon_{ij}$$
+
+- $\varepsilon_{ij} \sim N(0, v_{ij})$: erro amostral do ensaio $i$ no
+  estudo $j$ (nível 1);
+- $w_{ij} \sim N(0, \sigma^2_{\text{ensaio}})$: variação entre ensaios
+  dentro do estudo (nível 2);
+- $u_j \sim N(0, \sigma^2_{\text{estudo}})$: variação entre estudos
+  (nível 3).
+
+## No R
+
+O arquivo `ensaios_multinivel.csv` traz 12 estudos com 2 a 6 ensaios cada:
+
+```{r}
+multi <- read_csv("dados/ensaios_multinivel.csv") |>
+  mutate(sd = cv / 100 * media_geral)
+
+multi |> count(estudo, name = "ensaios")
+
+dat_m <- escalc(measure = "MD",
+                m1i = prod_trat, sd1i = sd, n1i = n,
+                m2i = prod_ctrl, sd2i = sd, n2i = n,
+                data = multi)
+```
+
+A estrutura aninhada é indicada em `random = ~ 1 | estudo/ensaio`:
+
+```{r}
+m3 <- rma.mv(yi, vi, random = ~ 1 | estudo/ensaio, data = dat_m)
+m3
+```
+
+Os dois componentes de variância aparecem em `sigma^2.1` (estudo) e
+`sigma^2.2` (ensaio dentro do estudo).
+
+### Comparando com o modelo que ignora a estrutura
+
+```{r}
+m2 <- rma(yi, vi, data = dat_m)
+
+tibble(
+  modelo = c("Dois níveis (ignora estudo)", "Três níveis"),
+  estimativa = c(coef(m2), coef(m3)),
+  ep = c(m2$se, m3$se)
+)
+```
+
+O erro padrão do modelo de dois níveis é menor porque ele "conta" cada
+ensaio como informação independente.
+
+### O nível de estudo é necessário?
+
+Comparamos o modelo completo com outro sem a variância entre estudos por
+teste de razão de verossimilhança:
+
+```{r}
+m3_sem_estudo <- rma.mv(yi, vi, random = ~ 1 | estudo/ensaio,
+                        sigma2 = c(0, NA), data = dat_m)
+anova(m3, m3_sem_estudo)
+```
+
+### Distribuição da heterogeneidade
+
+Uma forma de reportar é a proporção da variação total em cada nível
+(análogo multinível do $I^2$):
+
+```{r}
+W <- diag(1 / dat_m$vi)
+X <- model.matrix(m3)
+P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+I2 <- 100 * m3$sigma2 / (sum(m3$sigma2) + (m3$k - m3$p) / sum(diag(P)))
+round(c(estudo = I2[1], ensaio = I2[2], total = sum(I2)), 1)
+```
+
+::: {.callout-important}
+## Exercício 12.1
+Faça o gráfico de floresta de `m3` e ordene os ensaios por estudo. Depois,
+calcule o efeito médio de cada estudo com `rma()` em subconjuntos e compare
+com as estimativas do modelo multinível (`ranef(m3)`).
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+#| fig-height: 9
+forest(m3, slab = dat_m$ensaio, refline = 0,
+       xlab = "Diferença de produtividade (kg/ha)")
+
+ranef(m3)$estudo |> head()
+```

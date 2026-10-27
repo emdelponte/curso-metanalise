@@ -1,0 +1,91 @@
+cultura,estudo,tratamento,razao_produtividade,aproximado
+Canola,"Engel et al., 2010",U_PP,1.41,nao
+Canola,"Engel et al., 2010",U_SB,1.29,nao
+Canola,"Hocking et al., 2003",NPS_SB,1.04,sim
+Canola,"Hocking et al., 2003",NPS_Seed,0.91,sim
+Chinese cabbage,"Cheng et al., 2002",CU,1.1,nao
+Chinese cabbage,"Cheng et al., 2002",U,1.05,nao
+Chinese cabbage,"Hou and Tsuruta, 2003",CU,1.1,nao
+Chinese cabbage,"Hou and Tsuruta, 2003",U,1.23,nao
+Grasses,"Smith et al., 2000",LCM,1.0,nao
+Maize,"Adeli et al., 2012",NBL,1.2,nao
+Maize,"Adeli et al., 2012",PBL,1.22,nao
+Maize,"Bakhtiari et al., 2014",Seed,1.08,nao
+Maize,"Bakhtiari et al., 2014",U_SB,1.32,nao
+Maize,"Bakhtiari et al., 2014",U_SB_both,1.46,nao
+Maize,"Bordoli and Mallarino, 1998",KC_SB,1.0,nao
+Maize,"Bordoli and Mallarino, 1998",K_DB,1.03,nao
+Maize,"Bordoli and Mallarino, 1998",TSP_DB,1.01,nao
+Maize,"Bordoli and Mallarino, 1998",TSP_SB,1.0,nao
+Maize,"Borges and Mallarino, 2001",K,1.04,nao
+Maize,"Borges and Mallarino, 2001",P,1.0,nao
+Maize,"Borges and Mallarino, 2001",PK,1.0,sim
+Maize,"Ebelhar and Varsa, 2000",Band,1.02,nao
+Maize,"Ebelhar and Varsa, 2000",Dribble,1.0,nao
+Maize,"Ebelhar and Varsa, 2000",Starter,1.01,nao
+Maize,"Fernández and Schaefer, 2012",NPK,0.98,nao
+Maize,"Fernández and White, 2012",PK,0.98,nao
+Maize,"Halvorson and Del Grosso, 2013",U,0.97,nao
+Maize,"Lehrsch et al., 2000",U,1.02,nao
+Maize,"Ma et al., 2013",ASP,1.1,nao
+Maize,"Ma et al., 2013",DAP,1.08,nao
+Maize,"Mengel et al., 1982",NH3,1.18,nao
+Maize,"Mengel et al., 1982",UAN,1.15,nao
+Maize,"Nash et al., 2013",CU,1.4,sim
+Maize,"Nash et al., 2013",NH3,1.41,sim
+Maize,"Nash et al., 2013",NH3+Ni,1.48,sim
+Maize,"Nash et al., 2013",U,1.25,sim
+Maize,"Niehues et el., 2004",Seed_11,1.18,nao
+Maize,"Niehues et el., 2004",Seed_56,1.06,nao
+Maize,"Niehues et el., 2004",Surf_11,1.29,nao
+Maize,"Niehues et el., 2004",Surf_56,1.22,nao
+Maize,"Saleem et al., 2009",N,1.14,nao
+Maize,"Sutton et al., 1982",LPM_1,1.23,nao
+Maize,"Sutton et al., 1982",LPM_2,1.2,nao
+Maize,"Sutton et al., 1982",LPM_3,1.16,nao
+Maize,"Vetsch and Randall, 2000",UAN_CC,1.08,nao
+Maize,"Vetsch and Randall, 2000",UAN_CSb,1.04,nao
+Maize,"Vyn et al., 2002",Broad+SB,0.99,nao
+Maize,"Vyn et al., 2002",DB,1.0,nao
+Maize,"Wu et al., 2014",DB,0.93,sim
+Potato,"Leufen, 2008",ano_2003,1.2,nao
+Potato,"Leufen, 2008",ano_2004,1.13,nao
+Potato,"Wu et al., 2014",DB,1.27,sim
+Rape-seed,"Su et al., 2015",DB,1.33,sim
+Rape-seed,"Su et al., 2015",SB1,1.16,sim
+Rape-seed,"Su et al., 2015",SB2,1.38,sim
+Rice,"Chauhan and Abugho, 2013",NPK,1.15,nao
+Rye,"Kücke, 2003 a",UAN_AtS,0.92,nao
+Rye,"Kücke, 2003 a",UAN_AtS,1.04,nao
+Rye,"Kücke, 2003 a",UAN_AtS,1.05,nao
+Rye,"Kücke, 2003 b",UAN_AtS,0.93,nao
+Rye,"Kücke, 2003 b",UAN_AtS,1.05,nao
+Rye,"Kücke, 2003 b",UAN_AtS,1.06,nao
+Sorghum,"Sweeney, 1993",NPK,1.2,nao
+Soybean,"Borges and Mallarino, 2000",K_DB,1.02,nao
+Soybean,"Borges and Mallarino, 2000",K_SB,1.01,nao
+Soybean,"Borges and Mallarino, 2000",P_DB,0.99,nao
+Soybean,"Borges and Mallarino, 2000",P_SB,1.0,nao
+Soybean,"Ebelhar and Varsa, 2000",Band,0.99,nao
+Soybean,"Ebelhar and Varsa, 2000",Dribble,1.01,nao
+Soybean,"Ebelhar and Varsa, 2000",Starter,1.01,nao
+Soybean,"Fernández and Schaefer, 2012",NPK,1.0,nao
+Sugar beet,"Stevens at al., 2007",UAN,1.01,nao
+Sugar beet,"Stevens at al., 2007",UAN_I,1.08,nao
+Sugar beet,"Stevens at al., 2007",UAN_Knife,1.07,nao
+Wheat,"Kelley and Sweeney, 2007",UAN_Knife,1.15,nao
+Wheat,"Kelley and Sweeney, 2007",UAN_Surf,1.07,nao
+Wheat,"Kozlovský et al., 2009",UAS,0.95,nao
+Wheat,"Kücke, 2003 a",UAS,1.25,nao
+Wheat,"Kücke, 2003 b",UAS,1.26,nao
+Wheat,"Rao and Dao, 1996",U_BL,0.92,nao
+Wheat,"Rao and Dao, 1996",U_BL,1.32,nao
+Wheat,"Rao and Dao, 1996",U_BT,0.98,nao
+Wheat,"Rao and Dao, 1996",U_BT,1.15,nao
+Wheat,Rees et al. 1997,U150,0.94,nao
+Wheat,Rees et al. 1997,U75,1.19,nao
+Wheat,"Smith et al., 2000",LCM _I,1.1,nao
+Wheat,"Smith et al., 2000",LCM _nSurf,1.16,nao
+Wheat,"Smith et al., 2000",LCM _wSurf,1.13,nao
+Wheat,"Trapeznikov et al., 2003",NPK,1.22,sim
+Wheat,"Weber et al., 2008",UAS,1.12,nao

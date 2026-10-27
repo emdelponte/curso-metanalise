@@ -1,0 +1,586 @@
+---
+title: "3. Seleção de estudos, extração de dados e planilha"
+---
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+::: {.callout-note}
+## Objetivos
+- Aplicar critérios de elegibilidade para decidir quais estudos entram na extração.
+- Saber **quais dados** extrair de cada estudo, conforme o desenho e a variável de efeito.
+- Montar uma **planilha em formato longo** (uma linha por comparação) pronta para o `metafor`.
+- Lidar com controles compartilhados, vários ensaios por estudo e dados que só aparecem em figuras.
+- Calcular a variância do efeito a partir do QME, do CV ou da DMS.
+:::
+
+A planilha é a ponte entre a revisão sistemática (capítulo 2) e a análise
+(capítulos 4 a 12). Erros cometidos aqui se propagam para todos os resultados,
+e refazer a extração é a etapa mais cara de uma metanálise. Por isso vale
+investir tempo no **protocolo de extração** antes de abrir o primeiro artigo.
+
+## Selecionando os estudos {#sec-selecao}
+
+A busca (capítulo 2) devolve centenas ou milhares de registros. A seleção
+reduz esse conjunto, em etapas, aos estudos de onde realmente será possível
+extrair um efeito e sua variabilidade.
+
+### Critérios de elegibilidade
+
+Defina os critérios **antes** de olhar os resultados, de preferência em um
+protocolo registrado. Uma forma prática é adaptar o esquema PICO (ou PECO,
+quando a exposição não é um tratamento aplicado):
+
+| Elemento | Pergunta | Exemplo (fungicida e mofo branco) |
+|----------|----------|-----------------------------------|
+| População / sistema | Que cultura, patossistema, ambiente? | Soja, campo, *Sclerotinia sclerotiorum* |
+| Intervenção / exposição | Qual tratamento? | Tiofanato metílico, aplicado na parte aérea |
+| Comparador | Contra quem? | Testemunha sem fungicida |
+| Desfecho | O que foi medido? | Produtividade (kg/ha) |
+| Desenho | Que tipo de estudo? | Ensaio de campo com repetições (DBC) |
+
+Critérios **técnicos** que costumam excluir estudos em ciências agrárias:
+
+- não há comparador (sem testemunha ou controle);
+- o desfecho não é o definido (ex.: apenas severidade, sem produtividade);
+- **não há como obter variabilidade**: nenhum entre DP, EP, IC, QME, CV, DMS
+  ou valor de *p* exato, e o número de repetições não é informado;
+- os dados são de **simulação**, revisão ou resumo sem resultados;
+- os dados já foram publicados em outro artigo (**duplicata**): fique com o
+  mais completo e registre a decisão.
+
+### Etapas e registro
+
+1. **Triagem por título e resumo**: exclua o claramente irrelevante.
+2. **Leitura do texto completo**: aplique todos os critérios e registre o
+   **motivo de cada exclusão** (necessário para o fluxograma PRISMA).
+3. **Extração**: preencha a planilha apenas para os estudos incluídos.
+
+Idealmente duas pessoas fazem as etapas 2 e 3 de forma independente e as
+divergências são resolvidas por consenso. Se isso não for possível, revise
+ao menos uma amostra (por exemplo, 20%) dos estudos extraídos.
+
+::: {.callout-tip}
+## Estudo, ensaio, comparação
+Defina cedo o que é a **unidade** de cada linha da planilha:
+
+- **estudo**: o artigo (ou conjunto de artigos do mesmo grupo e dados);
+- **ensaio**: um experimento independente (local × ano) dentro do estudo;
+- **comparação**: um par tratamento × controle dentro do ensaio.
+
+Um artigo pode ter vários ensaios, e um ensaio várias comparações. Essa
+hierarquia explica a dependência entre efeitos tratada no capítulo 12.
+:::
+
+## O que extrair de cada estudo?
+
+Para cada comparação precisamos de **uma medida de efeito** e **uma medida
+de variabilidade** (para ponderar), além das **características do estudo**
+(moderadoras: local, ano, cultivar, pressão de doença etc.). Procure em
+texto, tabelas, figuras e material suplementar. Agrupe as colunas em seis
+blocos:
+
+| Bloco | O que registrar | Colunas de exemplo |
+|-------|-----------------|--------------------|
+| Identificação | Quem, onde está o dado, quem extraiu | `id_estudo`, `referencia`, `fonte_dado`, `extraido_por` |
+| Estrutura | Em que nível o dado está | `id_ensaio`, `id_comparacao` |
+| Descrição da comparação | Tratamento, controle, desfecho, unidade | `tratamento`, `controle`, `desfecho`, `unidade` |
+| Dados do efeito | Médias, contagens ou correlação | `media_trat`, `media_ctrl`, `eventos_trat`, `r` |
+| Variabilidade e amostra | DP, QME, CV, DMS, $n$ | `sd_trat`, `qme`, `cv`, `dms`, `n_trat` |
+| Moderadoras e notas | Variáveis explicativas e observações | `moderadora_dose`, `pressao`, `obs` |
+
+### Qual medida de variabilidade usar?
+
+Quando houver mais de uma, use a mais **direta**, nesta ordem de preferência:
+
+1. desvio padrão (DP) por grupo;
+2. erro padrão (EP), convertido por $DP = EP \sqrt{n}$;
+3. intervalo de confiança, convertido a partir do EP;
+4. QME da ANOVA (variância residual comum);
+5. CV e média geral, que levam ao QME;
+6. DMS (ou DHS) e o nível de significância usado;
+7. apenas letras das médias, pelo método de @ngugi2011;
+8. valor de *p* exato da comparação.
+
+Sempre registre **qual** medida foi usada em cada linha (colunas preenchidas)
+e em `obs` qualquer conversão que você fez.
+
+::: {.callout-warning}
+## Cuidado com EP versus DP
+Barras de erro em figuras raramente dizem se são DP ou EP. Procure a legenda
+ou a seção de métodos. Confundir os dois muda o peso do estudo por um fator
+de $\sqrt{n}$.
+:::
+
+::: {.callout-tip}
+## Dados em gráficos
+Médias e barras de erro podem ser extraídas de figuras com o
+[WebPlotDigitizer](https://apps.automeris.io/wpd/). Anote em `fonte_dado`
+que o valor veio de figura.
+:::
+
+## Regras para organizar a planilha
+
+O formato adequado é o **longo** (*tidy*): uma linha por comparação, uma
+coluna por variável.
+
+- **Uma linha = um efeito** (um par tratamento × controle).
+- Uma célula guarda **um valor**; nada de "12 ± 3" ou "12 (a)".
+- **Sem células mescladas**, cores ou negrito carregando informação.
+- Células sem dado ficam **vazias** (lidas como `NA`); nunca use 0 ou "-".
+- Nomes de coluna **curtos, sem acento nem espaço** (`media_trat`).
+- Uma coluna por **unidade** quando misturar unidades; padronize antes.
+- Mantenha os **IDs** (`id_estudo`, `id_ensaio`) sempre preenchidos: serão os
+  níveis aleatórios do modelo multinível.
+- Guarde o **dado bruto como veio** e as conversões em colunas ou scripts
+  separados, para que tudo seja rastreável.
+- Crie um **dicionário de dados** descrevendo cada coluna.
+
+Uma planilha-modelo, com sete linhas ilustrando desenhos diferentes, está em
+`dados/modelo_planilha_extracao.csv`:
+
+```{r}
+modelo <- read_csv("dados/modelo_planilha_extracao.csv", show_col_types = FALSE)
+modelo |> select(id_estudo, id_ensaio, id_comparacao, tipo_dado,
+                 tratamento, desfecho, n_trat, media_trat, cv, dms)
+```
+
+Veja a lista de colunas e linhas abrindo o CSV no Excel ou no RStudio.
+Observe que cada tipo de dado preenche colunas diferentes: as demais ficam
+vazias.
+
+## Modelos de planilha por tipo de desenho
+
+A escolha das colunas depende da **variável de efeito**. Em cada caso abaixo,
+mostramos o mínimo necessário e a chamada de `escalc()` que o usa.
+
+### A. Contínuo com média, DP e $n$
+
+É o caso mais simples: permite calcular DM, DMP (SMD) ou RR (ROM) direto.
+
+```{r}
+planilha_a <- tribble(
+  ~id_estudo, ~id_ensaio, ~n_trat, ~n_ctrl, ~media_trat, ~media_ctrl, ~sd_trat, ~sd_ctrl,
+  "S03",      "S03-1",    5,       5,       12.4,        31.8,        4.1,      9.2,
+  "S06",      "S06-1",    4,       4,       10.2,        24.0,        3.5,      6.8,
+  "S06",      "S06-2",    4,       4,       15.1,        29.5,        5.0,      7.7
+)
+
+escalc(measure = "ROM",
+       m1i = media_trat, sd1i = sd_trat, n1i = n_trat,
+       m2i = media_ctrl, sd2i = sd_ctrl, n2i = n_ctrl,
+       data = planilha_a) |>
+  as_tibble()
+```
+
+Colunas mínimas: `n_trat`, `n_ctrl`, `media_trat`, `media_ctrl`, `sd_trat`,
+`sd_ctrl`.
+
+### B. Contínuo com QME, CV ou DMS
+
+Muito comum em ensaios agronômicos. Não temos DP por grupo, mas uma
+variância residual **comum**. Colunas mínimas: `n_trat`, `n_ctrl`,
+`media_trat`, `media_ctrl` e **uma** entre `qme`; `cv` + `media_geral`; ou
+`dms` (+ nível de significância). A variância do efeito é calculada como
+mostrado adiante neste capítulo, e o resultado é passado ao `rma()` como
+`yi` e `vi`.
+
+### C. Binário (incidência, sobrevivência)
+
+Registre as contagens, não as proporções: **eventos e total** em cada grupo.
+Os quatro valores da tabela 2×2 saem por subtração.
+
+```{r}
+planilha_c <- tribble(
+  ~id_estudo, ~eventos_trat, ~total_trat, ~eventos_ctrl, ~total_ctrl,
+  "S04",      18,            200,         52,            200,
+  "S07",      9,             100,         25,            100
+) |>
+  mutate(ai = eventos_trat, bi = total_trat - eventos_trat,
+         ci = eventos_ctrl, di = total_ctrl - eventos_ctrl)
+
+escalc(measure = "OR", ai = ai, bi = bi, ci = ci, di = di,
+       data = planilha_c) |>
+  as_tibble() |>
+  select(id_estudo, yi, vi)
+```
+
+Se o artigo só traz porcentagens, reconstrua as contagens com o $n$ (e
+anote em `obs` que foi reconstruído).
+
+### D. Correlação
+
+Registre o coeficiente $r$ e o tamanho de amostra $n$ em que ele foi
+calculado (não o número de estudos nem de tratamentos).
+
+```{r}
+planilha_d <- tribble(
+  ~id_estudo, ~r,    ~n_r,
+  "S05",      -0.62, 24,
+  "S08",      -0.48, 40
+)
+
+escalc(measure = "ZCOR", ri = r, ni = n_r, data = planilha_d) |>
+  as_tibble()
+```
+
+### E. Vários tratamentos contra o mesmo controle
+
+Quando um ensaio testa, por exemplo, três fungicidas e **uma** testemunha,
+o mesmo controle entra em três comparações e os efeitos ficam
+**correlacionados**. Na planilha, mantenha uma linha por comparação, repita
+os dados do controle e identifique o ensaio em `id_ensaio`.
+
+Opções de análise, da mais simples à mais completa:
+
+1. escolher **uma** comparação por ensaio (por exemplo, a dose recomendada);
+2. **dividir o $n$ do controle** entre as comparações, o que reduz o peso
+   de cada uma (aproximação conservadora);
+3. modelar a dependência com `rma.mv()` (capítulo 12), com `id_ensaio` como
+   nível aleatório.
+
+```{r}
+planilha_e <- tribble(
+  ~id_ensaio, ~id_comparacao, ~tratamento, ~n_trat, ~n_ctrl,
+  "S02-1",    "S02-1-a",      "fluazinam",   4,       4,
+  "S02-1",    "S02-1-b",      "procimidona", 4,       4,
+  "S02-1",    "S02-1-c",      "tiofanato",   4,       4
+) |>
+  group_by(id_ensaio) |>
+  mutate(n_comparacoes = n(),
+         n_ctrl_ajustado = n_ctrl / n_comparacoes) |>
+  ungroup()
+
+planilha_e
+```
+
+### F. Vários desfechos, tempos ou locais no mesmo estudo
+
+Mantenha o mesmo esquema: uma linha por efeito, com `id_estudo` e
+`id_ensaio` preenchidos, mais colunas que distinguem o que variou
+(`desfecho`, `dias_apos_aplicacao`, `local`). O exemplo das formigas
+cortadeiras (Parte V) tem 150 efeitos em 34 estudos exatamente nesse formato.
+
+::: {.callout-warning}
+## Não misture
+Uma linha da planilha não deve combinar desfechos diferentes (produtividade e
+severidade), nem unidades diferentes sem conversão. Se o objetivo é
+sintetizar uma única pergunta, filtre `desfecho` antes de analisar.
+:::
+
+## Digitando em formato largo e convertendo
+
+Muitas vezes é mais rápido digitar **um ensaio por linha**, com os
+tratamentos em colunas. Isso é aceitável como etapa de digitação, desde que
+você converta para o formato longo antes de analisar.
+
+```{r}
+largo <- tribble(
+  ~id_ensaio, ~n, ~testemunha, ~fungicida_a, ~fungicida_b,
+  "S02-1",    4,  3010,        3450,         3390,
+  "S02-2",    4,  2850,        3100,         3180
+)
+
+longo <- largo |>
+  pivot_longer(c(fungicida_a, fungicida_b),
+               names_to = "tratamento", values_to = "media_trat") |>
+  rename(media_ctrl = testemunha) |>
+  mutate(id_comparacao = paste(id_ensaio, tratamento, sep = "-"))
+
+longo
+```
+
+## Checagens antes de analisar
+
+Antes de calcular qualquer efeito, faça verificações simples em R. Elas
+pegam a maioria dos erros de digitação.
+
+```{r}
+checagens <- read_csv("dados/fungicida_soja.csv", show_col_types = FALSE)
+
+# 1. Identificadores duplicados
+checagens |> count(estudo) |> filter(n > 1)
+
+# 2. Valores faltantes por coluna
+checagens |> summarise(across(everything(), ~ sum(is.na(.x))))
+
+# 3. Faixas plausíveis: CV, n e produtividade
+checagens |> summarise(across(c(cv, n, prod_ctrl, prod_trat),
+                              list(min = min, max = max)))
+
+# 4. Média geral coerente com as médias dos grupos?
+checagens |>
+  mutate(dif = abs(media_geral - (prod_trat + prod_ctrl) / 2)) |>
+  filter(dif > 5)
+```
+
+Se algum teste apontar problema, volte ao artigo original, não "corrija" na
+planilha sem registrar a razão em `obs`.
+
+::: {.callout-important}
+## Exercício 3.1
+Um artigo traz, para dois fungicidas e uma testemunha, as produtividades
+médias 3.380, 3.290 e 2.900 kg/ha, com 4 repetições, CV = 7% e média geral
+3.190 kg/ha. Escreva a planilha em formato **longo** (uma linha por
+comparação), com `id_ensaio`, `id_comparacao`, `n_trat`, `n_ctrl`,
+`media_trat`, `media_ctrl`, `cv` e `media_geral`, e calcule `n_ctrl_ajustado`.
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+tibble(
+  id_ensaio = "X-1",
+  tratamento = c("fungicida_a", "fungicida_b"),
+  n_trat = 4, n_ctrl = 4,
+  media_trat = c(3380, 3290), media_ctrl = 2900,
+  cv = 7, media_geral = 3190
+) |>
+  mutate(id_comparacao = paste(id_ensaio, tratamento, sep = "-"),
+         n_ctrl_ajustado = n_ctrl / n())
+```
+
+::: {.callout-important}
+## Exercício 3.2
+Abra `dados/modelo_planilha_extracao.csv` e responda: (a) quantas linhas usam
+CV, quantas usam DMS e quantas usam DP? (b) quais linhas compartilham
+controle?
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+modelo |>
+  summarise(com_cv  = sum(!is.na(cv)),
+            com_dms = sum(!is.na(dms)),
+            com_dp  = sum(!is.na(sd_trat)))
+
+modelo |> count(id_ensaio) |> filter(n > 1)
+```
+
+## Calculando a variância do efeito
+
+Quando o artigo traz apenas QME, CV ou DMS, a variância do efeito precisa
+ser calculada. Os exemplos abaixo tratam de dados contínuos em kg/ha.
+
+### Exemplo: fungicida e mofo branco da soja
+
+> Qual o incremento médio em produtividade obtido com tiofanato metílico no
+> controle do mofo branco da soja?
+
+A diferença absoluta é $D = \bar{y}_T - \bar{y}_C$ e sua variância é
+
+$$V_D = \frac{2V}{n}$$
+
+em que $V$ é a variância residual (QME) e $n$ o número de repetições.
+
+#### Variância a partir do CV
+
+$$V = \text{QME} = \left(\frac{CV}{100} \cdot \bar{Y}\right)^2$$
+
+em que $\bar{Y}$ é a média geral do experimento.
+
+```{r}
+yT <- 2618; yC <- 2265     # kg/ha
+D <- yT - yC
+cv <- 6; media_geral <- 2773.6; n <- 4
+
+V <- (cv / 100 * media_geral)^2
+VD <- 2 * V / n
+c(D = D, V = V, VD = VD)
+```
+
+#### Variância a partir da DMS
+
+Como $\text{DMS} = t \sqrt{2V/n}$, temos $V = \dfrac{n}{2}\left(\dfrac{\text{DMS}}{t}\right)^2$.
+
+```{r}
+dms <- 60.53; t_crit <- 1.96; n <- 4
+V <- n * (dms / t_crit)^2 / 2
+VD <- 2 * V / n
+c(V = V, VD = VD)
+```
+
+#### Somente letras das médias?
+
+Muitos artigos trazem só uma tabela de médias seguidas de letras (teste de
+médias, geralmente a DMS de Fisher ou o teste t). Nesse caso @ngugi2011
+propõem **estimar a DMS a partir das letras**:
+
+1. Duas médias são "não diferentes" se **compartilham ao menos uma letra**.
+2. Calcule a diferença absoluta entre todos os pares de médias.
+3. A DMS está entre a **maior diferença não significativa** e a **menor
+   diferença significativa**; use a média desses dois valores.
+
+Com a DMS estimada, a conversão para variância segue o caso do ensaio em
+**blocos casualizados** (DBC) com $r$ blocos e $a$ tratamentos:
+
+- graus de liberdade do erro: $gl = (a-1)(r-1)$;
+- $t$ crítico: `qt(1 - alpha/2, gl)`;
+- erro padrão da diferença: $EP_D = \text{DMS}/t$, portanto $V_D = EP_D^2$;
+- QME $= r \cdot EP_D^2 / 2$ e CV $= 100\sqrt{\text{QME}}/\bar{Y}$.
+
+A função abaixo faz tudo isso. Você informa os tratamentos, as médias e as
+letras **como estão no artigo** e o número de blocos.
+
+```{r}
+dms_de_letras <- function(trat, media, letras, blocos, alpha = 0.05,
+                          teste = c("t", "tukey")) {
+  teste <- match.arg(teste)
+  a <- length(trat)
+  # Duas médias "não diferem" se compartilham ao menos uma letra
+  compartilha <- function(l1, l2) {
+    length(intersect(strsplit(l1, "")[[1]], strsplit(l2, "")[[1]])) > 0
+  }
+  ij <- combn(a, 2)
+  pares <- tibble(i = ij[1, ], j = ij[2, ]) |>
+    mutate(trat_1 = trat[i], trat_2 = trat[j],
+           dif = abs(media[i] - media[j]),
+           signif = map2_lgl(letras[i], letras[j], ~ !compartilha(.x, .y))) |>
+    select(trat_1, trat_2, dif, signif)
+
+  max_ns  <- suppressWarnings(max(pares$dif[!pares$signif]))  # maior dif. não signif.
+  min_sig <- suppressWarnings(min(pares$dif[pares$signif]))    # menor dif. signif.
+  if (!is.finite(max_ns) || !is.finite(min_sig))
+    warning("Todos os pares são iguais (ou todos diferem): só há um limite para a DMS.")
+  if (is.finite(max_ns) && is.finite(min_sig) && max_ns >= min_sig)
+    warning("Letras incompatíveis com uma única DMS (teste de Tukey, Duncan, ",
+            "Scott-Knott?). A estimativa é apenas aproximada.")
+  dms <- mean(c(max_ns, min_sig)[is.finite(c(max_ns, min_sig))])
+
+  gl_erro <- (a - 1) * (blocos - 1)                 # DBC: (trat - 1)(blocos - 1)
+  # Valor crítico: t (DMS/LSD de Fisher) ou q/raiz(2) (Tukey)
+  t_crit  <- if (teste == "t") qt(1 - alpha / 2, gl_erro)
+             else qtukey(1 - alpha, a, gl_erro) / sqrt(2)
+  ep_dif  <- dms / t_crit                           # raiz de 2*QME/blocos
+  qme     <- blocos * ep_dif^2 / 2
+  list(pares = pares, limites = c(max_ns_dif = max_ns, min_sig_dif = min_sig),
+       dms = dms, gl_erro = gl_erro, t = t_crit, qme = qme,
+       vd = ep_dif^2, cv = 100 * sqrt(qme) / mean(media))
+}
+```
+
+Exemplo: copie a tabela do artigo para um `tribble()` (as letras abaixo são
+hipotéticas; troque pelos valores do seu artigo) e informe o número de
+blocos.
+
+```{r}
+tabela <- tribble(
+  ~trat,         ~media, ~letras,
+  "Testemunha",  33.2,   "b",
+  "Fungicida A", 40.6,   "ab",
+  "Fungicida B", 42.7,   "a",
+  "Fungicida C", 47.0,   "a"
+)
+
+res <- dms_de_letras(tabela$trat, tabela$media, tabela$letras, blocos = 4)
+res$pares
+```
+
+Os pares não significativos vão até 7,4 e os significativos começam em 9,5;
+a DMS estimada é a média, 8,45. Os demais resultados:
+
+```{r}
+c(DMS = res$dms, gl_erro = res$gl_erro, t = res$t,
+  QME = res$qme, CV = res$cv, VD = res$vd)
+```
+
+`VD` é a variância da diferença entre **duas médias quaisquer** do ensaio,
+logo vale para qualquer comparação tratamento × testemunha. Na planilha da
+metanálise, registre a DMS estimada em `dms` e anote em `obs` que ela veio
+das letras.
+
+::: {.callout-warning}
+## Limitações
+- Se a maior diferença não significativa for **maior** que a menor
+  significativa, as letras não vêm de uma DMS única (Tukey, Duncan e
+  Scott-Knott usam critérios variáveis ou agrupam de outra forma). A função
+  avisa; a estimativa é aproximada.
+- Para o teste de Tukey, use `teste = "tukey"`: o valor crítico passa a ser
+  $q/\sqrt{2}$ e a DMS estimada corresponde à DHS.
+- Letras maiúsculas e minúsculas em fatoriais (efeitos simples) exigem
+  separar as tabelas antes de usar a função.
+- Se o delineamento não era DBC (por exemplo, inteiramente casualizado),
+  os graus de liberdade mudam para $a(r-1)$; ajuste `gl_erro`.
+- A estimativa tem incerteza: quanto mais pares, mais estreito o intervalo
+  entre os limites. Registre-os (`res$limites`) e use na análise de
+  sensibilidade.
+:::
+
+::: {.callout-important}
+## Exercício 3.3
+Uma tabela de um ensaio em DBC com 5 blocos traz as médias de produtividade
+(kg/ha): Testemunha 2.850 (c); Dose 1 3.020 (bc); Dose 2 3.190 (ab);
+Dose 3 3.310 (a). Estime a DMS, o CV e a variância da diferença entre duas
+médias.
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+ex <- tribble(
+  ~trat,        ~media, ~letras,
+  "Testemunha", 2850,   "c",
+  "Dose 1",     3020,   "bc",
+  "Dose 2",     3190,   "ab",
+  "Dose 3",     3310,   "a"
+)
+r <- dms_de_letras(ex$trat, ex$media, ex$letras, blocos = 5)
+r$pares
+c(DMS = r$dms, CV = r$cv, VD = r$vd)
+```
+
+### Funções úteis
+
+Vamos guardar essas fórmulas em funções para reutilizar nos próximos
+capítulos.
+
+```{r}
+v_from_cv  <- function(cv, media) (cv / 100 * media)^2
+v_from_dms <- function(dms, n, t = 1.96) n * (dms / t)^2 / 2
+vd         <- function(v, n) 2 * v / n
+```
+
+::: {.callout-important}
+## Exercício 3.4
+Um ensaio relata produtividade de 3.450 kg/ha (fungicida) e 3.010 kg/ha
+(testemunha), média geral 3.200 kg/ha, CV = 8% e 4 repetições. Calcule $D$
+e $V_D$.
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+D  <- 3450 - 3010
+VD <- vd(v_from_cv(8, 3200), n = 4)
+c(D = D, VD = VD, EP = sqrt(VD))
+```
+
+### Os dados da disciplina
+
+Os dados de exemplo ficam na pasta `dados/` do site, em arquivos CSV. O
+arquivo `fungicida_soja.csv` reúne 30 ensaios (simulados) de fungicida na
+soja, com as informações que normalmente extraímos de um artigo:
+
+```{r}
+fungicida <- read_csv("dados/fungicida_soja.csv")
+glimpse(fungicida)
+```
+
+::: {.callout-important}
+## Exercício 3.5
+Para cada ensaio de `fungicida`, calcule $D$, $V$ (a partir do CV e da
+média geral) e $V_D$.
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+fungicida |>
+  mutate(D  = prod_trat - prod_ctrl,
+         V  = v_from_cv(cv, media_geral),
+         VD = vd(V, n)) |>
+  select(estudo, D, V, VD)
+```

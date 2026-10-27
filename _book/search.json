@@ -1,0 +1,954 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Metanálise nas Ciências Agrárias",
+    "section": "",
+    "text": "Sobre o instrutor\nBem-vindo(a) ao material da disciplina. Aqui a teoria da metanálise vem sempre acompanhada de exercícios em R, com exemplos de fitopatologia, fitotecnia, entomologia e solos.\nProf. Emerson Del Ponte, agrônomo com doutorado em Fitopatologia, coordenador do Laboratório de Epidemiologia da UFV, editor-chefe da Tropical Plant Pathology e cofundador da Open Plant Pathology. Publicou mais de 15 metanálises desde 2015 sobre efeitos de tratamentos e relações entre variáveis em doenças de plantas.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Metanálise nas Ciências Agrárias</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#objetivos-da-disciplina",
+    "href": "index.html#objetivos-da-disciplina",
+    "title": "Metanálise nas Ciências Agrárias",
+    "section": "Objetivos da disciplina",
+    "text": "Objetivos da disciplina\nAo final, você será capaz de:\n\nExplicar o que é uma metanálise e quando ela é apropriada.\nPlanejar uma revisão sistemática e extrair dados de estudos primários.\nCalcular medidas de efeito para dados contínuos, binários e correlações.\nAjustar modelos de efeito fixo e aleatório no R com o pacote metafor.\nQuantificar e explicar a heterogeneidade (subgrupos e meta-regressão).\nAvaliar viés de publicação e lidar com efeitos dependentes (modelos multinível).\nApresentar resultados em tabelas e gráficos de qualidade para publicação.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Metanálise nas Ciências Agrárias</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#como-usar-este-site",
+    "href": "index.html#como-usar-este-site",
+    "title": "Metanálise nas Ciências Agrárias",
+    "section": "Como usar este site",
+    "text": "Como usar este site\nCada capítulo segue a mesma estrutura:\n\nTeoria, com os conceitos centrais.\nNo R, com código comentado que você pode copiar e executar.\nExercícios, com a solução escondida (clique para abrir).\n\n\n\n\n\n\n\nAntes de começar\n\n\n\nConfigure seu computador seguindo o apêndice Configuração do R.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Metanálise nas Ciências Agrárias</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#roteiro",
+    "href": "index.html#roteiro",
+    "title": "Metanálise nas Ciências Agrárias",
+    "section": "Roteiro",
+    "text": "Roteiro\n\n\n\nParte\nCapítulo\nTema\n\n\n\n\nI\n1\nO que é metanálise\n\n\nI\n2\nRevisão sistemática e passos de uma metanálise\n\n\nII\n3\nSeleção de estudos, extração de dados e planilha\n\n\nII\n4\nMedidas de efeito: dados contínuos\n\n\nII\n5\nMedidas de efeito: dados binários\n\n\nII\n6\nMedidas de efeito: correlação\n\n\nIII\n7\nModelos de efeito fixo e aleatório\n\n\nIII\n8\nHeterogeneidade\n\n\nIII\n9\nSubgrupos e meta-regressão\n\n\nIII\n10\nTabelas e gráficos\n\n\nIV\n11\nViés de publicação\n\n\nIV\n12\nModelos multinível\n\n\nV\nExemplo 1\nFormigas cortadeiras, solo e plantas (entomologia)\n\n\nV\nExemplo 2\nPosicionamento de fertilizantes e produtividade (solos e fitotecnia)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Metanálise nas Ciências Agrárias</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/01-introducao.html",
+    "href": "capitulos/01-introducao.html",
+    "title": "1. O que é metanálise",
+    "section": "",
+    "text": "Definição\nOutras definições:",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>1. O que é metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/01-introducao.html#definição",
+    "href": "capitulos/01-introducao.html#definição",
+    "title": "1. O que é metanálise",
+    "section": "",
+    "text": "Metanálise é uma síntese estatística de resultados de um conjunto de estudos primários. (Borenstein et al. 2009)\n\n\n\n“Estimativa do resultado médio entre estudos” (Hunter e Schmidt 2004).\n“Combinação de resultados de múltiplos estudos independentes” (Sutton & Higgins, 2008).",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>1. O que é metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/01-introducao.html#origens-da-abordagem-e-do-termo",
+    "href": "capitulos/01-introducao.html#origens-da-abordagem-e-do-termo",
+    "title": "1. O que é metanálise",
+    "section": "Origens da abordagem e do termo",
+    "text": "Origens da abordagem e do termo\n\nKarl Pearson combinou correlações de diferentes amostras.\nRonald Fisher propôs combinar p-valores.\nGene Glass cunhou o termo meta-analysis em 1976; o primeiro artigo foi a síntese sobre psicoterapia de Smith e Glass (1977), em resposta às críticas de Eysenck.",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>1. O que é metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/01-introducao.html#análise-primária-secundária-e-metanálise",
+    "href": "capitulos/01-introducao.html#análise-primária-secundária-e-metanálise",
+    "title": "1. O que é metanálise",
+    "section": "Análise primária, secundária e metanálise",
+    "text": "Análise primária, secundária e metanálise\n\n\nPrimária: análise dos dados originais pelo próprio pesquisador.\nSecundária: reanálise dos dados originais por outros pesquisadores.\nMetanálise: análise dos resultados (estatísticas) de vários estudos.",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>1. O que é metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/01-introducao.html#a-questão-básica",
+    "href": "capitulos/01-introducao.html#a-questão-básica",
+    "title": "1. O que é metanálise",
+    "section": "A questão básica",
+    "text": "A questão básica\n\n“Um único estudo não irá resolver uma grande questão. De fato, um estudo com amostra pequena não irá resolver uma pequena questão.” (Hunter e Schmidt 2004)",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>1. O que é metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/01-introducao.html#quando-usar-a-metanálise",
+    "href": "capitulos/01-introducao.html#quando-usar-a-metanálise",
+    "title": "1. O que é metanálise",
+    "section": "Quando usar a metanálise?",
+    "text": "Quando usar a metanálise?\n\nHá uma questão bem definida.\nOs estudos primários têm amostras pequenas.\nÉ difícil conduzir experimentos “grandes”.\nOs resultados individuais são inconclusivos ou conflitantes.",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>1. O que é metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/01-introducao.html#controvérsias-e-críticas",
+    "href": "capitulos/01-introducao.html#controvérsias-e-críticas",
+    "title": "1. O que é metanálise",
+    "section": "Controvérsias e críticas",
+    "text": "Controvérsias e críticas\n\nA maior parte das críticas pode ser contornada com uma seleção formal dos estudos, baseada em critérios definidos a priori (entra → sai). Apesar delas, a metanálise tornou-se o paradigma de síntese de evidência em medicina, psicologia e, cada vez mais, na agricultura.",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>1. O que é metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/01-introducao.html#no-r-por-que-um-estudo-só-não-basta",
+    "href": "capitulos/01-introducao.html#no-r-por-que-um-estudo-só-não-basta",
+    "title": "1. O que é metanálise",
+    "section": "No R: por que um estudo só não basta?",
+    "text": "No R: por que um estudo só não basta?\nVamos simular 10 ensaios pequenos de um fungicida com efeito verdadeiro de 300 kg/ha e ver quantos deles são “significativos” sozinhos.\n\nn_ensaios &lt;- 10\nefeito_real &lt;- 300   # kg/ha\ndp &lt;- 600            # desvio padrão dentro do ensaio\nn &lt;- 4               # repetições por tratamento\n\nensaios &lt;- map_dfr(1:n_ensaios, function(i) {\n  trat &lt;- rnorm(n, 3000 + efeito_real, dp)\n  ctrl &lt;- rnorm(n, 3000, dp)\n  teste &lt;- t.test(trat, ctrl)\n  tibble(ensaio = i, D = mean(trat) - mean(ctrl), p = teste$p.value)\n})\n\nensaios |&gt; mutate(significativo = p &lt; 0.05)\n\n# A tibble: 10 × 4\n   ensaio      D      p significativo\n    &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt;        \n 1      1  965.  0.0286 TRUE         \n 2      2  322.  0.556  FALSE        \n 3      3  471.  0.304  FALSE        \n 4      4  561.  0.229  FALSE        \n 5      5  596.  0.106  FALSE        \n 6      6  -25.6 0.955  FALSE        \n 7      7  481.  0.183  FALSE        \n 8      8  -89.7 0.669  FALSE        \n 9      9  -48.6 0.921  FALSE        \n10     10 -193.  0.683  FALSE        \n\n\n\n\n\n\n\n\nExercício 1.1\n\n\n\nAumente n para 20 e depois n_ensaios para 50. O que acontece com a proporção de ensaios significativos? E com a média de D?\n\n\n\n\nVer solução\nmean(ensaios$p &lt; 0.05)   # poder de cada ensaio isolado\n\n\n[1] 0.1\n\n\nVer solução\nmean(ensaios$D)          # a média se aproxima do efeito real\n\n\n[1] 303.8204\n\n\n\n\n\n\n\n\nBorenstein, Michael, Larry V. Hedges, Julian P. T. Higgins, e Hannah R. Rothstein. 2009. Introduction to Meta-Analysis. John Wiley & Sons.\n\n\nHunter, John E., e Frank L. Schmidt. 2004. Methods of Meta-Analysis: Correcting Error and Bias in Research Findings. 2.ª ed. Sage.\n\n\nSmith, Mary L., e Gene V. Glass. 1977. «Meta-analysis of psychotherapy outcome studies». American Psychologist 32 (9): 752–60. https://doi.org/10.1037/0003-066X.32.9.752.",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>1. O que é metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/02-revisao-sistematica.html",
+    "href": "capitulos/02-revisao-sistematica.html",
+    "title": "2. Revisão sistemática e passos de uma metanálise",
+    "section": "",
+    "text": "Revisão narrativa × sistemática\nNa revisão narrativa, os estudos são escolhidos de forma arbitrária e as conclusões vêm do número de estudos em que o tratamento “funcionou” ou não: é a contagem de votos.\nNa revisão sistemática, a busca, a exclusão de estudos e a amostra final seguem critérios explícitos. A metanálise deve ser feita sobre estudos selecionados dessa forma.",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>2. Revisão sistemática e passos de uma metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/02-revisao-sistematica.html#o-protocolo-prisma",
+    "href": "capitulos/02-revisao-sistematica.html#o-protocolo-prisma",
+    "title": "2. Revisão sistemática e passos de uma metanálise",
+    "section": "O protocolo PRISMA",
+    "text": "O protocolo PRISMA\nPreferred Reporting Items for Systematic Reviews and Meta-Analyses (Page et al. 2021) define critérios para:\n\na pesquisa bibliográfica,\na exclusão de estudos,\na amostra final.",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>2. Revisão sistemática e passos de uma metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/02-revisao-sistematica.html#contagem-de-votos-metanálise",
+    "href": "capitulos/02-revisao-sistematica.html#contagem-de-votos-metanálise",
+    "title": "2. Revisão sistemática e passos de uma metanálise",
+    "section": "Contagem de votos × metanálise",
+    "text": "Contagem de votos × metanálise\nO exemplo de Harrison (2011) compara o sucesso reprodutivo de mutantes e selvagens: a contagem de votos é inconclusiva, mas a medida sumário padronizada mostra um efeito claro.\n\nMédia ponderada\nNa metanálise cada estudo recebe um peso, em geral o inverso da variância (\\(w_i = 1/v_i\\)). Estudos mais precisos pesam mais:\n\\[\\bar{y} = \\frac{\\sum w_i y_i}{\\sum w_i}\\]",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>2. Revisão sistemática e passos de uma metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/02-revisao-sistematica.html#passos-de-uma-metanálise",
+    "href": "capitulos/02-revisao-sistematica.html#passos-de-uma-metanálise",
+    "title": "2. Revisão sistemática e passos de uma metanálise",
+    "section": "Passos de uma metanálise",
+    "text": "Passos de uma metanálise\n\nDefinir a questão a ser respondida.\nRevisar a literatura ou outras fontes (dados de pesquisadores).\nDefinir critérios e selecionar os estudos.\nCalcular a medida de efeito e sua variância.\nOrganizar os dados em uma planilha.\nDefinir o modelo metanalítico para sumarizar o efeito geral.\nVerificar se há heterogeneidade (e tentar explicá-la).\nConstruir tabelas e gráficos.",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>2. Revisão sistemática e passos de uma metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/02-revisao-sistematica.html#no-r-contagem-de-votos-média-ponderada",
+    "href": "capitulos/02-revisao-sistematica.html#no-r-contagem-de-votos-média-ponderada",
+    "title": "2. Revisão sistemática e passos de uma metanálise",
+    "section": "No R: contagem de votos × média ponderada",
+    "text": "No R: contagem de votos × média ponderada\n\nestudos &lt;- tibble(\n  estudo = paste(\"Estudo\", 1:8),\n  yi = c(0.40, 0.10, 0.55, -0.05, 0.30, 0.20, 0.65, 0.15),\n  vi = c(0.04, 0.10, 0.20, 0.08, 0.02, 0.15, 0.30, 0.03)\n) |&gt;\n  mutate(\n    ic_inf = yi - 1.96 * sqrt(vi),\n    ic_sup = yi + 1.96 * sqrt(vi),\n    significativo = ic_inf &gt; 0,\n    w = 1 / vi\n  )\n\nestudos\n\n# A tibble: 8 × 7\n  estudo      yi    vi   ic_inf ic_sup significativo     w\n  &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt;         &lt;dbl&gt;\n1 Estudo 1  0.4   0.04  0.00800  0.792 TRUE          25   \n2 Estudo 2  0.1   0.1  -0.520    0.720 FALSE         10   \n3 Estudo 3  0.55  0.2  -0.327    1.43  FALSE          5   \n4 Estudo 4 -0.05  0.08 -0.604    0.504 FALSE         12.5 \n5 Estudo 5  0.3   0.02  0.0228   0.577 TRUE          50   \n6 Estudo 6  0.2   0.15 -0.559    0.959 FALSE          6.67\n7 Estudo 7  0.65  0.3  -0.424    1.72  FALSE          3.33\n8 Estudo 8  0.15  0.03 -0.189    0.489 FALSE         33.3 \n\n# Contagem de votos\ntable(estudos$significativo)\n\n\nFALSE  TRUE \n    6     2 \n\n# Média aritmética vs. ponderada\nmean(estudos$yi)\n\n[1] 0.2875\n\nweighted.mean(estudos$yi, estudos$w)\n\n[1] 0.2511429\n\n\n\n\n\n\n\n\nExercício 2.1\n\n\n\nCalcule o erro padrão da média ponderada (\\(1/\\sqrt{\\sum w_i}\\)) e o seu IC 95%. A conclusão difere da contagem de votos?\n\n\n\n\nVer solução\nep &lt;- 1 / sqrt(sum(estudos$w))\nmedia_p &lt;- weighted.mean(estudos$yi, estudos$w)\nc(media = media_p, inf = media_p - 1.96 * ep, sup = media_p + 1.96 * ep)\n\n\n     media        inf        sup \n0.25114286 0.08883944 0.41344628 \n\n\n\n\n\n\n\n\nHarrison, Freya. 2011. «Meta-analysis: methods for quantitative data synthesis in ecology and evolution». Methods in Ecology and Evolution 2 (1): 1–10. https://doi.org/10.1111/j.2041-210X.2010.00056.x.\n\n\nPage, Matthew J. et al. 2021. «The PRISMA 2020 statement: an updated guideline for reporting systematic reviews». BMJ 372: n71. https://doi.org/10.1136/bmj.n71.",
+    "crumbs": [
+      "Parte I · Fundamentos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>2. Revisão sistemática e passos de uma metanálise</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/03-extracao-dados.html",
+    "href": "capitulos/03-extracao-dados.html",
+    "title": "3. Seleção de estudos, extração de dados e planilha",
+    "section": "",
+    "text": "Selecionando os estudos\nA planilha é a ponte entre a revisão sistemática (capítulo 2) e a análise (capítulos 4 a 12). Erros cometidos aqui se propagam para todos os resultados, e refazer a extração é a etapa mais cara de uma metanálise. Por isso vale investir tempo no protocolo de extração antes de abrir o primeiro artigo.\nA busca (capítulo 2) devolve centenas ou milhares de registros. A seleção reduz esse conjunto, em etapas, aos estudos de onde realmente será possível extrair um efeito e sua variabilidade.",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>3. Seleção de estudos, extração de dados e planilha</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/03-extracao-dados.html#sec-selecao",
+    "href": "capitulos/03-extracao-dados.html#sec-selecao",
+    "title": "3. Seleção de estudos, extração de dados e planilha",
+    "section": "",
+    "text": "Critérios de elegibilidade\nDefina os critérios antes de olhar os resultados, de preferência em um protocolo registrado. Uma forma prática é adaptar o esquema PICO (ou PECO, quando a exposição não é um tratamento aplicado):\n\n\n\n\n\n\n\n\nElemento\nPergunta\nExemplo (fungicida e mofo branco)\n\n\n\n\nPopulação / sistema\nQue cultura, patossistema, ambiente?\nSoja, campo, Sclerotinia sclerotiorum\n\n\nIntervenção / exposição\nQual tratamento?\nTiofanato metílico, aplicado na parte aérea\n\n\nComparador\nContra quem?\nTestemunha sem fungicida\n\n\nDesfecho\nO que foi medido?\nProdutividade (kg/ha)\n\n\nDesenho\nQue tipo de estudo?\nEnsaio de campo com repetições (DBC)\n\n\n\nCritérios técnicos que costumam excluir estudos em ciências agrárias:\n\nnão há comparador (sem testemunha ou controle);\no desfecho não é o definido (ex.: apenas severidade, sem produtividade);\nnão há como obter variabilidade: nenhum entre DP, EP, IC, QME, CV, DMS ou valor de p exato, e o número de repetições não é informado;\nos dados são de simulação, revisão ou resumo sem resultados;\nos dados já foram publicados em outro artigo (duplicata): fique com o mais completo e registre a decisão.\n\n\n\nEtapas e registro\n\nTriagem por título e resumo: exclua o claramente irrelevante.\nLeitura do texto completo: aplique todos os critérios e registre o motivo de cada exclusão (necessário para o fluxograma PRISMA).\nExtração: preencha a planilha apenas para os estudos incluídos.\n\nIdealmente duas pessoas fazem as etapas 2 e 3 de forma independente e as divergências são resolvidas por consenso. Se isso não for possível, revise ao menos uma amostra (por exemplo, 20%) dos estudos extraídos.\n\n\n\n\n\n\nEstudo, ensaio, comparação\n\n\n\nDefina cedo o que é a unidade de cada linha da planilha:\n\nestudo: o artigo (ou conjunto de artigos do mesmo grupo e dados);\nensaio: um experimento independente (local × ano) dentro do estudo;\ncomparação: um par tratamento × controle dentro do ensaio.\n\nUm artigo pode ter vários ensaios, e um ensaio várias comparações. Essa hierarquia explica a dependência entre efeitos tratada no capítulo 12.",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>3. Seleção de estudos, extração de dados e planilha</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/03-extracao-dados.html#o-que-extrair-de-cada-estudo",
+    "href": "capitulos/03-extracao-dados.html#o-que-extrair-de-cada-estudo",
+    "title": "3. Seleção de estudos, extração de dados e planilha",
+    "section": "O que extrair de cada estudo?",
+    "text": "O que extrair de cada estudo?\nPara cada comparação precisamos de uma medida de efeito e uma medida de variabilidade (para ponderar), além das características do estudo (moderadoras: local, ano, cultivar, pressão de doença etc.). Procure em texto, tabelas, figuras e material suplementar. Agrupe as colunas em seis blocos:\n\n\n\n\n\n\n\n\nBloco\nO que registrar\nColunas de exemplo\n\n\n\n\nIdentificação\nQuem, onde está o dado, quem extraiu\nid_estudo, referencia, fonte_dado, extraido_por\n\n\nEstrutura\nEm que nível o dado está\nid_ensaio, id_comparacao\n\n\nDescrição da comparação\nTratamento, controle, desfecho, unidade\ntratamento, controle, desfecho, unidade\n\n\nDados do efeito\nMédias, contagens ou correlação\nmedia_trat, media_ctrl, eventos_trat, r\n\n\nVariabilidade e amostra\nDP, QME, CV, DMS, \\(n\\)\nsd_trat, qme, cv, dms, n_trat\n\n\nModeradoras e notas\nVariáveis explicativas e observações\nmoderadora_dose, pressao, obs\n\n\n\n\nQual medida de variabilidade usar?\nQuando houver mais de uma, use a mais direta, nesta ordem de preferência:\n\ndesvio padrão (DP) por grupo;\nerro padrão (EP), convertido por \\(DP = EP \\sqrt{n}\\);\nintervalo de confiança, convertido a partir do EP;\nQME da ANOVA (variância residual comum);\nCV e média geral, que levam ao QME;\nDMS (ou DHS) e o nível de significância usado;\napenas letras das médias, pelo método de Ngugi, Esker, e Scherm (2011);\nvalor de p exato da comparação.\n\nSempre registre qual medida foi usada em cada linha (colunas preenchidas) e em obs qualquer conversão que você fez.\n\n\n\n\n\n\nCuidado com EP versus DP\n\n\n\nBarras de erro em figuras raramente dizem se são DP ou EP. Procure a legenda ou a seção de métodos. Confundir os dois muda o peso do estudo por um fator de \\(\\sqrt{n}\\).\n\n\n\n\n\n\n\n\nDados em gráficos\n\n\n\nMédias e barras de erro podem ser extraídas de figuras com o WebPlotDigitizer. Anote em fonte_dado que o valor veio de figura.",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>3. Seleção de estudos, extração de dados e planilha</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/03-extracao-dados.html#regras-para-organizar-a-planilha",
+    "href": "capitulos/03-extracao-dados.html#regras-para-organizar-a-planilha",
+    "title": "3. Seleção de estudos, extração de dados e planilha",
+    "section": "Regras para organizar a planilha",
+    "text": "Regras para organizar a planilha\nO formato adequado é o longo (tidy): uma linha por comparação, uma coluna por variável.\n\nUma linha = um efeito (um par tratamento × controle).\nUma célula guarda um valor; nada de “12 ± 3” ou “12 (a)”.\nSem células mescladas, cores ou negrito carregando informação.\nCélulas sem dado ficam vazias (lidas como NA); nunca use 0 ou “-”.\nNomes de coluna curtos, sem acento nem espaço (media_trat).\nUma coluna por unidade quando misturar unidades; padronize antes.\nMantenha os IDs (id_estudo, id_ensaio) sempre preenchidos: serão os níveis aleatórios do modelo multinível.\nGuarde o dado bruto como veio e as conversões em colunas ou scripts separados, para que tudo seja rastreável.\nCrie um dicionário de dados descrevendo cada coluna.\n\nUma planilha-modelo, com sete linhas ilustrando desenhos diferentes, está em dados/modelo_planilha_extracao.csv:\n\nmodelo &lt;- read_csv(\"dados/modelo_planilha_extracao.csv\", show_col_types = FALSE)\nmodelo |&gt; select(id_estudo, id_ensaio, id_comparacao, tipo_dado,\n                 tratamento, desfecho, n_trat, media_trat, cv, dms)\n\n# A tibble: 7 × 10\n  id_estudo id_ensaio id_comparacao tipo_dado  tratamento        desfecho n_trat\n  &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;     &lt;dbl&gt;\n1 S01       S01-1     S01-1-a       continuo   tiofanato metili… produti…      4\n2 S01       S01-2     S01-2-a       continuo   tiofanato metili… produti…      4\n3 S02       S02-1     S02-1-a       continuo   fluazinam         produti…      4\n4 S02       S02-1     S02-1-b       continuo   procimidona       produti…      4\n5 S03       S03-1     S03-1-a       continuo   tebuconazol       severid…      5\n6 S04       S04-1     S04-1-a       binario    tratamento de se… tombame…     NA\n7 S05       S05-1     S05-1-a       correlacao severidade x pro… correla…     NA\n# ℹ 3 more variables: media_trat &lt;dbl&gt;, cv &lt;dbl&gt;, dms &lt;dbl&gt;\n\n\nVeja a lista de colunas e linhas abrindo o CSV no Excel ou no RStudio. Observe que cada tipo de dado preenche colunas diferentes: as demais ficam vazias.",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>3. Seleção de estudos, extração de dados e planilha</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/03-extracao-dados.html#modelos-de-planilha-por-tipo-de-desenho",
+    "href": "capitulos/03-extracao-dados.html#modelos-de-planilha-por-tipo-de-desenho",
+    "title": "3. Seleção de estudos, extração de dados e planilha",
+    "section": "Modelos de planilha por tipo de desenho",
+    "text": "Modelos de planilha por tipo de desenho\nA escolha das colunas depende da variável de efeito. Em cada caso abaixo, mostramos o mínimo necessário e a chamada de escalc() que o usa.\n\nA. Contínuo com média, DP e \\(n\\)\nÉ o caso mais simples: permite calcular DM, DMP (SMD) ou RR (ROM) direto.\n\nplanilha_a &lt;- tribble(\n  ~id_estudo, ~id_ensaio, ~n_trat, ~n_ctrl, ~media_trat, ~media_ctrl, ~sd_trat, ~sd_ctrl,\n  \"S03\",      \"S03-1\",    5,       5,       12.4,        31.8,        4.1,      9.2,\n  \"S06\",      \"S06-1\",    4,       4,       10.2,        24.0,        3.5,      6.8,\n  \"S06\",      \"S06-2\",    4,       4,       15.1,        29.5,        5.0,      7.7\n)\n\nescalc(measure = \"ROM\",\n       m1i = media_trat, sd1i = sd_trat, n1i = n_trat,\n       m2i = media_ctrl, sd2i = sd_ctrl, n2i = n_ctrl,\n       data = planilha_a) |&gt;\n  as_tibble()\n\n# A tibble: 3 × 10\n  id_estudo id_ensaio n_trat n_ctrl media_trat media_ctrl sd_trat sd_ctrl     yi\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n1 S03       S03-1          5      5       12.4       31.8     4.1     9.2 -0.942\n2 S06       S06-1          4      4       10.2       24       3.5     6.8 -0.856\n3 S06       S06-2          4      4       15.1       29.5     5       7.7 -0.670\n# ℹ 1 more variable: vi &lt;dbl&gt;\n\n\nColunas mínimas: n_trat, n_ctrl, media_trat, media_ctrl, sd_trat, sd_ctrl.\n\n\nB. Contínuo com QME, CV ou DMS\nMuito comum em ensaios agronômicos. Não temos DP por grupo, mas uma variância residual comum. Colunas mínimas: n_trat, n_ctrl, media_trat, media_ctrl e uma entre qme; cv + media_geral; ou dms (+ nível de significância). A variância do efeito é calculada como mostrado adiante neste capítulo, e o resultado é passado ao rma() como yi e vi.\n\n\nC. Binário (incidência, sobrevivência)\nRegistre as contagens, não as proporções: eventos e total em cada grupo. Os quatro valores da tabela 2×2 saem por subtração.\n\nplanilha_c &lt;- tribble(\n  ~id_estudo, ~eventos_trat, ~total_trat, ~eventos_ctrl, ~total_ctrl,\n  \"S04\",      18,            200,         52,            200,\n  \"S07\",      9,             100,         25,            100\n) |&gt;\n  mutate(ai = eventos_trat, bi = total_trat - eventos_trat,\n         ci = eventos_ctrl, di = total_ctrl - eventos_ctrl)\n\nescalc(measure = \"OR\", ai = ai, bi = bi, ci = ci, di = di,\n       data = planilha_c) |&gt;\n  as_tibble() |&gt;\n  select(id_estudo, yi, vi)\n\n# A tibble: 2 × 3\n  id_estudo    yi     vi\n  &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;\n1 S04       -1.27 0.0870\n2 S07       -1.22 0.175 \n\n\nSe o artigo só traz porcentagens, reconstrua as contagens com o \\(n\\) (e anote em obs que foi reconstruído).\n\n\nD. Correlação\nRegistre o coeficiente \\(r\\) e o tamanho de amostra \\(n\\) em que ele foi calculado (não o número de estudos nem de tratamentos).\n\nplanilha_d &lt;- tribble(\n  ~id_estudo, ~r,    ~n_r,\n  \"S05\",      -0.62, 24,\n  \"S08\",      -0.48, 40\n)\n\nescalc(measure = \"ZCOR\", ri = r, ni = n_r, data = planilha_d) |&gt;\n  as_tibble()\n\n# A tibble: 2 × 5\n  id_estudo     r   n_r     yi     vi\n  &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1 S05       -0.62    24 -0.725 0.0476\n2 S08       -0.48    40 -0.523 0.0270\n\n\n\n\nE. Vários tratamentos contra o mesmo controle\nQuando um ensaio testa, por exemplo, três fungicidas e uma testemunha, o mesmo controle entra em três comparações e os efeitos ficam correlacionados. Na planilha, mantenha uma linha por comparação, repita os dados do controle e identifique o ensaio em id_ensaio.\nOpções de análise, da mais simples à mais completa:\n\nescolher uma comparação por ensaio (por exemplo, a dose recomendada);\ndividir o \\(n\\) do controle entre as comparações, o que reduz o peso de cada uma (aproximação conservadora);\nmodelar a dependência com rma.mv() (capítulo 12), com id_ensaio como nível aleatório.\n\n\nplanilha_e &lt;- tribble(\n  ~id_ensaio, ~id_comparacao, ~tratamento, ~n_trat, ~n_ctrl,\n  \"S02-1\",    \"S02-1-a\",      \"fluazinam\",   4,       4,\n  \"S02-1\",    \"S02-1-b\",      \"procimidona\", 4,       4,\n  \"S02-1\",    \"S02-1-c\",      \"tiofanato\",   4,       4\n) |&gt;\n  group_by(id_ensaio) |&gt;\n  mutate(n_comparacoes = n(),\n         n_ctrl_ajustado = n_ctrl / n_comparacoes) |&gt;\n  ungroup()\n\nplanilha_e\n\n# A tibble: 3 × 7\n  id_ensaio id_comparacao tratamento n_trat n_ctrl n_comparacoes n_ctrl_ajustado\n  &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;         &lt;int&gt;           &lt;dbl&gt;\n1 S02-1     S02-1-a       fluazinam       4      4             3            1.33\n2 S02-1     S02-1-b       procimido…      4      4             3            1.33\n3 S02-1     S02-1-c       tiofanato       4      4             3            1.33\n\n\n\n\nF. Vários desfechos, tempos ou locais no mesmo estudo\nMantenha o mesmo esquema: uma linha por efeito, com id_estudo e id_ensaio preenchidos, mais colunas que distinguem o que variou (desfecho, dias_apos_aplicacao, local). O exemplo das formigas cortadeiras (Parte V) tem 150 efeitos em 34 estudos exatamente nesse formato.\n\n\n\n\n\n\nNão misture\n\n\n\nUma linha da planilha não deve combinar desfechos diferentes (produtividade e severidade), nem unidades diferentes sem conversão. Se o objetivo é sintetizar uma única pergunta, filtre desfecho antes de analisar.",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>3. Seleção de estudos, extração de dados e planilha</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/03-extracao-dados.html#digitando-em-formato-largo-e-convertendo",
+    "href": "capitulos/03-extracao-dados.html#digitando-em-formato-largo-e-convertendo",
+    "title": "3. Seleção de estudos, extração de dados e planilha",
+    "section": "Digitando em formato largo e convertendo",
+    "text": "Digitando em formato largo e convertendo\nMuitas vezes é mais rápido digitar um ensaio por linha, com os tratamentos em colunas. Isso é aceitável como etapa de digitação, desde que você converta para o formato longo antes de analisar.\n\nlargo &lt;- tribble(\n  ~id_ensaio, ~n, ~testemunha, ~fungicida_a, ~fungicida_b,\n  \"S02-1\",    4,  3010,        3450,         3390,\n  \"S02-2\",    4,  2850,        3100,         3180\n)\n\nlongo &lt;- largo |&gt;\n  pivot_longer(c(fungicida_a, fungicida_b),\n               names_to = \"tratamento\", values_to = \"media_trat\") |&gt;\n  rename(media_ctrl = testemunha) |&gt;\n  mutate(id_comparacao = paste(id_ensaio, tratamento, sep = \"-\"))\n\nlongo\n\n# A tibble: 4 × 6\n  id_ensaio     n media_ctrl tratamento  media_trat id_comparacao    \n  &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;            \n1 S02-1         4       3010 fungicida_a       3450 S02-1-fungicida_a\n2 S02-1         4       3010 fungicida_b       3390 S02-1-fungicida_b\n3 S02-2         4       2850 fungicida_a       3100 S02-2-fungicida_a\n4 S02-2         4       2850 fungicida_b       3180 S02-2-fungicida_b",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>3. Seleção de estudos, extração de dados e planilha</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/03-extracao-dados.html#checagens-antes-de-analisar",
+    "href": "capitulos/03-extracao-dados.html#checagens-antes-de-analisar",
+    "title": "3. Seleção de estudos, extração de dados e planilha",
+    "section": "Checagens antes de analisar",
+    "text": "Checagens antes de analisar\nAntes de calcular qualquer efeito, faça verificações simples em R. Elas pegam a maioria dos erros de digitação.\n\nchecagens &lt;- read_csv(\"dados/fungicida_soja.csv\", show_col_types = FALSE)\n\n# 1. Identificadores duplicados\nchecagens |&gt; count(estudo) |&gt; filter(n &gt; 1)\n\n# A tibble: 0 × 2\n# ℹ 2 variables: estudo &lt;chr&gt;, n &lt;int&gt;\n\n# 2. Valores faltantes por coluna\nchecagens |&gt; summarise(across(everything(), ~ sum(is.na(.x))))\n\n# A tibble: 1 × 10\n  estudo   ano regiao latitude pressao     n    cv prod_ctrl prod_trat\n   &lt;int&gt; &lt;int&gt;  &lt;int&gt;    &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;int&gt;     &lt;int&gt;\n1      0     0      0        0       0     0     0         0         0\n# ℹ 1 more variable: media_geral &lt;int&gt;\n\n# 3. Faixas plausíveis: CV, n e produtividade\nchecagens |&gt; summarise(across(c(cv, n, prod_ctrl, prod_trat),\n                              list(min = min, max = max)))\n\n# A tibble: 1 × 8\n  cv_min cv_max n_min n_max prod_ctrl_min prod_ctrl_max prod_trat_min\n   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;\n1    4.6   14.7     3     5          1904          3915          2413\n# ℹ 1 more variable: prod_trat_max &lt;dbl&gt;\n\n# 4. Média geral coerente com as médias dos grupos?\nchecagens |&gt;\n  mutate(dif = abs(media_geral - (prod_trat + prod_ctrl) / 2)) |&gt;\n  filter(dif &gt; 5)\n\n# A tibble: 0 × 11\n# ℹ 11 variables: estudo &lt;chr&gt;, ano &lt;dbl&gt;, regiao &lt;chr&gt;, latitude &lt;dbl&gt;,\n#   pressao &lt;chr&gt;, n &lt;dbl&gt;, cv &lt;dbl&gt;, prod_ctrl &lt;dbl&gt;, prod_trat &lt;dbl&gt;,\n#   media_geral &lt;dbl&gt;, dif &lt;dbl&gt;\n\n\nSe algum teste apontar problema, volte ao artigo original, não “corrija” na planilha sem registrar a razão em obs.\n\n\n\n\n\n\nExercício 3.1\n\n\n\nUm artigo traz, para dois fungicidas e uma testemunha, as produtividades médias 3.380, 3.290 e 2.900 kg/ha, com 4 repetições, CV = 7% e média geral 3.190 kg/ha. Escreva a planilha em formato longo (uma linha por comparação), com id_ensaio, id_comparacao, n_trat, n_ctrl, media_trat, media_ctrl, cv e media_geral, e calcule n_ctrl_ajustado.\n\n\n\n\nVer solução\ntibble(\n  id_ensaio = \"X-1\",\n  tratamento = c(\"fungicida_a\", \"fungicida_b\"),\n  n_trat = 4, n_ctrl = 4,\n  media_trat = c(3380, 3290), media_ctrl = 2900,\n  cv = 7, media_geral = 3190\n) |&gt;\n  mutate(id_comparacao = paste(id_ensaio, tratamento, sep = \"-\"),\n         n_ctrl_ajustado = n_ctrl / n())\n\n\n# A tibble: 2 × 10\n  id_ensaio tratamento  n_trat n_ctrl media_trat media_ctrl    cv media_geral\n  &lt;chr&gt;     &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;\n1 X-1       fungicida_a      4      4       3380       2900     7        3190\n2 X-1       fungicida_b      4      4       3290       2900     7        3190\n# ℹ 2 more variables: id_comparacao &lt;chr&gt;, n_ctrl_ajustado &lt;dbl&gt;\n\n\n\n\n\n\n\n\nExercício 3.2\n\n\n\nAbra dados/modelo_planilha_extracao.csv e responda: (a) quantas linhas usam CV, quantas usam DMS e quantas usam DP? (b) quais linhas compartilham controle?\n\n\n\n\nVer solução\nmodelo |&gt;\n  summarise(com_cv  = sum(!is.na(cv)),\n            com_dms = sum(!is.na(dms)),\n            com_dp  = sum(!is.na(sd_trat)))\n\n\n# A tibble: 1 × 3\n  com_cv com_dms com_dp\n   &lt;int&gt;   &lt;int&gt;  &lt;int&gt;\n1      2       2      1\n\n\nVer solução\nmodelo |&gt; count(id_ensaio) |&gt; filter(n &gt; 1)\n\n\n# A tibble: 1 × 2\n  id_ensaio     n\n  &lt;chr&gt;     &lt;int&gt;\n1 S02-1         2",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>3. Seleção de estudos, extração de dados e planilha</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/03-extracao-dados.html#calculando-a-variância-do-efeito",
+    "href": "capitulos/03-extracao-dados.html#calculando-a-variância-do-efeito",
+    "title": "3. Seleção de estudos, extração de dados e planilha",
+    "section": "Calculando a variância do efeito",
+    "text": "Calculando a variância do efeito\nQuando o artigo traz apenas QME, CV ou DMS, a variância do efeito precisa ser calculada. Os exemplos abaixo tratam de dados contínuos em kg/ha.\n\nExemplo: fungicida e mofo branco da soja\n\nQual o incremento médio em produtividade obtido com tiofanato metílico no controle do mofo branco da soja?\n\nA diferença absoluta é \\(D = \\bar{y}_T - \\bar{y}_C\\) e sua variância é\n\\[V_D = \\frac{2V}{n}\\]\nem que \\(V\\) é a variância residual (QME) e \\(n\\) o número de repetições.\n\nVariância a partir do CV\n\\[V = \\text{QME} = \\left(\\frac{CV}{100} \\cdot \\bar{Y}\\right)^2\\]\nem que \\(\\bar{Y}\\) é a média geral do experimento.\n\nyT &lt;- 2618; yC &lt;- 2265     # kg/ha\nD &lt;- yT - yC\ncv &lt;- 6; media_geral &lt;- 2773.6; n &lt;- 4\n\nV &lt;- (cv / 100 * media_geral)^2\nVD &lt;- 2 * V / n\nc(D = D, V = V, VD = VD)\n\n       D        V       VD \n  353.00 27694.29 13847.14 \n\n\n\n\nVariância a partir da DMS\nComo \\(\\text{DMS} = t \\sqrt{2V/n}\\), temos \\(V = \\dfrac{n}{2}\\left(\\dfrac{\\text{DMS}}{t}\\right)^2\\).\n\ndms &lt;- 60.53; t_crit &lt;- 1.96; n &lt;- 4\nV &lt;- n * (dms / t_crit)^2 / 2\nVD &lt;- 2 * V / n\nc(V = V, VD = VD)\n\n        V        VD \n1907.4765  953.7383 \n\n\n\n\nSomente letras das médias?\nMuitos artigos trazem só uma tabela de médias seguidas de letras (teste de médias, geralmente a DMS de Fisher ou o teste t). Nesse caso Ngugi, Esker, e Scherm (2011) propõem estimar a DMS a partir das letras:\n\nDuas médias são “não diferentes” se compartilham ao menos uma letra.\nCalcule a diferença absoluta entre todos os pares de médias.\nA DMS está entre a maior diferença não significativa e a menor diferença significativa; use a média desses dois valores.\n\nCom a DMS estimada, a conversão para variância segue o caso do ensaio em blocos casualizados (DBC) com \\(r\\) blocos e \\(a\\) tratamentos:\n\ngraus de liberdade do erro: \\(gl = (a-1)(r-1)\\);\n\\(t\\) crítico: qt(1 - alpha/2, gl);\nerro padrão da diferença: \\(EP_D = \\text{DMS}/t\\), portanto \\(V_D = EP_D^2\\);\nQME \\(= r \\cdot EP_D^2 / 2\\) e CV \\(= 100\\sqrt{\\text{QME}}/\\bar{Y}\\).\n\nA função abaixo faz tudo isso. Você informa os tratamentos, as médias e as letras como estão no artigo e o número de blocos.\n\ndms_de_letras &lt;- function(trat, media, letras, blocos, alpha = 0.05,\n                          teste = c(\"t\", \"tukey\")) {\n  teste &lt;- match.arg(teste)\n  a &lt;- length(trat)\n  # Duas médias \"não diferem\" se compartilham ao menos uma letra\n  compartilha &lt;- function(l1, l2) {\n    length(intersect(strsplit(l1, \"\")[[1]], strsplit(l2, \"\")[[1]])) &gt; 0\n  }\n  ij &lt;- combn(a, 2)\n  pares &lt;- tibble(i = ij[1, ], j = ij[2, ]) |&gt;\n    mutate(trat_1 = trat[i], trat_2 = trat[j],\n           dif = abs(media[i] - media[j]),\n           signif = map2_lgl(letras[i], letras[j], ~ !compartilha(.x, .y))) |&gt;\n    select(trat_1, trat_2, dif, signif)\n\n  max_ns  &lt;- suppressWarnings(max(pares$dif[!pares$signif]))  # maior dif. não signif.\n  min_sig &lt;- suppressWarnings(min(pares$dif[pares$signif]))    # menor dif. signif.\n  if (!is.finite(max_ns) || !is.finite(min_sig))\n    warning(\"Todos os pares são iguais (ou todos diferem): só há um limite para a DMS.\")\n  if (is.finite(max_ns) && is.finite(min_sig) && max_ns &gt;= min_sig)\n    warning(\"Letras incompatíveis com uma única DMS (teste de Tukey, Duncan, \",\n            \"Scott-Knott?). A estimativa é apenas aproximada.\")\n  dms &lt;- mean(c(max_ns, min_sig)[is.finite(c(max_ns, min_sig))])\n\n  gl_erro &lt;- (a - 1) * (blocos - 1)                 # DBC: (trat - 1)(blocos - 1)\n  # Valor crítico: t (DMS/LSD de Fisher) ou q/raiz(2) (Tukey)\n  t_crit  &lt;- if (teste == \"t\") qt(1 - alpha / 2, gl_erro)\n             else qtukey(1 - alpha, a, gl_erro) / sqrt(2)\n  ep_dif  &lt;- dms / t_crit                           # raiz de 2*QME/blocos\n  qme     &lt;- blocos * ep_dif^2 / 2\n  list(pares = pares, limites = c(max_ns_dif = max_ns, min_sig_dif = min_sig),\n       dms = dms, gl_erro = gl_erro, t = t_crit, qme = qme,\n       vd = ep_dif^2, cv = 100 * sqrt(qme) / mean(media))\n}\n\nExemplo: copie a tabela do artigo para um tribble() (as letras abaixo são hipotéticas; troque pelos valores do seu artigo) e informe o número de blocos.\n\ntabela &lt;- tribble(\n  ~trat,         ~media, ~letras,\n  \"Testemunha\",  33.2,   \"b\",\n  \"Fungicida A\", 40.6,   \"ab\",\n  \"Fungicida B\", 42.7,   \"a\",\n  \"Fungicida C\", 47.0,   \"a\"\n)\n\nres &lt;- dms_de_letras(tabela$trat, tabela$media, tabela$letras, blocos = 4)\nres$pares\n\n# A tibble: 6 × 4\n  trat_1      trat_2        dif signif\n  &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;lgl&gt; \n1 Testemunha  Fungicida A  7.4  FALSE \n2 Testemunha  Fungicida B  9.5  TRUE  \n3 Testemunha  Fungicida C 13.8  TRUE  \n4 Fungicida A Fungicida B  2.10 FALSE \n5 Fungicida A Fungicida C  6.4  FALSE \n6 Fungicida B Fungicida C  4.30 FALSE \n\n\nOs pares não significativos vão até 7,4 e os significativos começam em 9,5; a DMS estimada é a média, 8,45. Os demais resultados:\n\nc(DMS = res$dms, gl_erro = res$gl_erro, t = res$t,\n  QME = res$qme, CV = res$cv, VD = res$vd)\n\n      DMS   gl_erro         t       QME        CV        VD \n 8.450000  9.000000  2.262157 27.906018 12.923828 13.953009 \n\n\nVD é a variância da diferença entre duas médias quaisquer do ensaio, logo vale para qualquer comparação tratamento × testemunha. Na planilha da metanálise, registre a DMS estimada em dms e anote em obs que ela veio das letras.\n\n\n\n\n\n\nLimitações\n\n\n\n\nSe a maior diferença não significativa for maior que a menor significativa, as letras não vêm de uma DMS única (Tukey, Duncan e Scott-Knott usam critérios variáveis ou agrupam de outra forma). A função avisa; a estimativa é aproximada.\nPara o teste de Tukey, use teste = \"tukey\": o valor crítico passa a ser \\(q/\\sqrt{2}\\) e a DMS estimada corresponde à DHS.\nLetras maiúsculas e minúsculas em fatoriais (efeitos simples) exigem separar as tabelas antes de usar a função.\nSe o delineamento não era DBC (por exemplo, inteiramente casualizado), os graus de liberdade mudam para \\(a(r-1)\\); ajuste gl_erro.\nA estimativa tem incerteza: quanto mais pares, mais estreito o intervalo entre os limites. Registre-os (res$limites) e use na análise de sensibilidade.\n\n\n\n\n\n\n\n\n\nExercício 3.3\n\n\n\nUma tabela de um ensaio em DBC com 5 blocos traz as médias de produtividade (kg/ha): Testemunha 2.850 (c); Dose 1 3.020 (bc); Dose 2 3.190 (ab); Dose 3 3.310 (a). Estime a DMS, o CV e a variância da diferença entre duas médias.\n\n\n\n\nVer solução\nex &lt;- tribble(\n  ~trat,        ~media, ~letras,\n  \"Testemunha\", 2850,   \"c\",\n  \"Dose 1\",     3020,   \"bc\",\n  \"Dose 2\",     3190,   \"ab\",\n  \"Dose 3\",     3310,   \"a\"\n)\nr &lt;- dms_de_letras(ex$trat, ex$media, ex$letras, blocos = 5)\nr$pares\n\n\n# A tibble: 6 × 4\n  trat_1     trat_2   dif signif\n  &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt; \n1 Testemunha Dose 1   170 FALSE \n2 Testemunha Dose 2   340 TRUE  \n3 Testemunha Dose 3   460 TRUE  \n4 Dose 1     Dose 2   170 FALSE \n5 Dose 1     Dose 3   290 TRUE  \n6 Dose 2     Dose 3   120 FALSE \n\n\nVer solução\nc(DMS = r$dms, CV = r$cv, VD = r$vd)\n\n\n         DMS           CV           VD \n  230.000000     5.397196 11143.351355 \n\n\n\n\n\nFunções úteis\nVamos guardar essas fórmulas em funções para reutilizar nos próximos capítulos.\n\nv_from_cv  &lt;- function(cv, media) (cv / 100 * media)^2\nv_from_dms &lt;- function(dms, n, t = 1.96) n * (dms / t)^2 / 2\nvd         &lt;- function(v, n) 2 * v / n\n\n\n\n\n\n\n\nExercício 3.4\n\n\n\nUm ensaio relata produtividade de 3.450 kg/ha (fungicida) e 3.010 kg/ha (testemunha), média geral 3.200 kg/ha, CV = 8% e 4 repetições. Calcule \\(D\\) e \\(V_D\\).\n\n\n\n\nVer solução\nD  &lt;- 3450 - 3010\nVD &lt;- vd(v_from_cv(8, 3200), n = 4)\nc(D = D, VD = VD, EP = sqrt(VD))\n\n\n         D         VD         EP \n  440.0000 32768.0000   181.0193 \n\n\n\n\nOs dados da disciplina\nOs dados de exemplo ficam na pasta dados/ do site, em arquivos CSV. O arquivo fungicida_soja.csv reúne 30 ensaios (simulados) de fungicida na soja, com as informações que normalmente extraímos de um artigo:\n\nfungicida &lt;- read_csv(\"dados/fungicida_soja.csv\")\nglimpse(fungicida)\n\nRows: 30\nColumns: 10\n$ estudo      &lt;chr&gt; \"E01\", \"E02\", \"E03\", \"E04\", \"E05\", \"E06\", \"E07\", \"E08\", \"E…\n$ ano         &lt;dbl&gt; 2022, 2018, 2010, 2015, 2022, 2020, 2021, 2013, 2014, 2021…\n$ regiao      &lt;chr&gt; \"Sul\", \"Sul\", \"Sul\", \"Norte\", \"Sul\", \"Sul\", \"Norte\", \"Sul\"…\n$ latitude    &lt;dbl&gt; 23.4, 27.9, 23.6, 16.6, 23.7, 21.2, 15.0, 24.2, 20.8, 21.8…\n$ pressao     &lt;chr&gt; \"Baixa\", \"Baixa\", \"Baixa\", \"Baixa\", \"Alta\", \"Baixa\", \"Alta…\n$ n           &lt;dbl&gt; 3, 5, 4, 4, 3, 4, 5, 4, 3, 4, 3, 5, 4, 4, 3, 4, 4, 5, 3, 4…\n$ cv          &lt;dbl&gt; 7.4, 14.6, 8.5, 12.2, 5.5, 14.7, 13.2, 10.3, 11.8, 5.6, 4.…\n$ prod_ctrl   &lt;dbl&gt; 2887, 3468, 3915, 2572, 3362, 3853, 2693, 2959, 1904, 3188…\n$ prod_trat   &lt;dbl&gt; 2899, 3908, 4398, 2481, 3738, 4433, 3179, 3636, 2413, 3556…\n$ media_geral &lt;dbl&gt; 2893.0, 3688.0, 4156.5, 2526.5, 3550.0, 4143.0, 2936.0, 32…\n\n\n\n\n\n\n\n\nExercício 3.5\n\n\n\nPara cada ensaio de fungicida, calcule \\(D\\), \\(V\\) (a partir do CV e da média geral) e \\(V_D\\).\n\n\n\n\nVer solução\nfungicida |&gt;\n  mutate(D  = prod_trat - prod_ctrl,\n         V  = v_from_cv(cv, media_geral),\n         VD = vd(V, n)) |&gt;\n  select(estudo, D, V, VD)\n\n\n# A tibble: 30 × 4\n   estudo     D       V      VD\n   &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n 1 E01       12  45831.  30554.\n 2 E02      440 289926. 115970.\n 3 E03      483 124823.  62411.\n 4 E04      -91  95008.  47504.\n 5 E05      376  38123.  25415.\n 6 E06      580 370907. 185453.\n 7 E07      486 150197.  60079.\n 8 E08      677 115357.  57679.\n 9 E09      509  64874.  43249.\n10 E10      368  35658.  17829.\n# ℹ 20 more rows\n\n\n\n\n\n\n\n\nNgugi, H. K., P. D. Esker, e H. Scherm. 2011. «Meta-analysis to determine the effects of plant disease management measures: review and case studies on soybean and apple». Phytopathology 101 (1): 31–41. https://doi.org/10.1094/PHYTO-03-10-0068.",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>3. Seleção de estudos, extração de dados e planilha</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/04-efeito-continuos.html",
+    "href": "capitulos/04-efeito-continuos.html",
+    "title": "4. Medidas de efeito: dados contínuos",
+    "section": "",
+    "text": "O que é uma medida de efeito?\nÉ a magnitude da diferença entre dois grupos (tratamento × controle) ou da associação entre duas variáveis.",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>4. Medidas de efeito: dados contínuos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/04-efeito-continuos.html#o-que-é-uma-medida-de-efeito",
+    "href": "capitulos/04-efeito-continuos.html#o-que-é-uma-medida-de-efeito",
+    "title": "4. Medidas de efeito: dados contínuos",
+    "section": "",
+    "text": "Tipo de dado\nComparação\nMedida\nescalc(measure = )\n\n\n\n\nContínuo\nTratamento × controle\nDiferença média\n\"MD\"\n\n\nContínuo\nTratamento × controle\nDiferença média padronizada\n\"SMD\"\n\n\nContínuo\nTratamento × controle\nRazão de resposta (log)\n\"ROM\"\n\n\nBinário\nTratamento × controle\nRazão de chances (log)\n\"OR\"\n\n\nBinário\nTratamento × controle\nRisco relativo (log)\n\"RR\"\n\n\nContínuo\nAssociação\nCorrelação\n\"COR\"\n\n\nContínuo\nAssociação\nZ de Fisher\n\"ZCOR\"",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>4. Medidas de efeito: dados contínuos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/04-efeito-continuos.html#diferença-média-md",
+    "href": "capitulos/04-efeito-continuos.html#diferença-média-md",
+    "title": "4. Medidas de efeito: dados contínuos",
+    "section": "Diferença média (MD)",
+    "text": "Diferença média (MD)\n\\(D = \\bar{y}_T - \\bar{y}_C\\). Use quando todos os estudos medem a resposta na mesma escala (ex.: kg/ha).",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>4. Medidas de efeito: dados contínuos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/04-efeito-continuos.html#diferença-média-padronizada-smd",
+    "href": "capitulos/04-efeito-continuos.html#diferença-média-padronizada-smd",
+    "title": "4. Medidas de efeito: dados contínuos",
+    "section": "Diferença média padronizada (SMD)",
+    "text": "Diferença média padronizada (SMD)\nQuando os estudos usam escalas diferentes (notas × percentual), padroniza-se pela variabilidade combinada (d de Cohen). O argumento \"SMD\" do escalc() aplica a correção para amostras pequenas e retorna o g de Hedges.",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>4. Medidas de efeito: dados contínuos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/04-efeito-continuos.html#razão-de-resposta-rom",
+    "href": "capitulos/04-efeito-continuos.html#razão-de-resposta-rom",
+    "title": "4. Medidas de efeito: dados contínuos",
+    "section": "Razão de resposta (ROM)",
+    "text": "Razão de resposta (ROM)\nQuando interessa a diferença relativa. Como a razão não tem boa distribuição, usa-se o log natural:\n\\[\\ln RR = \\ln\\left(\\frac{\\bar{y}_T}{\\bar{y}_C}\\right) = \\ln \\bar{y}_T - \\ln \\bar{y}_C\\]\nA variável precisa ter um zero natural.\n\nExemplo: tebuconazol e giberela do trigo\nA eficácia de controle é obtida da razão de resposta: \\(C = (1 - e^{\\ln RR}) \\times 100\\). Se a severidade no tratado é 20% da testemunha, \\(\\ln RR = \\ln 0{,}2\\) e \\(C = 80\\%\\).",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>4. Medidas de efeito: dados contínuos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/04-efeito-continuos.html#no-r",
+    "href": "capitulos/04-efeito-continuos.html#no-r",
+    "title": "4. Medidas de efeito: dados contínuos",
+    "section": "No R",
+    "text": "No R\nA função escalc() precisa de média, desvio padrão e n de cada grupo. Quando o artigo traz apenas o CV, usamos \\(\\sqrt{V} = \\frac{CV}{100}\\bar{Y}\\) como desvio padrão dos dois grupos, o que resulta em \\(V_D = 2V/n\\) (capítulo 3).\n\nfungicida &lt;- read_csv(\"dados/fungicida_soja.csv\") |&gt;\n  mutate(sd = cv / 100 * media_geral)\n\ndat_md &lt;- escalc(measure = \"MD\",\n                 m1i = prod_trat, sd1i = sd, n1i = n,\n                 m2i = prod_ctrl, sd2i = sd, n2i = n,\n                 data = fungicida)\ndat_md |&gt; select(estudo, yi, vi)\n\n\n   estudo        yi          vi \n1     E01   12.0000  30554.0685 \n2     E02  440.0000 115970.4995 \n3     E03  483.0000  62411.3283 \n4     E04  -91.0000  47503.7911 \n5     E05  376.0000  25415.0417 \n6     E06  580.0000 185453.2892 \n7     E07  486.0000  60078.6211 \n8     E08  677.0000  57678.5139 \n9     E09  509.0000  43249.0788 \n10    E10  368.0000  17828.7621 \n11    E11  434.0000   9528.7726 \n12    E12  328.0000   6708.5144 \n13    E13  565.0000  97106.9229 \n14    E14  113.0000  61396.9130 \n15    E15  703.0000  16115.0874 \n16    E16  149.0000  21809.5790 \n17    E17  237.0000  17644.1870 \n18    E18  252.0000  22564.4000 \n19    E19   27.0000  15635.3898 \n20    E20  414.0000  59582.5556 \n21    E21  184.0000  13200.4742 \n22    E22 -246.0000  56404.9065 \n23    E23  -79.0000  47611.4784 \n24    E24  281.0000  76292.9688 \n25    E25  140.0000  70922.4421 \n26    E26  168.0000  11551.5695 \n27    E27  452.0000  17454.0128 \n28    E28   17.0000  14946.0486 \n29    E29  224.0000  63017.0017 \n30    E30  589.0000   9845.9144 \n\n\n\n\n\n\n\n\nExercício 4.1\n\n\n\nRecalcule o efeito com measure = \"SMD\" e measure = \"ROM\". Para o ROM, converta yi em ganho percentual: \\((e^{y_i} - 1) \\times 100\\).\n\n\n\n\nVer solução\ndat_rom &lt;- escalc(measure = \"ROM\",\n                  m1i = prod_trat, sd1i = sd, n1i = n,\n                  m2i = prod_ctrl, sd2i = sd, n2i = n,\n                  data = fungicida)\ndat_rom |&gt;\n  mutate(ganho_pct = (exp(yi) - 1) * 100) |&gt;\n  select(estudo, yi, vi, ganho_pct)\n\n\n\n   estudo      yi     vi  ganho_pct \n1     E01  0.0041 0.0037  0.4148961 \n2     E02  0.1189 0.0086 12.6297170 \n3     E03  0.1161 0.0036 12.3134285 \n4     E04 -0.0359 0.0074 -3.5251652 \n5     E05  0.1059 0.0020 11.1718787 \n6     E06  0.1395 0.0110 14.9653664 \n7     E07  0.1653 0.0071 17.9777710 \n8     E08  0.2055 0.0055 22.8110264 \n9     E09  0.2358 0.0097 26.5906279 \n10    E10  0.1092 0.0016 11.5336869 \n11    E11  0.1673 0.0014 18.2058637 \n12    E12  0.1217 0.0009 12.9375881 \n13    E13  0.1816 0.0103 19.9164094 \n14    E14  0.0325 0.0051  3.3022850 \n15    E15  0.2406 0.0020 27.1975733 \n16    E16  0.0399 0.0016  4.0733449 \n17    E17  0.0706 0.0016  7.3178972 \n18    E18  0.0827 0.0024  8.6221171 \n19    E19  0.0085 0.0015  0.8492029 \n20    E20  0.1305 0.0060 13.9418559 \n21    E21  0.0693 0.0019  7.1721156 \n22    E22 -0.0797 0.0060 -7.6630627 \n23    E23 -0.0236 0.0043 -2.3323494 \n24    E24  0.0967 0.0092 10.1580629 \n25    E25  0.0433 0.0069  4.4302966 \n26    E26  0.0534 0.0012  5.4815300 \n27    E27  0.1429 0.0018 15.3648789 \n28    E28  0.0068 0.0024  0.6827314 \n29    E29  0.0625 0.0049  6.4519027 \n30    E30  0.2336 0.0016 26.3184503 \n\n\n\n\n\n\n\n\nExercício 4.2 (eficácia de controle)\n\n\n\nO arquivo giberela_tebuconazol.csv traz a severidade (%) média e o desvio padrão em parcelas tratadas com tebuconazol e testemunhas. Calcule o log da razão de resposta e a eficácia de controle de cada ensaio.\n\n\n\n\nVer solução\ngiberela &lt;- read_csv(\"dados/giberela_tebuconazol.csv\")\n\ndat_gib &lt;- escalc(measure = \"ROM\",\n                  m1i = sev_trat, sd1i = sd_trat, n1i = n,\n                  m2i = sev_ctrl, sd2i = sd_ctrl, n2i = n,\n                  data = giberela)\n\ndat_gib |&gt;\n  mutate(eficacia = (1 - exp(yi)) * 100) |&gt;\n  select(estudo, yi, vi, eficacia)\n\n\n\n   estudo      yi     vi eficacia \n1     G01 -0.8531 0.0350 57.39102 \n2     G02 -0.6855 0.0565 49.61476 \n3     G03 -0.6763 0.0596 49.15137 \n4     G04 -0.6926 0.0323 49.97064 \n5     G05 -0.9434 0.0193 61.06871 \n6     G06 -0.5997 0.0437 45.10405 \n7     G07 -1.3681 0.0377 74.54081 \n8     G08 -0.6453 0.0377 47.55095 \n9     G09 -0.7019 0.0423 50.43492 \n10    G10 -0.2882 0.0342 25.03744 \n11    G11 -0.7292 0.0200 51.77143 \n12    G12 -0.7735 0.0218 53.86083 \n13    G13 -0.4919 0.0400 38.85187 \n14    G14 -0.6161 0.0215 45.99528 \n15    G15 -0.7949 0.0504 54.83778 \n16    G16 -0.8031 0.0260 55.20621 \n17    G17 -0.7492 0.0526 52.72666 \n18    G18 -1.0691 0.0372 65.66931 \n19    G19 -0.4858 0.0221 38.47932 \n20    G20 -0.9372 0.0214 60.82680 \n\n\nA eficácia média será estimada no capítulo 7.",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>4. Medidas de efeito: dados contínuos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/05-efeito-binarios.html",
+    "href": "capitulos/05-efeito-binarios.html",
+    "title": "5. Medidas de efeito: dados binários",
+    "section": "",
+    "text": "Definições\nTabela 2 × 2:\nAmbos são analisados na escala log.",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5. Medidas de efeito: dados binários</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/05-efeito-binarios.html#definições",
+    "href": "capitulos/05-efeito-binarios.html#definições",
+    "title": "5. Medidas de efeito: dados binários",
+    "section": "",
+    "text": "Risco (probabilidade): eventos ÷ total sob risco. Ex.: 13 espadas em 52 cartas → 0,25.\nChance (odds): probabilidade de o evento ocorrer ÷ probabilidade de não ocorrer. Ex.: 0,25 / 0,75 = 0,33.\n\n\n\n\n\n\nEvento\nNão evento\n\n\n\n\nTratamento\na\nb\n\n\nControle\nc\nd\n\n\n\n\nRazão de chances: \\(OR = \\dfrac{a/b}{c/d}\\). Eventos independentes têm OR = 1.\nRisco relativo: \\(RR = \\dfrac{a/(a+b)}{c/(c+d)}\\).",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5. Medidas de efeito: dados binários</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/05-efeito-binarios.html#no-r",
+    "href": "capitulos/05-efeito-binarios.html#no-r",
+    "title": "5. Medidas de efeito: dados binários",
+    "section": "No R",
+    "text": "No R\nO arquivo tombamento_sementes.csv traz o número de plântulas com tombamento (doentes) e sadias em parcelas com sementes tratadas e não tratadas (dados simulados):\n\ntombamento &lt;- read_csv(\"dados/tombamento_sementes.csv\")\n\ndat_rr &lt;- escalc(measure = \"RR\",\n                 ai = doentes_trat, bi = sadias_trat,\n                 ci = doentes_ctrl, di = sadias_ctrl,\n                 data = tombamento)\ndat_rr |&gt; select(estudo, yi, vi)\n\n\n   estudo      yi     vi \n1     T01 -1.0678 0.1122 \n2     T02 -0.7191 0.0583 \n3     T03 -0.7456 0.0177 \n4     T04 -0.2831 0.0219 \n5     T05 -1.2993 0.1921 \n6     T06 -0.5390 0.1031 \n7     T07  0.4925 0.1265 \n8     T08 -0.7583 0.0232 \n9     T09 -0.4916 0.0206 \n10    T10 -0.4463 0.0413 \n11    T11 -0.3102 0.1476 \n12    T12 -0.8056 0.0294 \n13    T13 -0.2584 0.0177 \n14    T14 -0.5306 0.1388 \n15    T15 -1.4351 0.2376 \n\n\n\n\n\n\n\n\nExercício 5.1\n\n\n\nRecalcule com measure = \"OR\". Compare exp(yi) de OR e RR, ordenando os estudos pela incidência na testemunha. Quando eles divergem?\n\n\n\n\nVer solução\ndat_or &lt;- escalc(measure = \"OR\",\n                 ai = doentes_trat, bi = sadias_trat,\n                 ci = doentes_ctrl, di = sadias_ctrl,\n                 data = tombamento)\n\ntombamento |&gt;\n  mutate(incid_ctrl = doentes_ctrl / (doentes_ctrl + sadias_ctrl),\n         RR = exp(dat_rr$yi),\n         OR = exp(dat_or$yi)) |&gt;\n  select(estudo, incid_ctrl, RR, OR) |&gt;\n  arrange(desc(incid_ctrl))\n\n\n# A tibble: 15 × 4\n   estudo incid_ctrl    RR    OR\n   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 T02         0.39  0.487 0.367\n 2 T04         0.365 0.753 0.660\n 3 T03         0.342 0.474 0.372\n 4 T08         0.278 0.468 0.389\n 5 T09         0.258 0.612 0.539\n 6 T13         0.252 0.772 0.717\n 7 T10         0.25  0.64  0.571\n 8 T12         0.235 0.447 0.382\n 9 T05         0.22  0.273 0.226\n10 T14         0.17  0.588 0.542\n11 T01         0.16  0.344 0.306\n12 T06         0.12  0.583 0.552\n13 T07         0.11  1.64  1.78 \n14 T15         0.105 0.238 0.219\n15 T11         0.075 0.733 0.718\n\n\nQuanto maior a incidência, mais o OR se afasta do RR. Com eventos raros, os dois são praticamente iguais.",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5. Medidas de efeito: dados binários</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/06-correlacao.html",
+    "href": "capitulos/06-correlacao.html",
+    "title": "6. Medidas de efeito: correlação",
+    "section": "",
+    "text": "Quando não há comparação entre tratamentos\nQuando o interesse é a associação entre duas respostas, a medida de efeito é o r de Pearson. Como sua distribuição é assimétrica, usa-se o Z de Fisher:\n\\[z = \\frac{1}{2}\\ln\\left(\\frac{1 + r}{1 - r}\\right), \\qquad v_z = \\frac{1}{n - 3}\\]\nem que \\(n\\) é o número de pares.",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>6. Medidas de efeito: correlação</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/06-correlacao.html#exemplo",
+    "href": "capitulos/06-correlacao.html#exemplo",
+    "title": "6. Medidas de efeito: correlação",
+    "section": "Exemplo",
+    "text": "Exemplo\n\nQual é a magnitude da associação entre a severidade da ferrugem asiática e a produtividade da soja?\n\nCada estudo fornece parcelas com severidade e produtividade. Primeiro calculamos r por estudo, depois combinamos.\n\nparcelas &lt;- read_csv(\"dados/ferrugem_parcelas.csv\")\nparcelas\n\n# A tibble: 207 × 5\n   estudo altitude parcela severidade produtividade\n   &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;\n 1 F01    Baixa          1       62            1678\n 2 F01    Baixa          2       57.7          1818\n 3 F01    Baixa          3       72.3          1813\n 4 F01    Baixa          4       54.9          2255\n 5 F01    Baixa          5       79.5          1726\n 6 F01    Baixa          6       54.6          2081\n 7 F01    Baixa          7       12.3          3441\n 8 F01    Baixa          8       51.3          2513\n 9 F01    Baixa          9       31.1          2524\n10 F01    Baixa         10       71.1          2155\n# ℹ 197 more rows\n\ndat_cor &lt;- parcelas |&gt;\n  group_by(estudo, altitude) |&gt;\n  summarise(r = cor(severidade, produtividade), n = n(), .groups = \"drop\")\n\ndat_cor &lt;- escalc(measure = \"ZCOR\", ri = r, ni = n, data = dat_cor)\ndat_cor\n\n\n   estudo altitude          r  n      yi     vi \n1     F01    Baixa -0.8782250 11 -1.3680 0.1250 \n2     F02     Alta -0.8069201 13 -1.1181 0.1000 \n3     F03     Alta -0.8420775 14 -1.2283 0.0909 \n4     F04     Alta -0.8086075 20 -1.1230 0.0588 \n5     F05     Alta -0.8958763 20 -1.4509 0.0588 \n6     F06     Alta -0.8733123 14 -1.3469 0.0909 \n7     F07     Alta -0.9733852  9 -2.1530 0.1667 \n8     F08    Baixa -0.8149898 11 -1.1417 0.1250 \n9     F09     Alta -0.8513032 20 -1.2609 0.0588 \n10    F10    Baixa -0.9093191 10 -1.5236 0.1429 \n11    F11     Alta -0.9452282  9 -1.7850 0.1667 \n12    F12    Baixa -0.8727501  8 -1.3445 0.2000 \n13    F13     Alta -0.4490753 15 -0.4835 0.0833 \n14    F14    Baixa -0.9187212 14 -1.5808 0.0909 \n15    F15    Baixa -0.8997987 19 -1.4712 0.0625 \n\n\n\n\n\n\n\n\nExercício 6.1\n\n\n\nFaça um histograma de r e de yi (Z). Qual das duas distribuições é mais simétrica?\n\n\n\n\nVer solução\ndat_cor |&gt;\n  as_tibble() |&gt;\n  pivot_longer(c(r, yi), names_to = \"escala\") |&gt;\n  ggplot(aes(value)) +\n  geom_histogram(bins = 8) +\n  facet_wrap(~escala, scales = \"free_x\")\n\n\n\n\n\n\n\n\n\nA volta para a escala de r é feita depois do modelo, com predict(modelo, transf = transf.ztor) (capítulo 7).",
+    "crumbs": [
+      "Parte II · Medidas de efeito",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>6. Medidas de efeito: correlação</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/07-modelos.html",
+    "href": "capitulos/07-modelos.html",
+    "title": "7. Modelos de efeito fixo e aleatório",
+    "section": "",
+    "text": "Modelo de efeito fixo\nHá um efeito verdadeiro comum a todos os estudos. A variação observada é apenas erro amostral:\n\\[y_i = \\theta + \\varepsilon_i, \\qquad \\varepsilon_i \\sim N(0, v_i)\\]\nO efeito sumário é a média ponderada com \\(w_i = 1/v_i\\).",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>7. Modelos de efeito fixo e aleatório</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/07-modelos.html#modelo-de-efeitos-aleatórios",
+    "href": "capitulos/07-modelos.html#modelo-de-efeitos-aleatórios",
+    "title": "7. Modelos de efeito fixo e aleatório",
+    "section": "Modelo de efeitos aleatórios",
+    "text": "Modelo de efeitos aleatórios\n\nO efeito verdadeiro varia de um estudo para outro.\nOs estudos são uma amostra aleatória da população de estudos possíveis.\n\n\\[y_i = \\mu + u_i + \\varepsilon_i, \\qquad u_i \\sim N(0, \\tau^2)\\]\nHá duas fontes de variação: dentro do estudo (\\(v_i\\)) e entre estudos (\\(\\tau^2\\)). Os pesos passam a ser \\(w_i = 1/(v_i + \\tau^2)\\). \\(\\tau^2\\) pode ser estimado por vários métodos (DL, REML etc.).",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>7. Modelos de efeito fixo e aleatório</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/07-modelos.html#no-r",
+    "href": "capitulos/07-modelos.html#no-r",
+    "title": "7. Modelos de efeito fixo e aleatório",
+    "section": "No R",
+    "text": "No R\nO fluxo mínimo no metafor:\ndat &lt;- escalc(...)          # yi e vi\nm   &lt;- rma(yi, vi, data = dat)\nforest(m)\nCom os ensaios de fungicida na soja (capítulo 4):\n\nfungicida &lt;- read_csv(\"dados/fungicida_soja.csv\") |&gt;\n  mutate(sd = cv / 100 * media_geral)\ndat &lt;- escalc(measure = \"MD\",\n              m1i = prod_trat, sd1i = sd, n1i = n,\n              m2i = prod_ctrl, sd2i = sd, n2i = n,\n              data = fungicida, slab = estudo)\n\nm_fixo  &lt;- rma(yi, vi, data = dat, method = \"FE\")\nm_aleat &lt;- rma(yi, vi, data = dat, method = \"REML\")\n\nm_aleat\n\n\nRandom-Effects Model (k = 30; tau^2 estimator: REML)\n\ntau^2 (estimated amount of total heterogeneity): 25306.4769 (SE = 13859.6678)\ntau (square root of estimated tau^2 value):      159.0801\nI^2 (total heterogeneity / total variability):   51.28%\nH^2 (total variability / sampling variability):  2.05\n\nTest for Heterogeneity:\nQ(df = 29) = 57.7777, p-val = 0.0012\n\nModel Results:\n\nestimate       se    zval    pval     ci.lb     ci.ub      \n288.1720  43.4873  6.6266  &lt;.0001  202.9385  373.4056  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\npredict(m_aleat)\n\n\n     pred      se    ci.lb    ci.ub    pi.lb    pi.ub \n 288.1720 43.4873 202.9385 373.4056 -35.0594 611.4035 \n\n\nO ganho médio estimado é de 288 kg/ha.\n\nforest(m_aleat, showweights = TRUE, refline = 0,\n       xlab = \"Diferença de produtividade (kg/ha)\",\n       header = c(\"Ensaio\", \"D [IC 95%]\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExercício 7.1\n\n\n\nCompare os pesos dos ensaios nos dois modelos (weights(m_fixo) e weights(m_aleat)). O que acontece com os ensaios mais precisos?\n\n\n\n\nVer solução\ntibble(estudo = dat$estudo, vi = dat$vi,\n       peso_fixo = weights(m_fixo),\n       peso_aleat = weights(m_aleat)) |&gt;\n  arrange(vi)\n\n\n# A tibble: 30 × 4\n   estudo     vi peso_fixo peso_aleat\n   &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 E12     6709.     11.7        5.91\n 2 E11     9529.      8.22       5.43\n 3 E30     9846.      7.96       5.38\n 4 E26    11552.      6.78       5.13\n 5 E21    13200.      5.93       4.91\n 6 E28    14946.      5.24       4.70\n 7 E19    15635.      5.01       4.62\n 8 E15    16115.      4.86       4.57\n 9 E27    17454.      4.49       4.42\n10 E17    17644.      4.44       4.40\n# ℹ 20 more rows\n\n\nNo modelo aleatório os pesos ficam mais parecidos entre si, porque \\(\\tau^2\\) é somado à variância de todos os ensaios.\n\n\n\n\n\n\nExercício 7.2\n\n\n\nEstime a eficácia média do tebuconazol (capítulo 4, giberela_tebuconazol.csv). Lembre que o modelo é ajustado na escala log: transforme o resultado com transf = function(x) (1 - exp(x)) * 100.\n\n\n\n\nVer solução\ngiberela &lt;- read_csv(\"dados/giberela_tebuconazol.csv\")\ndat_gib &lt;- escalc(measure = \"ROM\",\n                  m1i = sev_trat, sd1i = sd_trat, n1i = n,\n                  m2i = sev_ctrl, sd2i = sd_ctrl, n2i = n,\n                  data = giberela)\nm_gib &lt;- rma(yi, vi, data = dat_gib)\npredict(m_gib, transf = function(x) (1 - exp(x)) * 100)\n\n\n\n    pred   ci.lb   ci.ub   pi.lb   pi.ub \n 52.8532 47.9338 57.3078 37.3569 64.5162 \n\n\nNote que os limites do IC aparecem invertidos (inferior &gt; superior), porque a transformação é decrescente.\n\n\n\n\n\n\nExercício 7.3\n\n\n\nAjuste o modelo aleatório aos dados de correlação do capítulo 6 e transforme o resultado de volta para r com transf = transf.ztor.\n\n\n\n\nVer solução\ndat_cor &lt;- read_csv(\"dados/ferrugem_parcelas.csv\") |&gt;\n  group_by(estudo, altitude) |&gt;\n  summarise(r = cor(severidade, produtividade), n = n(), .groups = \"drop\") |&gt;\n  escalc(measure = \"ZCOR\", ri = r, ni = n, data = _)\nm_cor &lt;- rma(yi, vi, data = dat_cor)\npredict(m_cor, transf = transf.ztor)\n\n\n\n    pred   ci.lb   ci.ub   pi.lb   pi.ub \n -0.8659 -0.9023 -0.8171 -0.9238 -0.7691",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>7. Modelos de efeito fixo e aleatório</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/08-heterogeneidade.html",
+    "href": "capitulos/08-heterogeneidade.html",
+    "title": "8. Heterogeneidade",
+    "section": "",
+    "text": "Medidas de heterogeneidade",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>8. Heterogeneidade</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/08-heterogeneidade.html#medidas-de-heterogeneidade",
+    "href": "capitulos/08-heterogeneidade.html#medidas-de-heterogeneidade",
+    "title": "8. Heterogeneidade",
+    "section": "",
+    "text": "Q de Cochran: teste de hipótese baseado na distribuição qui-quadrado; um p-valor pequeno indica mais variação entre estudos do que o esperado pelo erro amostral.\n\\(\\tau^2\\): variância dos efeitos verdadeiros (na escala do efeito).\n\\(I^2\\): proporção da variação total atribuída à heterogeneidade.\nIntervalo de predição: onde esperamos o efeito de um novo estudo.",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>8. Heterogeneidade</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/08-heterogeneidade.html#no-r",
+    "href": "capitulos/08-heterogeneidade.html#no-r",
+    "title": "8. Heterogeneidade",
+    "section": "No R",
+    "text": "No R\nUsando os ensaios de fungicida (fungicida_soja.csv):\n\nm\n\n\nRandom-Effects Model (k = 30; tau^2 estimator: REML)\n\ntau^2 (estimated amount of total heterogeneity): 25306.4769 (SE = 13859.6678)\ntau (square root of estimated tau^2 value):      159.0801\nI^2 (total heterogeneity / total variability):   51.28%\nH^2 (total variability / sampling variability):  2.05\n\nTest for Heterogeneity:\nQ(df = 29) = 57.7777, p-val = 0.0012\n\nModel Results:\n\nestimate       se    zval    pval     ci.lb     ci.ub      \n288.1720  43.4873  6.6266  &lt;.0001  202.9385  373.4056  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nconfint(m)   # IC para tau², I² e H²\n\n\n         estimate     ci.lb      ci.ub \ntau^2  25306.4769 5155.4118 64144.4106 \ntau      159.0801   71.8012   253.2675 \nI^2(%)    51.2848   17.6592    72.7402 \nH^2        2.0527    1.2145     3.6684 \n\npredict(m)   # pi.lb e pi.ub = intervalo de predição\n\n\n     pred      se    ci.lb    ci.ub    pi.lb    pi.ub \n 288.1720 43.4873 202.9385 373.4056 -35.0594 611.4035",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>8. Heterogeneidade</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/08-heterogeneidade.html#representação-gráfica",
+    "href": "capitulos/08-heterogeneidade.html#representação-gráfica",
+    "title": "8. Heterogeneidade",
+    "section": "Representação gráfica",
+    "text": "Representação gráfica\n\nforest(m, refline = 0, addpred = TRUE,\n       xlab = \"Diferença de produtividade (kg/ha)\",\n       header = c(\"Ensaio\", \"D [IC 95%]\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExercício 8.1\n\n\n\nSimule 15 estudos com \\(\\tau^2 = 0\\) e outros 15 com \\(\\tau^2 = 0{,}1\\). Compare \\(Q\\), \\(I^2\\) e o intervalo de predição.\n\n\n\n\nVer solução\nsimula &lt;- function(k, mu, tau2) {\n  vi &lt;- runif(k, 0.01, 0.05)\n  yi &lt;- rnorm(k, mu + rnorm(k, 0, sqrt(tau2)), sqrt(vi))\n  rma(yi, vi)\n}\nsimula(15, 0.3, 0)\n\n\n\nRandom-Effects Model (k = 15; tau^2 estimator: REML)\n\ntau^2 (estimated amount of total heterogeneity): 0.0000 (SE = 0.0076)\ntau (square root of estimated tau^2 value):      0.0018\nI^2 (total heterogeneity / total variability):   0.01%\nH^2 (total variability / sampling variability):  1.00\n\nTest for Heterogeneity:\nQ(df = 14) = 16.4358, p-val = 0.2875\n\nModel Results:\n\nestimate      se    zval    pval   ci.lb   ci.ub      \n  0.1868  0.0381  4.9003  &lt;.0001  0.1121  0.2615  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nVer solução\nsimula(15, 0.3, 0.1)\n\n\n\nRandom-Effects Model (k = 15; tau^2 estimator: REML)\n\ntau^2 (estimated amount of total heterogeneity): 0.0502 (SE = 0.0303)\ntau (square root of estimated tau^2 value):      0.2241\nI^2 (total heterogeneity / total variability):   65.27%\nH^2 (total variability / sampling variability):  2.88\n\nTest for Heterogeneity:\nQ(df = 14) = 41.3327, p-val = 0.0002\n\nModel Results:\n\nestimate      se    zval    pval   ci.lb   ci.ub     \n  0.2127  0.0735  2.8941  0.0038  0.0687  0.3568  ** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>8. Heterogeneidade</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/09-moderadores.html",
+    "href": "capitulos/09-moderadores.html",
+    "title": "9. Subgrupos e meta-regressão",
+    "section": "",
+    "text": "Quando há heterogeneidade\nPodemos tentar explicá-la com características dos estudos (moderadoras), em um modelo de efeitos mistos:\nExemplos em fitopatologia: Ngugi, Esker, e Scherm (2011), Paul, Lipps, e Madden (2005), Paul et al. (2011).",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>9. Subgrupos e meta-regressão</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/09-moderadores.html#quando-há-heterogeneidade",
+    "href": "capitulos/09-moderadores.html#quando-há-heterogeneidade",
+    "title": "9. Subgrupos e meta-regressão",
+    "section": "",
+    "text": "Análise de subgrupos: moderadora categórica (região, cultivar, pressão de doença).\nMeta-regressão: moderadora contínua (latitude, ano, severidade na testemunha).",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>9. Subgrupos e meta-regressão</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/09-moderadores.html#subgrupos",
+    "href": "capitulos/09-moderadores.html#subgrupos",
+    "title": "9. Subgrupos e meta-regressão",
+    "section": "Subgrupos",
+    "text": "Subgrupos\nNos ensaios de fungicida, a resposta difere entre regiões ou entre níveis de pressão de doença?\n\nm_sub &lt;- rma(yi, vi, mods = ~ pressao, data = dat)\nm_sub\n\n\nMixed-Effects Model (k = 30; tau^2 estimator: REML)\n\ntau^2 (estimated amount of residual heterogeneity):     4425.8075 (SE = 7022.7929)\ntau (square root of estimated tau^2 value):             66.5267\nI^2 (residual heterogeneity / unaccounted variability): 15.23%\nH^2 (unaccounted variability / sampling variability):   1.18\nR^2 (amount of heterogeneity accounted for):            82.51%\n\nTest for Residual Heterogeneity:\nQE(df = 28) = 30.3691, p-val = 0.3458\n\nTest of Moderators (coefficient 2):\nQM(df = 1) = 21.7958, p-val &lt; .0001\n\nModel Results:\n\n               estimate       se     zval    pval      ci.lb      ci.ub      \nintrcpt        451.2300  46.0105   9.8071  &lt;.0001   361.0512   541.4088  *** \npressaoBaixa  -296.8731  63.5894  -4.6686  &lt;.0001  -421.5060  -172.2401  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nO teste QM (Test of Moderators) indica se a moderadora explica parte da heterogeneidade. Para obter a média de cada grupo, retire o intercepto:\n\nrma(yi, vi, mods = ~ pressao - 1, data = dat)\n\n\nMixed-Effects Model (k = 30; tau^2 estimator: REML)\n\ntau^2 (estimated amount of residual heterogeneity):     4425.8075 (SE = 7022.7929)\ntau (square root of estimated tau^2 value):             66.5267\nI^2 (residual heterogeneity / unaccounted variability): 15.23%\nH^2 (unaccounted variability / sampling variability):   1.18\n\nTest for Residual Heterogeneity:\nQE(df = 28) = 30.3691, p-val = 0.3458\n\nTest of Moderators (coefficients 1:2):\nQM(df = 2) = 108.5462, p-val &lt; .0001\n\nModel Results:\n\n              estimate       se    zval    pval     ci.lb     ci.ub      \npressaoAlta   451.2300  46.0105  9.8071  &lt;.0001  361.0512  541.4088  *** \npressaoBaixa  154.3569  43.8936  3.5166  0.0004   68.3270  240.3869  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>9. Subgrupos e meta-regressão</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/09-moderadores.html#meta-regressão",
+    "href": "capitulos/09-moderadores.html#meta-regressão",
+    "title": "9. Subgrupos e meta-regressão",
+    "section": "Meta-regressão",
+    "text": "Meta-regressão\n\nm_reg &lt;- rma(yi, vi, mods = ~ latitude, data = dat)\nm_reg\n\n\nMixed-Effects Model (k = 30; tau^2 estimator: REML)\n\ntau^2 (estimated amount of residual heterogeneity):     24338.9085 (SE = 13847.8759)\ntau (square root of estimated tau^2 value):             156.0093\nI^2 (residual heterogeneity / unaccounted variability): 49.94%\nH^2 (unaccounted variability / sampling variability):   2.00\nR^2 (amount of heterogeneity accounted for):            3.82%\n\nTest for Residual Heterogeneity:\nQE(df = 28) = 54.5882, p-val = 0.0019\n\nTest of Moderators (coefficient 2):\nQM(df = 1) = 1.6462, p-val = 0.1995\n\nModel Results:\n\n          estimate        se     zval    pval      ci.lb     ci.ub    \nintrcpt   -26.1999  248.8785  -0.1053  0.9162  -513.9928  461.5931    \nlatitude   14.7919   11.5288   1.2830  0.1995    -7.8041   37.3879    \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\nregplot(m_reg, xlab = \"Latitude (°S)\",\n        ylab = \"Diferença de produtividade (kg/ha)\")\n\n\n\n\n\n\n\n\nA mesma figura com ggplot2 (tamanho do ponto ∝ peso):\n\ndat |&gt;\n  as_tibble() |&gt;\n  ggplot(aes(latitude, yi, size = 1 / vi)) +\n  geom_point(shape = 1) +\n  geom_abline(intercept = coef(m_reg)[1], slope = coef(m_reg)[2]) +\n  labs(x = \"Latitude (°S)\", y = \"Diferença de produtividade (kg/ha)\",\n       size = \"Peso\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExercício 9.1\n\n\n\nAjuste modelos com regiao, latitude + pressao e ano. Quanto da heterogeneidade (\\(R^2\\)) cada um explica? Qual faz mais sentido agronômico?\n\n\n\n\nVer solução\ntibble(\n  modelo = c(\"regiao\", \"latitude\", \"latitude + pressao\", \"ano\"),\n  R2 = c(rma(yi, vi, mods = ~ regiao, data = dat)$R2,\n         m_reg$R2,\n         rma(yi, vi, mods = ~ latitude + pressao, data = dat)$R2,\n         rma(yi, vi, mods = ~ ano, data = dat)$R2)\n)\n\n\n# A tibble: 4 × 2\n  modelo                 R2\n  &lt;chr&gt;               &lt;dbl&gt;\n1 regiao               9.62\n2 latitude             3.82\n3 latitude + pressao 100   \n4 ano                  0   \n\n\n\n\n\n\n\n\nNgugi, H. K., P. D. Esker, e H. Scherm. 2011. «Meta-analysis to determine the effects of plant disease management measures: review and case studies on soybean and apple». Phytopathology 101 (1): 31–41. https://doi.org/10.1094/PHYTO-03-10-0068.\n\n\nPaul, P. A., P. E. Lipps, e L. V. Madden. 2005. «Relationship between visual estimates of Fusarium head blight intensity and deoxynivalenol accumulation in harvested wheat grain: a meta-analysis». Phytopathology 95: 1225–36.\n\n\nPaul, P. A., L. V. Madden, C. A. Bradley, A. E. Robertson, G. P. Munkvold, G. Shaner, K. A. Wise, et al. 2011. «Meta-analysis of yield response of hybrid field corn to foliar fungicides in the U.S. Corn Belt». Phytopathology 101: 1122–32.",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>9. Subgrupos e meta-regressão</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/10-apresentacao.html",
+    "href": "capitulos/10-apresentacao.html",
+    "title": "10. Tabelas e gráficos",
+    "section": "",
+    "text": "Tabela com estatísticas\nUma boa tabela traz, por subgrupo: número de estudos (\\(k\\)), efeito médio, IC 95%, \\(\\tau^2\\), \\(I^2\\) e o teste \\(Q\\) (ver Paul, Lipps, e Madden 2005; Paul et al. 2011).\najusta &lt;- function(d) {\n  m &lt;- rma(yi, vi, data = d)\n  p &lt;- predict(m)\n  tibble(k = m$k, D = p$pred, ic_inf = p$ci.lb, ic_sup = p$ci.ub,\n         tau2 = m$tau2, I2 = m$I2, Q = m$QE, p_Q = m$QEp)\n}\n\ntabela &lt;- dat |&gt;\n  as_tibble() |&gt;\n  group_by(pressao) |&gt;\n  group_modify(~ ajusta(.x))\n\ntabela\n\n# A tibble: 2 × 9\n# Groups:   pressao [2]\n  pressao     k     D ic_inf ic_sup  tau2    I2     Q   p_Q\n  &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Alta       12  453.  353.    553. 8842.  30.8  14.1 0.230\n2 Baixa      18  154.   76.4   232.    0    0    16.3 0.501",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>10. Tabelas e gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/10-apresentacao.html#forest-simplificado-por-subgrupo",
+    "href": "capitulos/10-apresentacao.html#forest-simplificado-por-subgrupo",
+    "title": "10. Tabelas e gráficos",
+    "section": "Forest simplificado por subgrupo",
+    "text": "Forest simplificado por subgrupo\n\ntabela |&gt;\n  ggplot(aes(D, pressao)) +\n  geom_vline(xintercept = 0, linetype = 2) +\n  geom_errorbar(aes(xmin = ic_inf, xmax = ic_sup), width = 0.1) +\n  geom_point(aes(size = k)) +\n  labs(x = \"Diferença de produtividade (kg/ha, IC 95%)\",\n       y = \"Pressão de doença\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExercício 10.1\n\n\n\nMonte a mesma tabela e o mesmo gráfico agrupando os ensaios por regiao.\n\n\n\n\n\n\n\n\nPaul, P. A., P. E. Lipps, e L. V. Madden. 2005. «Relationship between visual estimates of Fusarium head blight intensity and deoxynivalenol accumulation in harvested wheat grain: a meta-analysis». Phytopathology 95: 1225–36.\n\n\nPaul, P. A., L. V. Madden, C. A. Bradley, A. E. Robertson, G. P. Munkvold, G. Shaner, K. A. Wise, et al. 2011. «Meta-analysis of yield response of hybrid field corn to foliar fungicides in the U.S. Corn Belt». Phytopathology 101: 1122–32.",
+    "crumbs": [
+      "Parte III · Modelos",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>10. Tabelas e gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/11-vies-publicacao.html",
+    "href": "capitulos/11-vies-publicacao.html",
+    "title": "11. Viés de publicação",
+    "section": "",
+    "text": "O problema\nEstudos com resultados significativos têm mais chance de serem publicados (e publicados mais rápido) do que estudos com resultados nulos. Se os estudos pequenos e “não significativos” ficam na gaveta, a média da metanálise fica superestimada. Na agricultura isso aparece, por exemplo, quando ensaios de produtos sem resposta não são divulgados.\nFormas de reduzir o problema na revisão sistemática:",
+    "crumbs": [
+      "Parte IV · Tópicos avançados",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>11. Viés de publicação</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/11-vies-publicacao.html#o-problema",
+    "href": "capitulos/11-vies-publicacao.html#o-problema",
+    "title": "11. Viés de publicação",
+    "section": "",
+    "text": "incluir literatura cinzenta (teses, anais, relatórios técnicos);\nbuscar redes de ensaios cooperativos, em que todos os resultados são publicados;\ncontatar pesquisadores e empresas.",
+    "crumbs": [
+      "Parte IV · Tópicos avançados",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>11. Viés de publicação</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/11-vies-publicacao.html#gráfico-de-funil",
+    "href": "capitulos/11-vies-publicacao.html#gráfico-de-funil",
+    "title": "11. Viés de publicação",
+    "section": "Gráfico de funil",
+    "text": "Gráfico de funil\nCada estudo é plotado com o efeito no eixo x e a precisão (erro padrão) no eixo y. Sem viés, os pontos formam um funil simétrico em torno da média: estudos grandes no topo, próximos da média, e estudos pequenos espalhados igualmente para os dois lados na base.\nO arquivo vies_publicacao.csv foi simulado de forma que parte dos estudos pequenos não significativos não foi “publicada”. O efeito verdadeiro é de 60 kg/ha.\n\nvies &lt;- read_csv(\"dados/vies_publicacao.csv\")\nm &lt;- rma(yi, vi, data = vies)\nm\n\n\nRandom-Effects Model (k = 39; tau^2 estimator: REML)\n\ntau^2 (estimated amount of total heterogeneity): 305.7173 (SE = 625.5945)\ntau (square root of estimated tau^2 value):      17.4848\nI^2 (total heterogeneity / total variability):   9.48%\nH^2 (total variability / sampling variability):  1.10\n\nTest for Heterogeneity:\nQ(df = 38) = 58.0872, p-val = 0.0195\n\nModel Results:\n\nestimate      se     zval    pval    ci.lb     ci.ub      \n110.7929  9.2827  11.9354  &lt;.0001  92.5992  128.9866  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\nfunnel(m, xlab = \"Diferença de produtividade (kg/ha)\")\n\n\n\n\n\n\n\n\nO funil com contornos de significância ajuda a ver se os estudos “faltam” justamente na região não significativa (área branca):\n\nfunnel(m, level = c(90, 95, 99), shade = c(\"white\", \"gray55\", \"gray75\"),\n       refline = 0, legend = TRUE, xlab = \"Diferença de produtividade (kg/ha)\")",
+    "crumbs": [
+      "Parte IV · Tópicos avançados",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>11. Viés de publicação</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/11-vies-publicacao.html#teste-de-egger",
+    "href": "capitulos/11-vies-publicacao.html#teste-de-egger",
+    "title": "11. Viés de publicação",
+    "section": "Teste de Egger",
+    "text": "Teste de Egger\nTesta formalmente a assimetria: uma regressão do efeito contra o erro padrão. Um coeficiente diferente de zero indica que estudos menos precisos tendem a ter efeitos maiores.\n\nregtest(m)\n\n\nRegression Test for Funnel Plot Asymmetry\n\nModel:     mixed-effects meta-regression model\nPredictor: standard error\n\nTest for Funnel Plot Asymmetry: z = 2.8982, p = 0.0038\nLimit Estimate (as sei -&gt; 0):   b = 57.6252 (CI: 18.7117, 96.5388)",
+    "crumbs": [
+      "Parte IV · Tópicos avançados",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>11. Viés de publicação</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/11-vies-publicacao.html#trim-and-fill",
+    "href": "capitulos/11-vies-publicacao.html#trim-and-fill",
+    "title": "11. Viés de publicação",
+    "section": "Trim-and-fill",
+    "text": "Trim-and-fill\nEstima quantos estudos estariam faltando de um lado do funil, “preenche” esses estudos por simetria e recalcula a média.\n\ntf &lt;- trimfill(m)\ntf\n\n\nEstimated number of missing studies on the left side: 7 (SE = 4.1435)\n\nRandom-Effects Model (k = 46; tau^2 estimator: REML)\n\ntau^2 (estimated amount of total heterogeneity): 375.0787 (SE = 647.4453)\ntau (square root of estimated tau^2 value):      19.3669\nI^2 (total heterogeneity / total variability):   10.01%\nH^2 (total variability / sampling variability):  1.11\n\nTest for Heterogeneity:\nQ(df = 45) = 78.8958, p-val = 0.0013\n\nModel Results:\n\nestimate      se     zval    pval    ci.lb     ci.ub      \n104.3654  9.3006  11.2213  &lt;.0001  86.1365  122.5943  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nfunnel(tf, xlab = \"Diferença de produtividade (kg/ha)\")\n\n\n\n\n\n\n\n\nOs pontos vazios são os estudos imputados.",
+    "crumbs": [
+      "Parte IV · Tópicos avançados",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>11. Viés de publicação</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/11-vies-publicacao.html#fail-safe-n",
+    "href": "capitulos/11-vies-publicacao.html#fail-safe-n",
+    "title": "11. Viés de publicação",
+    "section": "Fail-safe N",
+    "text": "Fail-safe N\nQuantos estudos com efeito nulo seriam necessários para tornar o efeito médio não significativo? Quanto maior esse número, mais robusta a conclusão.\n\nfsn(yi, vi, data = vies)\n\n\nFail-safe N Calculation Using the Rosenthal Approach\n\nObserved Significance Level: &lt;.0001\nTarget Significance Level:   0.05\n\nFail-safe N: 2311\n\n\n\n\n\n\n\n\nCuidado na interpretação\n\n\n\nAssimetria no funil não é sinônimo de viés de publicação. Ela também pode vir de heterogeneidade real (estudos pequenos feitos em condições diferentes) ou do acaso, especialmente com poucos estudos (menos de 10).\n\n\n\n\n\n\n\n\nExercício 11.1\n\n\n\nFaça o gráfico de funil e o teste de Egger para os ensaios de fungicida (fungicida_soja.csv). Há indício de assimetria? Compare com o resultado de vies_publicacao.csv.\n\n\n\n\nVer solução\nfungicida &lt;- read_csv(\"dados/fungicida_soja.csv\") |&gt;\n  mutate(sd = cv / 100 * media_geral)\ndat &lt;- escalc(measure = \"MD\",\n              m1i = prod_trat, sd1i = sd, n1i = n,\n              m2i = prod_ctrl, sd2i = sd, n2i = n,\n              data = fungicida)\nm_f &lt;- rma(yi, vi, data = dat)\nfunnel(m_f)\n\n\n\n\n\n\n\n\n\nVer solução\nregtest(m_f)\n\n\n\nRegression Test for Funnel Plot Asymmetry\n\nModel:     mixed-effects meta-regression model\nPredictor: standard error\n\nTest for Funnel Plot Asymmetry: z = -0.0813, p = 0.9352\nLimit Estimate (as sei -&gt; 0):   b =  296.6912 (CI: 70.2083, 523.1741)",
+    "crumbs": [
+      "Parte IV · Tópicos avançados",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>11. Viés de publicação</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/12-multinivel.html",
+    "href": "capitulos/12-multinivel.html",
+    "title": "12. Modelos multinível",
+    "section": "",
+    "text": "Efeitos não independentes\nOs modelos dos capítulos anteriores assumem que cada efeito vem de um estudo independente. Nas ciências agrárias é comum um mesmo artigo relatar vários ensaios (locais, safras, cultivares). Ensaios do mesmo estudo tendem a ser mais parecidos entre si, e tratá-los como independentes subestima a incerteza da média.\nO modelo multinível (três níveis) separa as fontes de variação:\n\\[y_{ij} = \\mu + u_j + w_{ij} + \\varepsilon_{ij}\\]",
+    "crumbs": [
+      "Parte IV · Tópicos avançados",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>12. Modelos multinível</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/12-multinivel.html#efeitos-não-independentes",
+    "href": "capitulos/12-multinivel.html#efeitos-não-independentes",
+    "title": "12. Modelos multinível",
+    "section": "",
+    "text": "\\(\\varepsilon_{ij} \\sim N(0, v_{ij})\\): erro amostral do ensaio \\(i\\) no estudo \\(j\\) (nível 1);\n\\(w_{ij} \\sim N(0, \\sigma^2_{\\text{ensaio}})\\): variação entre ensaios dentro do estudo (nível 2);\n\\(u_j \\sim N(0, \\sigma^2_{\\text{estudo}})\\): variação entre estudos (nível 3).",
+    "crumbs": [
+      "Parte IV · Tópicos avançados",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>12. Modelos multinível</span>"
+    ]
+  },
+  {
+    "objectID": "capitulos/12-multinivel.html#no-r",
+    "href": "capitulos/12-multinivel.html#no-r",
+    "title": "12. Modelos multinível",
+    "section": "No R",
+    "text": "No R\nO arquivo ensaios_multinivel.csv traz 12 estudos com 2 a 6 ensaios cada:\n\nmulti &lt;- read_csv(\"dados/ensaios_multinivel.csv\") |&gt;\n  mutate(sd = cv / 100 * media_geral)\n\nmulti |&gt; count(estudo, name = \"ensaios\")\n\n# A tibble: 12 × 2\n   estudo ensaios\n   &lt;chr&gt;    &lt;int&gt;\n 1 M01          2\n 2 M02          5\n 3 M03          6\n 4 M04          3\n 5 M05          5\n 6 M06          3\n 7 M07          4\n 8 M08          4\n 9 M09          3\n10 M10          4\n11 M11          4\n12 M12          2\n\ndat_m &lt;- escalc(measure = \"MD\",\n                m1i = prod_trat, sd1i = sd, n1i = n,\n                m2i = prod_ctrl, sd2i = sd, n2i = n,\n                data = multi)\n\nA estrutura aninhada é indicada em random = ~ 1 | estudo/ensaio:\n\nm3 &lt;- rma.mv(yi, vi, random = ~ 1 | estudo/ensaio, data = dat_m)\nm3\n\n\nMultivariate Meta-Analysis Model (k = 45; method: REML)\n\nVariance Components:\n\n                estim      sqrt  nlvls  fixed         factor \nsigma^2.1  32813.7535  181.1457     12     no         estudo \nsigma^2.2  54748.1430  233.9832     45     no  estudo/ensaio \n\nTest for Heterogeneity:\nQ(df = 44) = 159.3471, p-val &lt; .0001\n\nModel Results:\n\nestimate       se    zval    pval     ci.lb     ci.ub      \n314.4615  70.6115  4.4534  &lt;.0001  176.0656  452.8575  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nOs dois componentes de variância aparecem em sigma^2.1 (estudo) e sigma^2.2 (ensaio dentro do estudo).\n\nComparando com o modelo que ignora a estrutura\n\nm2 &lt;- rma(yi, vi, data = dat_m)\n\ntibble(\n  modelo = c(\"Dois níveis (ignora estudo)\", \"Três níveis\"),\n  estimativa = c(coef(m2), coef(m3)),\n  ep = c(m2$se, m3$se)\n)\n\n# A tibble: 2 × 3\n  modelo                      estimativa    ep\n  &lt;chr&gt;                            &lt;dbl&gt; &lt;dbl&gt;\n1 Dois níveis (ignora estudo)       320.  54.3\n2 Três níveis                       314.  70.6\n\n\nO erro padrão do modelo de dois níveis é menor porque ele “conta” cada ensaio como informação independente.\n\n\nO nível de estudo é necessário?\nComparamos o modelo completo com outro sem a variância entre estudos por teste de razão de verossimilhança:\n\nm3_sem_estudo &lt;- rma.mv(yi, vi, random = ~ 1 | estudo/ensaio,\n                        sigma2 = c(0, NA), data = dat_m)\nanova(m3, m3_sem_estudo)\n\n\n        df      AIC      BIC     AICc    logLik    LRT   pval       QE \nFull     3 645.1673 650.5198 645.7673 -319.5836               159.3471 \nReduced  2 647.2647 650.8331 647.5574 -321.6323 4.0974 0.0429 159.3471 \n\n\n\n\nDistribuição da heterogeneidade\nUma forma de reportar é a proporção da variação total em cada nível (análogo multinível do \\(I^2\\)):\n\nW &lt;- diag(1 / dat_m$vi)\nX &lt;- model.matrix(m3)\nP &lt;- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W\nI2 &lt;- 100 * m3$sigma2 / (sum(m3$sigma2) + (m3$k - m3$p) / sum(diag(P)))\nround(c(estudo = I2[1], ensaio = I2[2], total = sum(I2)), 1)\n\nestudo ensaio  total \n  26.9   44.9   71.7 \n\n\n\n\n\n\n\n\nExercício 12.1\n\n\n\nFaça o gráfico de floresta de m3 e ordene os ensaios por estudo. Depois, calcule o efeito médio de cada estudo com rma() em subconjuntos e compare com as estimativas do modelo multinível (ranef(m3)).\n\n\n\n\nVer solução\nforest(m3, slab = dat_m$ensaio, refline = 0,\n       xlab = \"Diferença de produtividade (kg/ha)\")\n\n\n\n\n\n\n\n\n\nVer solução\nranef(m3)$estudo |&gt; head()\n\n\n        intrcpt       se      pi.lb      pi.ub\nM01 -111.057987 137.2664 -380.09522 157.979248\nM02  116.662117 120.8447 -120.18912 353.513353\nM03 -226.174050 116.7337 -454.96782   2.619718\nM04   73.102542 131.5441 -184.71913 330.924217\nM05  265.016615 117.7575   34.21615 495.817081\nM06   -7.018519 133.6281 -268.92486 254.887818",
+    "crumbs": [
+      "Parte IV · Tópicos avançados",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>12. Modelos multinível</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/01-formigas-cortadeiras.html",
+    "href": "exemplos/01-formigas-cortadeiras.html",
+    "title": "Exemplo 1 · Formigas cortadeiras, solo e plantas",
+    "section": "",
+    "text": "O artigo\nPergunta. As formigas cortadeiras (Atta e Acromyrmex) são consideradas “engenheiras do ecossistema”: o ninho e o material descartado (refuse) acumulam nutrientes. Isso sempre melhora o solo e o crescimento das plantas ao redor do ninho? Estudos isolados dão resultados conflitantes.\nDesenho. Cada estudo primário compara sítios com ninho (tratamento) e sítios vizinhos sem ninho (controle). O artigo reuniu 34 estudos independentes e analisou seis variáveis-foco:\nMétodos principais (resumo do que vamos reproduzir):",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Exemplo 1 · Formigas cortadeiras, solo e plantas</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/01-formigas-cortadeiras.html#o-artigo",
+    "href": "exemplos/01-formigas-cortadeiras.html#o-artigo",
+    "title": "Exemplo 1 · Formigas cortadeiras, solo e plantas",
+    "section": "",
+    "text": "Grupo\nVariável-foco\nEstudos\nEfeitos\n\n\n\n\nFertilidade do solo\nNutrientes (C, N, P, K)\n19\n66\n\n\nFertilidade do solo\nCátions (Al, Ca, Mg, Na)\n13\n29\n\n\nFertilidade do solo\npH\n6\n7\n\n\nDesempenho da planta\nCrescimento (biomassa, altura, diâmetro)\n13\n26\n\n\nDesempenho da planta\nDensidade (cobertura, indivíduos/área)\n11\n12\n\n\nDesempenho da planta\nRiqueza de espécies\n8\n10\n\n\n\n\n\nMedida de efeito: d de Hedges (diferença média padronizada), com valores positivos indicando mais fertilidade ou desempenho no ninho.\nVários efeitos por estudo: um mesmo estudo mede C, N, P e K na mesma amostra de solo. Para evitar pseudo-replicação, cada estudo gera um efeito composto por variável-foco: a média ponderada dos efeitos, com variância calculada sob correlação r = 0 e sob r = 1 entre as medidas (análise de sensibilidade) (Mengersen, Jennions, e Schmid 2013).\nModelo: efeitos aleatórios, escolhido a priori, com IC 95% bootstrap corrigido para viés (999 reexecuções) no MetaWin (Rosenberg, Adams, e Gurevitch 2000).\nViés de publicação: gráficos de quantis normais, fail-safe N de Rosenthal e de Rosenberg, funil, teste de correlação de postos de Begg e trim-and-fill, no metafor.\n\n\n\n\n\n\n\nO que fica de fora\n\n\n\nO artigo também testa moderadoras (substrato, local do descarte, gênero da formiga e latitude). Aqui reproduzimos só a análise global; as moderadoras seguem a mesma lógica do capítulo 9.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Exemplo 1 · Formigas cortadeiras, solo e plantas</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/01-formigas-cortadeiras.html#os-dados",
+    "href": "exemplos/01-formigas-cortadeiras.html#os-dados",
+    "title": "Exemplo 1 · Formigas cortadeiras, solo e plantas",
+    "section": "Os dados",
+    "text": "Os dados\nO arquivo formigas_cortadeiras.csv tem uma linha por efeito: uma medida em um estudo, com média, desvio padrão e n de ninho e controle.\n\nformigas &lt;- read_csv(\"dados/formigas_cortadeiras.csv\")\nglimpse(formigas)\n\nRows: 150\nColumns: 9\n$ estudo         &lt;chr&gt; \"S01\", \"S01\", \"S01\", \"S01\", \"S02\", \"S02\", \"S02\", \"S02\",…\n$ foco           &lt;chr&gt; \"nutrientes\", \"nutrientes\", \"nutrientes\", \"nutrientes\",…\n$ medida         &lt;chr&gt; \"P\", \"C\", \"K\", \"N\", \"C\", \"N\", \"K\", \"P\", \"K\", \"C\", \"N\", …\n$ media_ninho    &lt;dbl&gt; 115.438, 85.412, 107.445, 29.811, 38.214, 30.696, 14.76…\n$ dp_ninho       &lt;dbl&gt; 26.455, 23.195, 30.319, 4.822, 13.907, 10.913, 6.202, 1…\n$ n_ninho        &lt;dbl&gt; 11, 11, 11, 11, 27, 27, 27, 27, 8, 8, 8, 8, 29, 29, 29,…\n$ media_controle &lt;dbl&gt; 72.397, 53.627, 69.995, 22.436, 35.254, 30.344, 13.667,…\n$ dp_controle    &lt;dbl&gt; 28.108, 21.858, 27.533, 9.669, 15.682, 9.230, 4.748, 18…\n$ n_controle     &lt;dbl&gt; 11, 11, 11, 11, 27, 27, 27, 27, 8, 8, 8, 8, 29, 29, 29,…\n\nformigas |&gt;\n  group_by(foco) |&gt;\n  summarise(estudos = n_distinct(estudo), efeitos = n())\n\n# A tibble: 6 × 3\n  foco        estudos efeitos\n  &lt;chr&gt;         &lt;int&gt;   &lt;int&gt;\n1 cations          13      29\n2 crescimento      13      26\n3 densidade        11      12\n4 nutrientes       19      66\n5 pH                6       7\n6 riqueza           8      10\n\n\nOs números de estudos e de efeitos coincidem com a tabela acima.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Exemplo 1 · Formigas cortadeiras, solo e plantas</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/01-formigas-cortadeiras.html#passo-1-efeito-de-cada-medida-d-de-hedges",
+    "href": "exemplos/01-formigas-cortadeiras.html#passo-1-efeito-de-cada-medida-d-de-hedges",
+    "title": "Exemplo 1 · Formigas cortadeiras, solo e plantas",
+    "section": "Passo 1: efeito de cada medida (d de Hedges)",
+    "text": "Passo 1: efeito de cada medida (d de Hedges)\n\nefeitos &lt;- escalc(measure = \"SMD\",\n                  m1i = media_ninho,    sd1i = dp_ninho,    n1i = n_ninho,\n                  m2i = media_controle, sd2i = dp_controle, n2i = n_controle,\n                  data = formigas)\n\nefeitos |&gt; select(estudo, foco, medida, yi, vi) |&gt; head(8)\n\n\n  estudo       foco medida      yi     vi \n1    S01 nutrientes      P  1.5169 0.2341 \n2    S01 nutrientes      C  1.3567 0.2237 \n3    S01 nutrientes      K  1.2440 0.2170 \n4    S01 nutrientes      N  0.9286 0.2014 \n5    S02 nutrientes      C  0.1968 0.0744 \n6    S02 nutrientes      N  0.0343 0.0741 \n7    S02 nutrientes      K  0.1952 0.0744 \n8    S02 nutrientes      P -0.9220 0.0819 \n\n\nmeasure = \"SMD\" retorna o g de Hedges (o d corrigido para amostras pequenas, o mesmo do artigo). Como ninho é o grupo 1, valores positivos significam mais nutrientes (ou mais crescimento) no ninho.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Exemplo 1 · Formigas cortadeiras, solo e plantas</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/01-formigas-cortadeiras.html#passo-2-um-efeito-composto-por-estudo",
+    "href": "exemplos/01-formigas-cortadeiras.html#passo-2-um-efeito-composto-por-estudo",
+    "title": "Exemplo 1 · Formigas cortadeiras, solo e plantas",
+    "section": "Passo 2: um efeito composto por estudo",
+    "text": "Passo 2: um efeito composto por estudo\nUm estudo com quatro nutrientes tem quatro efeitos correlacionados (vêm da mesma amostra de solo). Se os usássemos separados, o estudo teria peso quatro vezes maior. A solução é resumir cada estudo, em cada variável-foco, em um único efeito.\nO estimador é a média ponderada pelo inverso da variância, \\(w_i = 1/v_i\\). A variância dessa média depende da correlação \\(r\\) entre as medidas, que quase nunca é relatada:\n\\[V = \\frac{\\sum_i\\sum_j w_i w_j \\, r_{ij}\\sqrt{v_i v_j}}{\\left(\\sum_i w_i\\right)^2}, \\qquad r_{ii} = 1\\]\n\nCom \\(r = 0\\) (medidas independentes) a fórmula reduz a \\(V = 1/\\sum w_i\\), a menor variância possível.\nCom \\(r = 1\\) (correlação perfeita) as medidas não trazem informação nova e a variância é a maior possível.\n\n\ncomposto &lt;- function(d, r) {\n  w &lt;- 1 / d$vi\n  est &lt;- sum(w * d$yi) / sum(w)\n  # sum(w^2 * vi): termos i = j; (sum(w * sqrt(vi)))^2: todos os pares com r = 1\n  var &lt;- (sum(w^2 * d$vi) + r * (sum(w * sqrt(d$vi))^2 - sum(w^2 * d$vi))) /\n    sum(w)^2\n  tibble(yi = est, vi = var, k = nrow(d))\n}\n\ncompostos &lt;- map_dfr(c(0, 1), function(r) {\n  efeitos |&gt;\n    group_by(foco, estudo) |&gt;\n    group_modify(~ composto(.x, r)) |&gt;\n    ungroup() |&gt;\n    mutate(r = r)\n})\n\ncompostos |&gt; filter(foco == \"nutrientes\", r == 1) |&gt; head()\n\n# A tibble: 6 × 6\n  foco       estudo     yi     vi     k     r\n  &lt;chr&gt;      &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;\n1 nutrientes S01     1.25  0.218      4     1\n2 nutrientes S02    -0.105 0.0761     4     1\n3 nutrientes S03     0.987 0.284      4     1\n4 nutrientes S04     0.622 0.0744     4     1\n5 nutrientes S06    -0.332 0.0705     4     1\n6 nutrientes S07     0.946 0.378      4     1\n\n\n\n\n\n\n\n\nExercício 1\n\n\n\nPara o estudo S01 (variável-foco nutrientes), compare vi calculado com \\(r = 0\\) e com \\(r = 1\\). Em qual caso o estudo “pesa” mais no modelo?\n\n\n\n\nVer solução\ncompostos |&gt;\n  filter(foco == \"nutrientes\", estudo == \"S01\") |&gt;\n  mutate(peso = 1 / vi)\n\n\n# A tibble: 2 × 7\n  foco       estudo    yi     vi     k     r  peso\n  &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 nutrientes S01     1.25 0.0546     4     0 18.3 \n2 nutrientes S01     1.25 0.218      4     1  4.58\n\n\nCom \\(r = 0\\) a variância é menor e, portanto, o peso é maior.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Exemplo 1 · Formigas cortadeiras, solo e plantas</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/01-formigas-cortadeiras.html#passo-3-modelo-de-efeitos-aleatórios",
+    "href": "exemplos/01-formigas-cortadeiras.html#passo-3-modelo-de-efeitos-aleatórios",
+    "title": "Exemplo 1 · Formigas cortadeiras, solo e plantas",
+    "section": "Passo 3: modelo de efeitos aleatórios",
+    "text": "Passo 3: modelo de efeitos aleatórios\nO artigo usa o MetaWin, cujo modelo de efeitos aleatórios estima \\(\\tau^2\\) pelo método de DerSimonian-Laird. No metafor isso é method = \"DL\".\n\nglobal &lt;- compostos |&gt;\n  group_by(foco, r) |&gt;\n  group_modify(function(d, chave) {\n    m &lt;- rma(yi, vi, data = d, method = \"DL\")\n    tibble(k = m$k, d = coef(m), ic_inf = m$ci.lb, ic_sup = m$ci.ub,\n           p = m$pval, tau2 = m$tau2, I2 = m$I2)\n  }) |&gt;\n  ungroup()\n\nglobal |&gt; filter(r == 1)\n\n# A tibble: 6 × 9\n  foco            r     k       d ic_inf ic_sup            p  tau2    I2\n  &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 cations         1    13  1.44    0.435  2.45  0.00503      3.08   93.3\n2 crescimento     1    13  1.20    0.490  1.92  0.000946     1.56   92.5\n3 densidade       1    11 -0.0941 -0.976  0.788 0.834        2.00   93.6\n4 nutrientes      1    19  1.30    0.836  1.76  0.0000000385 0.822  83.4\n5 pH              1     6 -0.731  -1.93   0.465 0.231        2.01   91.4\n6 riqueza         1     8 -0.237  -1.13   0.651 0.601        1.43   89.5\n\n\nOs intervalos acima são os de Wald (normais). O artigo usa bootstrap, que não assume normalidade da estimativa.\n\nIC 95% bootstrap corrigido para viés\nA ideia: sortear estudos com reposição 999 vezes, reestimar o efeito médio em cada amostra e usar os percentis da distribuição obtida. A correção de viés desloca os percentis de acordo com a proporção de estimativas bootstrap abaixo da estimativa original.\n\nic_boot &lt;- function(yi, vi, B = 999) {\n  est &lt;- coef(rma(yi, vi, method = \"DL\"))\n  b &lt;- replicate(B, {\n    i &lt;- sample(length(yi), replace = TRUE)\n    coef(rma(yi[i], vi[i], method = \"DL\"))\n  })\n  z0 &lt;- qnorm(mean(b &lt; est))\n  quantile(b, pnorm(2 * z0 + qnorm(c(0.025, 0.975))), names = FALSE)\n}\n\nset.seed(2015)\nboot &lt;- compostos |&gt;\n  filter(r == 1) |&gt;\n  group_by(foco) |&gt;\n  group_modify(function(d, chave) {\n    ci &lt;- ic_boot(d$yi, d$vi)\n    tibble(boot_inf = ci[1], boot_sup = ci[2])\n  }) |&gt;\n  ungroup()\n\nresultado &lt;- global |&gt;\n  filter(r == 1) |&gt;\n  left_join(boot, by = \"foco\") |&gt;\n  mutate(signif = boot_inf &gt; 0 | boot_sup &lt; 0)\n\nresultado |&gt; select(foco, k, d, boot_inf, boot_sup, signif)\n\n# A tibble: 6 × 6\n  foco            k       d boot_inf boot_sup signif\n  &lt;chr&gt;       &lt;int&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;lgl&gt; \n1 cations        13  1.44      0.257    2.51  TRUE  \n2 crescimento    13  1.20      0.576    2.07  TRUE  \n3 densidade      11 -0.0941   -1.11     0.973 FALSE \n4 nutrientes     19  1.30      0.860    1.74  TRUE  \n5 pH              6 -0.731    -1.72     0.119 FALSE \n6 riqueza         8 -0.237    -1.66     0.427 FALSE \n\n\nComo no artigo, o efeito é considerado significativo a 5% quando o IC bootstrap não inclui o zero.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Exemplo 1 · Formigas cortadeiras, solo e plantas</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/01-formigas-cortadeiras.html#passo-4-análise-de-sensibilidade-r-0-r-1",
+    "href": "exemplos/01-formigas-cortadeiras.html#passo-4-análise-de-sensibilidade-r-0-r-1",
+    "title": "Exemplo 1 · Formigas cortadeiras, solo e plantas",
+    "section": "Passo 4: análise de sensibilidade (r = 0 × r = 1)",
+    "text": "Passo 4: análise de sensibilidade (r = 0 × r = 1)\n\nglobal |&gt;\n  select(foco, r, d, p) |&gt;\n  pivot_wider(names_from = r, values_from = c(d, p), names_sep = \"_r\") |&gt;\n  mutate(across(where(is.numeric), \\(x) round(x, 3)))\n\n# A tibble: 6 × 5\n  foco          d_r0   d_r1  p_r0  p_r1\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 cations      1.46   1.44  0.008 0.005\n2 crescimento  1.20   1.20  0     0.001\n3 densidade   -0.09  -0.094 0.834 0.834\n4 nutrientes   1.34   1.30  0     0    \n5 pH          -0.725 -0.731 0.252 0.231\n6 riqueza     -0.223 -0.237 0.589 0.601\n\n\nSe as conclusões são as mesmas com os dois extremos de correlação, o resultado é robusto à escolha de \\(r\\). O artigo apresenta ambos os limites de P e mostra nas figuras apenas \\(r = 1\\).",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Exemplo 1 · Formigas cortadeiras, solo e plantas</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/01-formigas-cortadeiras.html#resultado-nosso-exemplo-figura-1-do-artigo",
+    "href": "exemplos/01-formigas-cortadeiras.html#resultado-nosso-exemplo-figura-1-do-artigo",
+    "title": "Exemplo 1 · Formigas cortadeiras, solo e plantas",
+    "section": "Resultado: nosso exemplo × Figura 1 do artigo",
+    "text": "Resultado: nosso exemplo × Figura 1 do artigo\nValores do artigo lidos aproximadamente da Figura 1 (estimativas visuais, não os valores exatos da Tabela S1):\n\nartigo &lt;- tribble(\n  ~foco,         ~d_artigo, ~inf_artigo, ~sup_artigo,\n  \"nutrientes\",   1.5,       0.8,         2.2,\n  \"cations\",      1.6,       0.9,         2.4,\n  \"pH\",          -1.1,      -3.5,         0.3,\n  \"riqueza\",     -0.5,      -1.5,         0.4,\n  \"densidade\",   -0.15,     -1.7,         1.1,\n  \"crescimento\",  1.6,       0.25,        2.7\n)\n\nrotulos &lt;- c(nutrientes = \"Nutrientes\", cations = \"Cátions\", pH = \"pH\",\n             riqueza = \"Riqueza\", densidade = \"Densidade\",\n             crescimento = \"Crescimento\")\n\ncomparacao &lt;- bind_rows(\n  resultado |&gt; transmute(foco, fonte = \"Dados simulados\",\n                         d, inf = boot_inf, sup = boot_sup),\n  artigo |&gt; transmute(foco, fonte = \"Artigo (aprox.)\",\n                      d = d_artigo, inf = inf_artigo, sup = sup_artigo)\n) |&gt;\n  mutate(foco = factor(rotulos[foco], levels = rev(rotulos)))\n\nggplot(comparacao, aes(d, foco, colour = fonte)) +\n  geom_vline(xintercept = 0, linetype = 2) +\n  geom_pointrange(aes(xmin = inf, xmax = sup),\n                  position = position_dodge(width = 0.5)) +\n  labs(x = \"Tamanho do efeito (d de Hedges) e IC 95%\", y = NULL,\n       colour = NULL) +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\nO padrão esperado é o do artigo: efeito positivo para nutrientes, cátions e crescimento das plantas; efeito indistinguível de zero para pH, densidade e riqueza.\n\n\n\n\n\n\nExercício 2\n\n\n\nRefaça a simulação com set.seed(2016) em R/gerar-dados-formigas.R e rode a página de novo. Os efeitos médios mudam? E as conclusões (significativo ou não)? O que isso mostra sobre estimar efeitos com 6 a 19 estudos?",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Exemplo 1 · Formigas cortadeiras, solo e plantas</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/01-formigas-cortadeiras.html#viés-de-publicação",
+    "href": "exemplos/01-formigas-cortadeiras.html#viés-de-publicação",
+    "title": "Exemplo 1 · Formigas cortadeiras, solo e plantas",
+    "section": "Viés de publicação",
+    "text": "Viés de publicação\nO artigo avalia se estudos com efeito pequeno ou negativo podem estar “faltando”. Vamos repetir as cinco verificações para nutrientes.\n\nnut &lt;- compostos |&gt; filter(foco == \"nutrientes\", r == 1)\nm_nut &lt;- rma(yi, vi, data = nut, method = \"DL\")\n\n\n1. Gráfico de quantis normais\nSe os tamanhos de efeito são aproximadamente normais, os pontos ficam sobre a reta. Lacunas ou assimetria sugerem estudos ausentes.\n\nqqnorm(nut$yi, main = \"Nutrientes\")\nqqline(nut$yi)\n\n\n\n\n\n\n\n\n\n\n2. Fail-safe N\nQuantos estudos com efeito nulo seriam necessários para anular o resultado? Rosenthal usa o escore z de cada estudo; Rosenberg usa os pesos da metanálise.\n\nfsn(yi, vi, data = nut, type = \"Rosenthal\")\n\n\nFail-safe N Calculation Using the Rosenthal Approach\n\nObserved Significance Level: &lt;.0001\nTarget Significance Level:   0.05\n\nFail-safe N: 1031\n\nfsn(yi, vi, data = nut, type = \"Rosenberg\")\n\n\nFail-safe N Calculation Using the Rosenberg Approach\n\nAverage Effect Size:         1.0174\nObserved Significance Level: &lt;.0001\nTarget Significance Level:   0.05\n\nFail-safe N: 594\n\n\nUma regra clássica (Rosenthal) considera o resultado robusto se fail-safe N &gt; 5k + 10, com k = 19 estudos, isto é, 105.\n\n\n3. Gráfico de funil\n\nfunnel(m_nut, xlab = \"d de Hedges\")\n\n\n\n\n\n\n\n\n\n\n4. Teste de correlação de postos de Begg\nMede a correlação entre o efeito padronizado e sua variância. Correlação alta indica funil assimétrico.\n\nranktest(m_nut)\n\n\nRank Correlation Test for Funnel Plot Asymmetry\n\nKendall's tau = 0.1813, p = 0.2983\n\n\n\n\n5. Trim-and-fill\nEstima quantos estudos faltam em cada lado do funil e recalcula a média com os estudos imputados.\n\ntrimfill(m_nut, side = \"left\")\n\n\nEstimated number of missing studies on the left side: 2 (SE = 2.9187)\n\nRandom-Effects Model (k = 21; tau^2 estimator: DL)\n\ntau^2 (estimated amount of total heterogeneity): 0.8743 (SE = 0.3825)\ntau (square root of estimated tau^2 value):      0.9350\nI^2 (total heterogeneity / total variability):   83.70%\nH^2 (total variability / sampling variability):  6.14\n\nTest for Heterogeneity:\nQ(df = 20) = 122.7122, p-val &lt; .0001\n\nModel Results:\n\nestimate      se    zval    pval   ci.lb   ci.ub      \n  1.1452  0.2316  4.9448  &lt;.0001  0.6913  1.5991  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\ntrimfill(m_nut, side = \"right\")\n\n\nEstimated number of missing studies on the right side: 0 (SE = 2.4890)\n\nRandom-Effects Model (k = 19; tau^2 estimator: DL)\n\ntau^2 (estimated amount of total heterogeneity): 0.8217 (SE = 0.3778)\ntau (square root of estimated tau^2 value):      0.9065\nI^2 (total heterogeneity / total variability):   83.43%\nH^2 (total variability / sampling variability):  6.04\n\nTest for Heterogeneity:\nQ(df = 18) = 108.6572, p-val &lt; .0001\n\nModel Results:\n\nestimate      se    zval    pval   ci.lb   ci.ub      \n  1.2995  0.2364  5.4978  &lt;.0001  0.8362  1.7628  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nSe o efeito continua significativo depois de imputar os estudos, a conclusão resiste ao possível viés, como argumentam os autores.\n\n\n\n\n\n\nExercício 3\n\n\n\nRepita as cinco verificações para cátions, onde o artigo encontrou assimetria no funil. Os dados simulados reproduzem esse padrão? Lembre que a assimetria também pode vir de heterogeneidade real.\n\n\n\n\nVer solução\ncat_ &lt;- compostos |&gt; filter(foco == \"cations\", r == 1)\nm_cat &lt;- rma(yi, vi, data = cat_, method = \"DL\")\nfunnel(m_cat, xlab = \"d de Hedges\")\n\n\n\n\n\n\n\n\n\nVer solução\nranktest(m_cat)\n\n\n\nRank Correlation Test for Funnel Plot Asymmetry\n\nKendall's tau = 0.1026, p = 0.6754\n\n\nVer solução\nfsn(yi, vi, data = cat_, type = \"Rosenthal\")\n\n\n\nFail-safe N Calculation Using the Rosenthal Approach\n\nObserved Significance Level: &lt;.0001\nTarget Significance Level:   0.05\n\nFail-safe N: 397\n\n\nVer solução\ntrimfill(m_cat, side = \"left\")\n\n\n\nEstimated number of missing studies on the left side: 4 (SE = 2.4368)\n\nRandom-Effects Model (k = 17; tau^2 estimator: DL)\n\ntau^2 (estimated amount of total heterogeneity): 4.2307 (SE = 2.0178)\ntau (square root of estimated tau^2 value):      2.0569\nI^2 (total heterogeneity / total variability):   94.23%\nH^2 (total variability / sampling variability):  17.33\n\nTest for Heterogeneity:\nQ(df = 16) = 277.2300, p-val &lt; .0001\n\nModel Results:\n\nestimate      se    zval    pval    ci.lb   ci.ub    \n  0.5728  0.5240  1.0930  0.2744  -0.4543  1.5998    \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nVer solução\ntrimfill(m_cat, side = \"right\")\n\n\n\nEstimated number of missing studies on the right side: 0 (SE = 2.0265)\n\nRandom-Effects Model (k = 13; tau^2 estimator: DL)\n\ntau^2 (estimated amount of total heterogeneity): 3.0756 (SE = 1.6400)\ntau (square root of estimated tau^2 value):      1.7537\nI^2 (total heterogeneity / total variability):   93.32%\nH^2 (total variability / sampling variability):  14.97\n\nTest for Heterogeneity:\nQ(df = 12) = 179.6975, p-val &lt; .0001\n\nModel Results:\n\nestimate      se    zval    pval   ci.lb   ci.ub     \n  1.4430  0.5144  2.8051  0.0050  0.4347  2.4512  ** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Exemplo 1 · Formigas cortadeiras, solo e plantas</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/01-formigas-cortadeiras.html#o-que-aprendemos",
+    "href": "exemplos/01-formigas-cortadeiras.html#o-que-aprendemos",
+    "title": "Exemplo 1 · Formigas cortadeiras, solo e plantas",
+    "section": "O que aprendemos",
+    "text": "O que aprendemos\n\nUma metanálise publicada pode ser reproduzida em poucas linhas com escalc() e rma(); o trabalho está em organizar os dados (um efeito por linha, com média, DP e n).\nQuando um estudo traz várias medidas correlacionadas, resuma-as em um efeito composto e faça a análise de sensibilidade para a correlação.\nOs modelos multinível do capítulo 12 são uma alternativa a esse composto, pois usam todos os efeitos sem pseudo-replicação.\nConclusões com poucos estudos e alta heterogeneidade vêm com intervalos largos; checar viés de publicação é parte do relato.\n\n\n\n\n\n\n\nFarji-Brener, Alejandro G., e Victoria Werenkraut. 2015. «A meta-analysis of leaf-cutting ant nest effects on soil fertility and plant performance». Ecological Entomology 40 (2): 150–58. https://doi.org/10.1111/een.12169.\n\n\nMengersen, Kerrie, Michael D. Jennions, e Christopher H. Schmid. 2013. «Statistical models and approaches to compare effect sizes from several studies». Handbook of Meta-analysis in Ecology and Evolution, 89–107.\n\n\nRosenberg, Michael S., Dean C. Adams, e Jessica Gurevitch. 2000. MetaWin: Statistical Software for Meta-Analysis. Version 2. Sinauer Associates.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Exemplo 1 · Formigas cortadeiras, solo e plantas</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html",
+    "href": "exemplos/02-posicionamento-fertilizantes.html",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "",
+    "text": "O artigo\nPergunta. A adubação nitrogenada e fosfatada costuma ser feita a lanço (broadcast), sem garantir que o nutriente esteja no lugar e no momento certos para as raízes. O posicionamento localizado do fertilizante (em banda, sulco, ponto, perto da semente ou profundo) aumenta a produtividade e a absorção de nutrientes em relação ao lanço?\nDesenho. Cada conjunto de dados é um par de médias de um ensaio de campo: fertilizante posicionado (tratamento) e fertilizante a lanço (controle), com mesma fonte e dose. Para produtividade foram usados 772 conjuntos de 39 estudos, publicados entre 1982 e 2015. O artigo faz três metanálises (produtividade, concentração e conteúdo de nutrientes); aqui reproduzimos só a de produtividade.\nMétodos principais:",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#o-artigo",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#o-artigo",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "",
+    "text": "Medida de efeito: razão de resposta, \\(\\ln R = \\ln(\\bar{X}_E / \\bar{X}_C)\\), com variância \\(V_{\\ln R} = \\dfrac{S_E^2}{N_E \\bar{X}_E^2} + \\dfrac{S_C^2}{N_C \\bar{X}_C^2}\\). Os resultados são expressos como efeito relativo do posicionamento (RPE): \\((R - 1) \\times 100\\%\\).\nDP faltantes foram imputados: multiplicou-se a média do conjunto pelo CV médio dos conjuntos que reportaram o DP (Furukawa et al. 2006).\nModelo: efeitos aleatórios no MetaWin, com variância pooled (método de DerSimonian-Laird) e IC 95% bootstrap corrigido para viés (999 reexecuções) (Rosenberg, Adams, e Gurevitch 2000).\nSubgrupos: cultura, técnica de posicionamento, profundidade e tipo de fertilizante. Grupos com menos de dois conjuntos de dados foram excluídos.\nSensibilidade: sem outliers (±3 DP) e sem os DP imputados.\nViés de publicação: gráfico de funil, gráfico de quantis normais e fail-safe number de Rosenthal.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#os-dados",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#os-dados",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "Os dados",
+    "text": "Os dados\n\nfert &lt;- read_csv(\"dados/fertilizantes_posicionamento.csv\", show_col_types = FALSE)\nglimpse(fert)\n\nRows: 772\nColumns: 13\n$ estudo       &lt;chr&gt; \"N01\", \"N01\", \"N02\", \"N02\", \"N02\", \"N03\", \"N03\", \"N03\", \"…\n$ conjunto     &lt;chr&gt; \"N01-001\", \"N01-002\", \"N02-001\", \"N02-002\", \"N02-003\", \"N…\n$ ano          &lt;dbl&gt; 2012, 2012, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 200…\n$ cultura      &lt;chr&gt; \"beterraba\", \"beterraba\", \"trigo de primavera\", \"trigo de…\n$ fertilizante &lt;chr&gt; \"P soluvel\", \"potassio\", \"amonio\", \"P soluvel\", \"amonio\",…\n$ tecnica      &lt;chr&gt; \"injecao profunda\", \"banda profunda\", \"banda rasa\", \"band…\n$ profundidade &lt;chr&gt; \"&gt;10 cm\", \"&gt;10 cm\", \"5-10 cm\", \"0 cm\", \"5-10 cm\", \"&gt;10 cm…\n$ n_posic      &lt;dbl&gt; 4, 4, 5, 5, 4, 6, 4, 5, 7, 6, 4, 3, 4, 3, 3, 6, 6, 4, 8, …\n$ media_posic  &lt;dbl&gt; 54563.6, 71599.8, 5661.6, 7278.0, 9256.8, 3864.0, 3349.6,…\n$ dp_posic     &lt;dbl&gt; 1238.1, 6243.1, 783.9, 602.4, 324.3, 316.6, 162.9, 549.5,…\n$ n_lanco      &lt;dbl&gt; 4, 4, 5, 5, 4, 6, 4, 5, 7, 6, 4, 3, 4, 3, 3, 6, 6, 4, 8, …\n$ media_lanco  &lt;dbl&gt; 55768.2, 67268.4, 4963.2, 6736.3, 7666.1, 3410.0, 3236.2,…\n$ dp_lanco     &lt;dbl&gt; 3237.4, 12081.6, 543.5, 1193.9, 398.9, 272.9, 256.3, 776.…\n\n\nCada linha é um conjunto de dados: media_posic, dp_posic e n_posic para o fertilizante posicionado, e media_lanco, dp_lanco e n_lanco para o lanço. Note que muitos DP estão faltando.\n\nc(conjuntos = nrow(fert), estudos = n_distinct(fert$estudo),\n  sem_dp = sum(is.na(fert$dp_posic)))\n\nconjuntos   estudos    sem_dp \n      772        39       327 \n\nfert |&gt; count(cultura, sort = TRUE)\n\n# A tibble: 15 × 2\n   cultura                n\n   &lt;chr&gt;              &lt;int&gt;\n 1 milho                408\n 2 soja                 134\n 3 trigo de inverno     112\n 4 nabo forrageiro       40\n 5 beterraba             20\n 6 centeio               16\n 7 colza                 12\n 8 arroz                  6\n 9 batata                 6\n10 repolho chines         4\n11 sorgo                  4\n12 gramineas              3\n13 trigo de primavera     3\n14 alface                 2\n15 couve-flor             2",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#passo-1-imputar-os-dp-faltantes",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#passo-1-imputar-os-dp-faltantes",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "Passo 1: imputar os DP faltantes",
+    "text": "Passo 1: imputar os DP faltantes\nO artigo calcula o CV médio dos conjuntos que reportaram o DP e o multiplica pela média de cada conjunto com DP faltante.\n\ncv_medio &lt;- fert |&gt;\n  summarise(cv_posic = mean(dp_posic / media_posic, na.rm = TRUE),\n            cv_lanco = mean(dp_lanco / media_lanco, na.rm = TRUE))\ncv_medio\n\n# A tibble: 1 × 2\n  cv_posic cv_lanco\n     &lt;dbl&gt;    &lt;dbl&gt;\n1    0.110    0.110\n\nfert &lt;- fert |&gt;\n  mutate(dp_imputado = is.na(dp_posic) | is.na(dp_lanco),\n         dp_posic = coalesce(dp_posic, cv_medio$cv_posic * media_posic),\n         dp_lanco = coalesce(dp_lanco, cv_medio$cv_lanco * media_lanco))\n\ncount(fert, dp_imputado)\n\n# A tibble: 2 × 2\n  dp_imputado     n\n  &lt;lgl&gt;       &lt;int&gt;\n1 FALSE         445\n2 TRUE          327\n\n\n\n\n\n\n\n\nRegistre sempre\n\n\n\nGuarde uma coluna (dp_imputado) dizendo quais DP foram imputados. Ela permite repetir a análise sem eles, como o artigo faz na sensibilidade.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#passo-2-razão-de-resposta-ln-r",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#passo-2-razão-de-resposta-ln-r",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "Passo 2: razão de resposta (ln R)",
+    "text": "Passo 2: razão de resposta (ln R)\nNo metafor a razão de resposta é a medida \"ROM\". A variância calculada por escalc() é a mesma da Equação 2 do artigo.\n\ndat &lt;- escalc(measure = \"ROM\",\n              m1i = media_posic, sd1i = dp_posic, n1i = n_posic,\n              m2i = media_lanco, sd2i = dp_lanco, n2i = n_lanco,\n              data = fert)\n\ndat |&gt; select(conjunto, yi, vi) |&gt; head()\n\n\n  conjunto      yi     vi \n1  N01-001 -0.0222 0.0010 \n2  N01-002  0.0593 0.0100 \n3  N02-001  0.1324 0.0062 \n4  N02-002  0.0749 0.0077 \n5  N02-003  0.1884 0.0010 \n6  N03-001  0.1250 0.0022 \n\n# Conferindo com a fórmula do artigo para o primeiro conjunto\nwith(fert[1, ], dp_posic^2 / (n_posic * media_posic^2) +\n                dp_lanco^2 / (n_lanco * media_lanco^2))\n\n[1] 0.0009711996\n\ndat$vi[1]\n\n[1] 0.0009711996",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#passo-3-efeito-global",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#passo-3-efeito-global",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "Passo 3: efeito global",
+    "text": "Passo 3: efeito global\nO MetaWin estima a variância entre estudos pelo método de DerSimonian-Laird, que no metafor é method = \"DL\".\n\nm_global &lt;- rma(yi, vi, data = dat, method = \"DL\")\nm_global\n\n\nRandom-Effects Model (k = 772; tau^2 estimator: DL)\n\ntau^2 (estimated amount of total heterogeneity): 0.0095 (SE = 0.0008)\ntau (square root of estimated tau^2 value):      0.0974\nI^2 (total heterogeneity / total variability):   72.30%\nH^2 (total variability / sampling variability):  3.61\n\nTest for Heterogeneity:\nQ(df = 771) = 2783.5884, p-val &lt; .0001\n\nModel Results:\n\nestimate      se    zval    pval   ci.lb   ci.ub      \n  0.0364  0.0044  8.3342  &lt;.0001  0.0279  0.0450  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n# Efeito relativo do posicionamento (%)\nrpe &lt;- function(x) (exp(x) - 1) * 100\nc(RPE = rpe(coef(m_global)), inf = rpe(m_global$ci.lb), sup = rpe(m_global$ci.ub))\n\nRPE.intrcpt         inf         sup \n   3.709308    2.824794    4.601431 \n\n\n\nIC 95% bootstrap corrigido para viés\nComo no exemplo anterior, sorteamos os conjuntos de dados com reposição 999 vezes. Para ficar rápido, usamos a estimativa de DerSimonian-Laird escrita à mão.\n\ndl &lt;- function(yi, vi) {\n  w &lt;- 1 / vi\n  mu_fe &lt;- sum(w * yi) / sum(w)\n  Q &lt;- sum(w * (yi - mu_fe)^2)\n  C &lt;- sum(w) - sum(w^2) / sum(w)\n  tau2 &lt;- max(0, (Q - (length(yi) - 1)) / C)\n  wr &lt;- 1 / (vi + tau2)\n  sum(wr * yi) / sum(wr)\n}\n\nic_boot &lt;- function(yi, vi, B = 999) {\n  est &lt;- dl(yi, vi)\n  b &lt;- replicate(B, {\n    i &lt;- sample(length(yi), replace = TRUE)\n    dl(yi[i], vi[i])\n  })\n  z0 &lt;- qnorm(mean(b &lt; est))\n  quantile(b, pnorm(2 * z0 + qnorm(c(0.025, 0.975))), names = FALSE)\n}\n\nset.seed(2016)\nci &lt;- ic_boot(dat$yi, dat$vi)\nc(RPE = rpe(dl(dat$yi, dat$vi)), inf = rpe(ci[1]), sup = rpe(ci[2]))\n\n     RPE      inf      sup \n3.709308 2.679460 4.582812 \n\n\nO efeito é positivo e o IC bootstrap não inclui zero: o posicionamento aumenta a produtividade em relação ao lanço. O artigo obteve 3,7% (IC95% 3,1 a 4,3).",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#passo-4-subgrupos",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#passo-4-subgrupos",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "Passo 4: subgrupos",
+    "text": "Passo 4: subgrupos\nO artigo repete a análise em cada nível de quatro variáveis. Vamos escrever uma função que devolve o efeito relativo e o IC bootstrap para cada grupo, excluindo os grupos com menos de dois conjuntos de dados.\n\npor_grupo &lt;- function(dat, var, B = 999) {\n  dat |&gt;\n    group_by(grupo = .data[[var]]) |&gt;\n    filter(n() &gt;= 2) |&gt;\n    group_modify(function(d, chave) {\n      ci &lt;- ic_boot(d$yi, d$vi, B)\n      tibble(n = nrow(d), RPE = rpe(dl(d$yi, d$vi)),\n             inf = rpe(ci[1]), sup = rpe(ci[2]))\n    }) |&gt;\n    ungroup() |&gt;\n    mutate(variavel = var, signif = inf &gt; 0 | sup &lt; 0)\n}\n\ngrafico_grupo &lt;- function(res, titulo) {\n  res |&gt;\n    mutate(rotulo = paste0(grupo, \" (\", n, \")\"),\n           rotulo = fct_reorder(rotulo, RPE)) |&gt;\n    ggplot(aes(RPE, rotulo)) +\n    geom_vline(xintercept = 0, linetype = \"dashed\") +\n    geom_pointrange(aes(xmin = inf, xmax = sup)) +\n    labs(x = \"Efeito relativo do posicionamento (%)\", y = NULL, title = titulo)\n}\n\n\nProfundidade\n\nset.seed(1)\nres_prof &lt;- por_grupo(dat, \"profundidade\")\nres_prof\n\n# A tibble: 3 × 7\n  grupo       n   RPE    inf   sup variavel     signif\n  &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;lgl&gt; \n1 0 cm      101  1.02 -0.996  3.43 profundidade FALSE \n2 5-10 cm   317  2.78  1.62   4.31 profundidade TRUE  \n3 &gt;10 cm    354  5.38  4.05   6.74 profundidade TRUE  \n\ngrafico_grupo(res_prof, \"Produtividade por profundidade\")\n\n\n\n\n\n\n\n\n\n\nCultura\n\nset.seed(2)\nres_cult &lt;- por_grupo(dat, \"cultura\")\ngrafico_grupo(res_cult, \"Produtividade por cultura\")\n\n\n\n\n\n\n\n\n\n\nTécnica de posicionamento\n\nset.seed(3)\nres_tec &lt;- por_grupo(dat, \"tecnica\")\ngrafico_grupo(res_tec, \"Produtividade por técnica\")\n\n\n\n\n\n\n\n\n\n\nTipo de fertilizante\n\nset.seed(4)\nres_fert &lt;- por_grupo(dat, \"fertilizante\")\nres_fert |&gt; arrange(desc(RPE))\n\n# A tibble: 9 × 7\n  grupo                  n    RPE    inf    sup variavel     signif\n  &lt;chr&gt;              &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;lgl&gt; \n1 ureia + P soluvel     12 22.9   16.7   31.0   fertilizante TRUE  \n2 amonio + P soluvel   163 13.2   11.3   15.4   fertilizante TRUE  \n3 esterco liquido       24 10.2    5.32  16.0   fertilizante TRUE  \n4 esterco solido         6  9.64  -0.986 23.7   fertilizante FALSE \n5 ureia                 64  5.82   2.79   7.97  fertilizante TRUE  \n6 N sem descricao       48  0.853 -2.90   4.80  fertilizante FALSE \n7 amonio               185  0.449 -0.957  1.86  fertilizante FALSE \n8 P soluvel            136 -0.955 -2.63   0.964 fertilizante FALSE \n9 potassio             134 -0.974 -2.68   0.953 fertilizante FALSE \n\ngrafico_grupo(res_fert, \"Produtividade por tipo de fertilizante\")\n\n\n\n\n\n\n\n\nComo no artigo, dois grupos são considerados diferentes se seus IC95% não se sobrepõem. Veja quais fertilizantes se destacam.\n\n\nA heterogeneidade entre grupos\nAlém da sobreposição dos IC, podemos testar formalmente se a variável explica parte da heterogeneidade (o \\(Q_M\\) do artigo) com um modelo com moderadora categórica.\n\nmap_dfr(c(\"cultura\", \"tecnica\", \"profundidade\", \"fertilizante\"), function(v) {\n  m &lt;- rma(yi, vi, mods = as.formula(paste(\"~ factor(\", v, \")\")),\n           data = dat, method = \"DL\")\n  tibble(variavel = v, QM = m$QM, gl = m$m, p = m$QMp, R2 = m$R2)\n})\n\n# A tibble: 4 × 5\n  variavel        QM    gl        p    R2\n  &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt; &lt;dbl&gt;\n1 cultura      191.     14 4.07e-33 25.2 \n2 tecnica      112.     10 2.24e-19 14.8 \n3 profundidade  12.8     2 1.70e- 3  1.28\n4 fertilizante 214.      8 5.74e-42 30.0",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#passo-5-análise-de-sensibilidade",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#passo-5-análise-de-sensibilidade",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "Passo 5: análise de sensibilidade",
+    "text": "Passo 5: análise de sensibilidade\nO artigo verifica se o resultado muda ao (1) excluir outliers (efeitos a mais de 3 DP da média) e (2) excluir os conjuntos com DP imputado.\n\nlimite &lt;- mean(dat$yi) + c(-3, 3) * sd(dat$yi)\nsem_outlier &lt;- dat |&gt; filter(yi &gt; limite[1], yi &lt; limite[2])\nso_reportado &lt;- dat |&gt; filter(!dp_imputado)\n\nsens &lt;- tribble(\n  ~cenario, ~dados,\n  \"Todos os dados\",       dat,\n  \"Sem outliers (±3 DP)\", sem_outlier,\n  \"Só DP reportado\",      so_reportado,\n  \"Só DP imputado\",       dat |&gt; filter(dp_imputado)\n) |&gt;\n  mutate(res = map(dados, \\(d) {\n    m &lt;- rma(yi, vi, data = d, method = \"DL\")\n    tibble(k = m$k, RPE = rpe(coef(m)), inf = rpe(m$ci.lb), sup = rpe(m$ci.ub))\n  })) |&gt;\n  select(-dados) |&gt;\n  unnest(res)\n\nsens\n\n# A tibble: 4 × 5\n  cenario                  k   RPE   inf   sup\n  &lt;chr&gt;                &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Todos os dados         772  3.71 2.82   4.60\n2 Sem outliers (±3 DP)   767  3.43 2.57   4.30\n3 Só DP reportado        445  2.03 0.879  3.19\n4 Só DP imputado         327  6.03 4.71   7.37\n\n\nNo artigo, tirar os 17 outliers mudou muito pouco o resultado (3,6%), e não houve diferença entre todos os dados (3,7%), só os DP reportados (3,1%, n = 444) e só os DP imputados (4,6%, n = 328). Veja se o mesmo acontece aqui.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#viés-de-publicação",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#viés-de-publicação",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "Viés de publicação",
+    "text": "Viés de publicação\nO artigo usa gráfico de funil, quantis normais e o fail-safe number de Rosenthal (Rosenberg 2005).\n\nfunnel(m_global, yaxis = \"sei\", xlab = \"ln R\",\n       main = \"Gráfico de funil: 772 conjuntos de dados\")\n\n\n\n\n\n\n\n\n\nqqnorm(dat$yi / sqrt(dat$vi), main = \"Quantis normais dos efeitos padronizados\")\nqqline(dat$yi / sqrt(dat$vi))\n\n\n\n\n\n\n\n\n\n# Fail-safe number de Rosenthal; tolerância 5n + 10\nnr &lt;- fsn(yi, vi, data = dat, type = \"Rosenthal\")\nnr$fsnum\n\n[1] 58939\n\n5 * nrow(dat) + 10\n\n[1] 3870\n\n\nO \\(N_R\\) muito maior que \\(5n + 10\\) indica que o resultado é robusto a estudos não publicados com efeito nulo. O artigo obteve \\(N_R\\) = 120.085.\nDois testes complementares:\n\nregtest(m_global)        # Egger\n\n\nRegression Test for Funnel Plot Asymmetry\n\nModel:     mixed-effects meta-regression model\nPredictor: standard error\n\nTest for Funnel Plot Asymmetry: z = 1.3046, p = 0.1920\nLimit Estimate (as sei -&gt; 0):   b = 0.0202 (CI: -0.0056, 0.0460)\n\ntrimfill(m_global)       # trim-and-fill\n\n\nEstimated number of missing studies on the left side: 0 (SE = 15.6839)\n\nRandom-Effects Model (k = 772; tau^2 estimator: DL)\n\ntau^2 (estimated amount of total heterogeneity): 0.0095 (SE = 0.0008)\ntau (square root of estimated tau^2 value):      0.0974\nI^2 (total heterogeneity / total variability):   72.30%\nH^2 (total variability / sampling variability):  3.61\n\nTest for Heterogeneity:\nQ(df = 771) = 2783.5884, p-val &lt; .0001\n\nModel Results:\n\nestimate      se    zval    pval   ci.lb   ci.ub      \n  0.0364  0.0044  8.3342  &lt;.0001  0.0279  0.0450  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#atenção-os-conjuntos-de-dados-não-são-independentes",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#atenção-os-conjuntos-de-dados-não-são-independentes",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "Atenção: os conjuntos de dados não são independentes",
+    "text": "Atenção: os conjuntos de dados não são independentes\nO artigo trata os 772 conjuntos de dados como independentes, embora venham de apenas 39 estudos (alguns estudos contribuem com dezenas de conjuntos). Conjuntos do mesmo estudo compartilham local, cultivar, manejo e autores. Isso torna o IC estreito demais. É o tema do capítulo 12: um modelo multinível com estudo e conjunto de dados como níveis aleatórios.\n\nm_mv &lt;- rma.mv(yi, vi, random = ~ 1 | estudo / conjunto, data = dat)\n\ncomparacao &lt;- tibble(\n  modelo = c(\"Independentes (artigo)\", \"Multinível (estudo/conjunto)\"),\n  RPE = rpe(c(coef(m_global), coef(m_mv))),\n  inf = rpe(c(m_global$ci.lb, m_mv$ci.lb)),\n  sup = rpe(c(m_global$ci.ub, m_mv$ci.ub))\n)\ncomparacao\n\n# A tibble: 2 × 4\n  modelo                         RPE   inf   sup\n  &lt;chr&gt;                        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Independentes (artigo)        3.71  2.82  4.60\n2 Multinível (estudo/conjunto)  4.52  1.68  7.44\n\nm_mv$sigma2   # variância entre estudos e entre conjuntos dentro do estudo\n\n[1] 0.006015663 0.006847129\n\n\nCompare a largura dos intervalos. Mesmo com efeito médio parecido, o modelo multinível reconhece que há muito menos informação independente do que 772 conjuntos de dados.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#resultado-nosso-exemplo-artigo",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#resultado-nosso-exemplo-artigo",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "Resultado: nosso exemplo × artigo",
+    "text": "Resultado: nosso exemplo × artigo\nValores publicados para produtividade (IC95% entre parênteses quando informado), para comparação aproximada com os nossos:\n\n\n\n\n\n\n\n\nGrupo\nArtigo (RPE %)\nNosso exemplo\n\n\n\n\nGlobal (n = 772)\n3,7 (3,1 a 4,3)\nveja o Passo 3\n\n\nMilho (n = 408)\n4,5 (3,6 a 5,5)\ntabela de culturas\n\n\nTrigo de inverno (n = 112)\n9,5 (6,8 a 12,4)\ntabela de culturas\n\n\nSoja (n = 134)\nsem efeito\ntabela de culturas\n\n\nUreia + P solúvel (n = 12)\n27,3\ntabela de fertilizantes\n\n\nAmônio + P solúvel (n = 163)\n14,7 (12,9 a 17,0)\ntabela de fertilizantes\n\n\nEsterco líquido (n = 24)\n11,6\ntabela de fertilizantes\n\n\nUreia (n = 64)\n11,0 (5,7 a 17,5)\ntabela de fertilizantes\n\n\nAmônio (n = 185)\n3,8 (2,2 a 5,4)\ntabela de fertilizantes\n\n\nP solúvel (n = 136)\n0,0 (−0,6 a 0,7)\ntabela de fertilizantes\n\n\nProfundidade 0 cm / 5-10 cm / &gt;10 cm\n3,9 / 3,4 / 4,1\ntabela de profundidade\n\n\n\n\nbind_rows(res_fert, res_cult |&gt; filter(grupo %in% c(\"milho\", \"trigo de inverno\", \"soja\"))) |&gt;\n  mutate(across(c(RPE, inf, sup), \\(x) round(x, 1))) |&gt;\n  select(grupo, n, RPE, inf, sup)\n\n# A tibble: 12 × 5\n   grupo                  n   RPE   inf   sup\n   &lt;chr&gt;              &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 N sem descricao       48   0.9  -2.9   4.8\n 2 P soluvel            136  -1    -2.6   1  \n 3 amonio               185   0.4  -1     1.9\n 4 amonio + P soluvel   163  13.2  11.3  15.4\n 5 esterco liquido       24  10.2   5.3  16  \n 6 esterco solido         6   9.6  -1    23.7\n 7 potassio             134  -1    -2.7   1  \n 8 ureia                 64   5.8   2.8   8  \n 9 ureia + P soluvel     12  22.9  16.7  31  \n10 milho                408   4.3   3.1   5.5\n11 soja                 134  -2.4  -3.9  -0.5\n12 trigo de inverno     112  11     8.8  13.2",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#exercício-1",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#exercício-1",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "Exercício 1",
+    "text": "Exercício 1\nRepita a análise global só com os conjuntos em que a cultura é milho e compare a razão de resposta com a do trigo de inverno. Eles diferem (IC95% não se sobrepõem)?\n\n\nVer solução\nset.seed(10)\npor_grupo(dat |&gt; filter(cultura %in% c(\"milho\", \"trigo de inverno\")), \"cultura\")\n\n\n# A tibble: 2 × 7\n  grupo                n   RPE   inf   sup variavel signif\n  &lt;chr&gt;            &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;lgl&gt; \n1 milho              408  4.30  3.21  5.54 cultura  TRUE  \n2 trigo de inverno   112 11.0   8.76 13.5  cultura  TRUE",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#exercício-2",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#exercício-2",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "Exercício 2",
+    "text": "Exercício 2\nAjuste um modelo multinível só para o milho (estudo e conjunto como níveis aleatórios) e compare o IC com o do modelo que supõe independência.\n\n\nVer solução\nmilho &lt;- dat |&gt; filter(cultura == \"milho\")\nind &lt;- rma(yi, vi, data = milho, method = \"DL\")\nmv  &lt;- rma.mv(yi, vi, random = ~ 1 | estudo / conjunto, data = milho)\ntibble(modelo = c(\"Independentes\", \"Multinível\"),\n       RPE = rpe(c(coef(ind), coef(mv))),\n       inf = rpe(c(ind$ci.lb, mv$ci.lb)),\n       sup = rpe(c(ind$ci.ub, mv$ci.ub)))\n\n\n# A tibble: 2 × 4\n  modelo          RPE   inf   sup\n  &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Independentes  4.30  3.16  5.44\n2 Multinível     4.36  2.15  6.63",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#o-que-o-apêndice-do-artigo-realmente-traz",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#o-que-o-apêndice-do-artigo-realmente-traz",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "O que o apêndice do artigo realmente traz",
+    "text": "O que o apêndice do artigo realmente traz\nO material suplementar do artigo (Tabela A.1) lista os estudos com as médias e a razão publicada (posicionado / lanço), mas sem DP nem número de repetições. Por isso ele não permite refazer a metanálise: falta a variância de cada razão. Extraímos dessa tabela as razões de produtividade (grãos, sementes, tubérculos, raízes ou hortaliças), sempre o primeiro bloco “Relative … yield” de cada estudo, em dados/nkebiwe_razoes_publicadas.csv.\n\nrazoes &lt;- read_csv(\"dados/nkebiwe_razoes_publicadas.csv\", show_col_types = FALSE)\n\nrazoes |&gt;\n  summarise(tratamentos = n(), estudos = n_distinct(estudo),\n            rpe_medio = (exp(mean(log(razao_produtividade))) - 1) * 100)\n\n# A tibble: 1 × 3\n  tratamentos estudos rpe_medio\n        &lt;int&gt;   &lt;int&gt;     &lt;dbl&gt;\n1          90      37      10.4\n\nrazoes |&gt;\n  mutate(cultura = fct_lump_n(cultura, 5)) |&gt;\n  group_by(cultura) |&gt;\n  summarise(n = n(),\n            rpe_medio = (exp(mean(log(razao_produtividade))) - 1) * 100,\n            .groups = \"drop\") |&gt;\n  arrange(desc(n)) |&gt;\n  knitr::kable(digits = 1, col.names = c(\"Cultura\", \"n\", \"Efeito médio (%)\"))\n\n\n\n\nCultura\nn\nEfeito médio (%)\n\n\n\n\nMaize\n40\n11.4\n\n\nWheat\n16\n11.3\n\n\nOther\n12\n16.0\n\n\nSoybean\n8\n0.4\n\n\nRye\n6\n0.7\n\n\nCanola\n4\n14.5\n\n\nChinese cabbage\n4\n11.8\n\n\n\n\n\nEssa média sem pesos é só uma referência: cada razão tem precisão diferente, e sem a variância não há como ponderar. Compare com o efeito estimado nos dados simulados e discuta:\n\nValores aproximados (coluna aproximado) foram lidos de gráficos.\nCada razão já é uma média de anos, locais e doses, o que esconde a variação entre conjuntos de dados.\nÉ exatamente o tipo de informação que o capítulo 3 manda registrar na planilha (n, média e DP por tratamento) e que, quando falta, impede a metanálise.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#usando-os-dados-reais",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#usando-os-dados-reais",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "Usando os dados reais",
+    "text": "Usando os dados reais\nOs dados completos (772 conjuntos) não estão no apêndice; seriam obtidos com os autores. Se você os tiver, monte um CSV com as mesmas colunas de dados/fertilizantes_posicionamento.csv (uma linha por conjunto de dados; DP vazio quando não reportado) e salve com o mesmo nome. Todo o código acima funciona sem alteração. Revise os nomes das categorias (cultura, tecnica, fertilizante) nos exercícios.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "exemplos/02-posicionamento-fertilizantes.html#o-que-aprendemos",
+    "href": "exemplos/02-posicionamento-fertilizantes.html#o-que-aprendemos",
+    "title": "Exemplo 2 · Posicionamento de fertilizantes e produtividade",
+    "section": "O que aprendemos",
+    "text": "O que aprendemos\n\nA razão de resposta é a medida natural quando o efeito é proporcional à produtividade, e vira o efeito relativo (%) com \\((e^{\\ln R} - 1) \\times 100\\).\nA imputação de DP permite aproveitar mais estudos, mas deve ser registrada e testada na sensibilidade.\nO IC bootstrap e a comparação entre subgrupos pela sobreposição dos IC são práticas comuns, mas o teste \\(Q_M\\) dá um critério formal.\nMuitos conjuntos de dados por estudo exigem um modelo que reconheça a dependência entre eles.\n\n\n\n\n\n\n\nFurukawa, Toshi A., Corrado Barbui, Andrea Cipriani, Paolo Brambilla, e Norio Watanabe. 2006. «Imputing missing standard deviations in meta-analyses can provide accurate results». Journal of Clinical Epidemiology 59 (1): 7–10.\n\n\nNkebiwe, Peteh Mehdi, Markus Weinmann, Asher Bar-Tal, e Torsten Müller. 2016. «Fertilizer placement to improve crop nutrient acquisition and yield: A review and meta-analysis». Field Crops Research 196: 389–401. https://doi.org/10.1016/j.fcr.2016.07.018.\n\n\nRosenberg, Michael S. 2005. «The file-drawer problem revisited: a general weighted method for calculating fail-safe numbers in meta-analysis». Evolution 59 (2): 464–68.\n\n\nRosenberg, Michael S., Dean C. Adams, e Jessica Gurevitch. 2000. MetaWin: Statistical Software for Meta-Analysis. Version 2. Sinauer Associates.",
+    "crumbs": [
+      "Parte V · Exemplos de análise",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exemplo 2 · Posicionamento de fertilizantes e produtividade</span>"
+    ]
+  },
+  {
+    "objectID": "referencias.html",
+    "href": "referencias.html",
+    "title": "Referências",
+    "section": "",
+    "text": "Borenstein, Michael, Larry V. Hedges, Julian P. T. Higgins, and Hannah\nR. Rothstein. 2009. Introduction to Meta-Analysis. John Wiley\n& Sons.\n\n\nFarji-Brener, Alejandro G., and Victoria Werenkraut. 2015. “A\nMeta-Analysis of Leaf-Cutting Ant Nest Effects on Soil Fertility and\nPlant Performance.” Ecological Entomology 40 (2):\n150–58. https://doi.org/10.1111/een.12169.\n\n\nFurukawa, Toshi A., Corrado Barbui, Andrea Cipriani, Paolo Brambilla,\nand Norio Watanabe. 2006. “Imputing Missing Standard Deviations in\nMeta-Analyses Can Provide Accurate Results.” Journal of\nClinical Epidemiology 59 (1): 7–10.\n\n\nHarrison, Freya. 2011. “Meta-Analysis: Methods for Quantitative\nData Synthesis in Ecology and Evolution.” Methods in Ecology\nand Evolution 2 (1): 1–10. https://doi.org/10.1111/j.2041-210X.2010.00056.x.\n\n\nHunter, John E., and Frank L. Schmidt. 2004. Methods of\nMeta-Analysis: Correcting Error and Bias in Research Findings. 2nd\ned. Sage.\n\n\nMengersen, Kerrie, Michael D. Jennions, and Christopher H. Schmid. 2013.\n“Statistical Models and Approaches to Compare Effect Sizes from\nSeveral Studies.” Handbook of Meta-Analysis in Ecology and\nEvolution, 89–107.\n\n\nNgugi, H. K., P. D. Esker, and H. Scherm. 2011. “Meta-Analysis to\nDetermine the Effects of Plant Disease Management Measures: Review and\nCase Studies on Soybean and Apple.” Phytopathology 101\n(1): 31–41. https://doi.org/10.1094/PHYTO-03-10-0068.\n\n\nNkebiwe, Peteh Mehdi, Markus Weinmann, Asher Bar-Tal, and Torsten\nMüller. 2016. “Fertilizer Placement to Improve Crop Nutrient\nAcquisition and Yield: A Review and Meta-Analysis.”\nField Crops Research 196: 389–401. https://doi.org/10.1016/j.fcr.2016.07.018.\n\n\nPage, Matthew J. et al. 2021. “The PRISMA 2020\nStatement: An Updated Guideline for Reporting Systematic\nReviews.” BMJ 372: n71. https://doi.org/10.1136/bmj.n71.\n\n\nPaul, P. A., P. E. Lipps, and L. V. Madden. 2005. “Relationship\nBetween Visual Estimates of Fusarium Head Blight Intensity\nand Deoxynivalenol Accumulation in Harvested Wheat Grain: A\nMeta-Analysis.” Phytopathology 95: 1225–36.\n\n\nPaul, P. A., L. V. Madden, C. A. Bradley, A. E. Robertson, G. P.\nMunkvold, G. Shaner, K. A. Wise, et al. 2011. “Meta-Analysis of\nYield Response of Hybrid Field Corn to Foliar Fungicides in the\nU.S. Corn Belt.” Phytopathology 101:\n1122–32.\n\n\nRosenberg, Michael S. 2005. “The File-Drawer Problem Revisited: A\nGeneral Weighted Method for Calculating Fail-Safe Numbers in\nMeta-Analysis.” Evolution 59 (2): 464–68.\n\n\nRosenberg, Michael S., Dean C. Adams, and Jessica Gurevitch. 2000.\nMetaWin: Statistical Software for Meta-Analysis.\nVersion 2. Sinauer Associates.\n\n\nSmith, Mary L., and Gene V. Glass. 1977. “Meta-Analysis of\nPsychotherapy Outcome Studies.” American Psychologist 32\n(9): 752–60. https://doi.org/10.1037/0003-066X.32.9.752.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Referências</span>"
+    ]
+  },
+  {
+    "objectID": "apendices/configuracao-r.html",
+    "href": "apendices/configuracao-r.html",
+    "title": "Apêndice A — Configuração do R",
+    "section": "",
+    "text": "Instale o R e o RStudio (ou Positron).\nInstale os pacotes usados na disciplina:\n\n\ninstall.packages(c(\"tidyverse\", \"metafor\"))\n\n\nTeste a instalação:\n\n\nlibrary(metafor)\ndat &lt;- escalc(measure = \"RR\", ai = tpos, bi = tneg, ci = cpos, di = cneg,\n              data = dat.bcg)\nrma(yi, vi, data = dat)\n\n\nRandom-Effects Model (k = 13; tau^2 estimator: REML)\n\ntau^2 (estimated amount of total heterogeneity): 0.3132 (SE = 0.1664)\ntau (square root of estimated tau^2 value):      0.5597\nI^2 (total heterogeneity / total variability):   92.22%\nH^2 (total variability / sampling variability):  12.86\n\nTest for Heterogeneity:\nQ(df = 12) = 152.2330, p-val &lt; .0001\n\nModel Results:\n\nestimate      se     zval    pval    ci.lb    ci.ub      \n -0.7145  0.1798  -3.9744  &lt;.0001  -1.0669  -0.3622  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nSe a última linha imprimir um resumo do modelo, está tudo pronto.",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Configuração do R</span>"
+    ]
+  },
+  {
+    "objectID": "apendices/dados.html",
+    "href": "apendices/dados.html",
+    "title": "Apêndice B — Conjuntos de dados",
+    "section": "",
+    "text": "Todos os exercícios leem arquivos CSV da pasta dados/. Por enquanto eles são simulados pelo script R/gerar-dados.R; cada arquivo será substituído por dados reais mantendo os mesmos nomes de colunas.\n\n\n\n\n\n\n\n\nArquivo\nCapítulos\nConteúdo\n\n\n\n\nfungicida_soja.csv\n3, 4, 7–11\n30 ensaios de fungicida na soja: produtividade tratada e testemunha, CV, n, região, latitude, pressão de doença\n\n\ngiberela_tebuconazol.csv\n4, 7\n20 ensaios: severidade média e desvio padrão de giberela com e sem tebuconazol\n\n\ntombamento_sementes.csv\n5\n15 estudos: plântulas doentes e sadias com e sem tratamento de sementes\n\n\nferrugem_parcelas.csv\n6, 7\nParcelas de 15 estudos com severidade de ferrugem e produtividade\n\n\nensaios_multinivel.csv\n12\n12 estudos com 2 a 6 ensaios cada\n\n\nvies_publicacao.csv\n11\nEstudos “publicados” após seleção por significância\n\n\nformigas_cortadeiras.csv\nExemplo 1\nEfeitos (médias, DP e n de ninho e controle) de 34 estudos sobre formigas cortadeiras, solo e plantas, simulados no desenho de Farji-Brener & Werenkraut (2015); gerado por R/gerar-dados-formigas.R\n\n\nfertilizantes_posicionamento.csv\nExemplo 2\n772 conjuntos de dados de 39 estudos (média, DP e n com fertilizante posicionado e a lanço, por cultura, técnica, profundidade e tipo de fertilizante), simulados no desenho de Nkebiwe et al. (2016); DP vazio quando não reportado; gerado por R/gerar-dados-fertilizantes.R\n\n\nnkebiwe_razoes_publicadas.csv\nExemplo 2\nRazões de produtividade (posicionado / lanço) extraídas da Tabela A.1 do apêndice de Nkebiwe et al. (2016): 90 tratamentos, sem DP nem n\n\n\nmodelo_planilha_extracao.csv\n3\nPlanilha-modelo de extração (33 colunas, 7 linhas de exemplo) com dados contínuos, binários e de correlação; não é usada em análises\n\n\n\nPara ler um arquivo:\n\nlibrary(tidyverse)\nfungicida &lt;- read_csv(\"dados/fungicida_soja.csv\")",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Conjuntos de dados</span>"
+    ]
+  }
+]

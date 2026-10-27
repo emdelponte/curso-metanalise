@@ -1,0 +1,773 @@
+estudo,conjunto,ano,cultura,fertilizante,tecnica,profundidade,n_posic,media_posic,dp_posic,n_lanco,media_lanco,dp_lanco
+N01,N01-001,2012,beterraba,P soluvel,injecao profunda,>10 cm,4,54563.6,1238.1,4,55768.2,3237.4
+N01,N01-002,2012,beterraba,potassio,banda profunda,>10 cm,4,71599.8,6243.1,4,67268.4,12081.6
+N02,N02-001,2000,trigo de primavera,amonio,banda rasa,5-10 cm,5,5661.6,783.9,5,4963.2,543.5
+N02,N02-002,2000,trigo de primavera,P soluvel,banda superficial,0 cm,5,7278,602.4,5,6736.3,1193.9
+N02,N02-003,2000,trigo de primavera,amonio,banda rasa,5-10 cm,4,9256.8,324.3,4,7666.1,398.9
+N03,N03-001,2000,soja,ureia,injecao profunda,>10 cm,6,3864,316.6,6,3410,272.9
+N03,N03-002,2000,soja,ureia,banda rasa,5-10 cm,4,3349.6,162.9,4,3236.2,256.3
+N03,N03-003,2000,soja,P soluvel,banda rasa,5-10 cm,5,3152.4,549.5,5,4072.9,776.2
+N03,N03-004,2000,soja,N sem descricao,injecao profunda,>10 cm,7,3279.3,377.2,7,3771.7,290.2
+N03,N03-005,2000,soja,potassio,sulco profunda (faca),>10 cm,6,3839.3,254.6,6,3406.7,256.9
+N03,N03-006,2000,soja,amonio,banda rasa,5-10 cm,4,2479.2,419,4,2416,402.2
+N03,N03-007,2000,soja,amonio + P soluvel,semente,5-10 cm,3,2580.7,573.1,3,2445,364.6
+N03,N03-008,2000,soja,ureia + P soluvel,banda profunda,>10 cm,4,4279.2,1232,4,4043.4,489
+N03,N03-009,2000,soja,potassio,banda profunda,>10 cm,3,3226.6,134.2,3,2456.8,470.6
+N03,N03-010,2000,soja,amonio,banda profunda,>10 cm,3,2423.8,263.2,3,2806.8,209.2
+N03,N03-011,2000,soja,esterco liquido,banda superficial,0 cm,6,4087.6,311.6,6,3503.1,280
+N03,N03-012,2000,soja,ureia,banda superficial,0 cm,6,3348,221.3,6,3340.6,302.9
+N03,N03-013,2000,soja,P soluvel,banda profunda,>10 cm,4,2621.1,219.8,4,2436.4,214.1
+N03,N03-014,2000,soja,amonio,injecao profunda,>10 cm,8,2859.4,434.2,8,3000.1,254.5
+N03,N03-015,2000,soja,esterco solido,banda rasa,5-10 cm,5,3166.9,343.7,5,3351.3,194.8
+N03,N03-016,2000,soja,amonio,banda superficial,0 cm,5,3210.1,454.9,5,3008.5,562.9
+N03,N03-017,2000,soja,potassio,banda profunda,>10 cm,3,2977.8,226.9,3,2929.8,363.1
+N03,N03-018,2000,soja,P soluvel,injecao profunda,>10 cm,3,3161,354.2,3,2949.6,827
+N03,N03-019,2000,soja,ureia,injecao profunda,>10 cm,4,3711.5,259.6,4,3834.3,538.1
+N03,N03-020,2000,soja,potassio,injecao profunda,>10 cm,4,2934.4,124.1,4,2842.9,116.5
+N03,N03-021,2000,soja,amonio,banda rasa,5-10 cm,8,3516.5,572.1,8,3626,555.7
+N03,N03-022,2000,soja,potassio,banda rasa,5-10 cm,5,3489.7,275.2,5,3638.8,204.1
+N03,N03-023,2000,soja,amonio + P soluvel,banda rasa,5-10 cm,5,4205.6,218.1,5,3736.3,218.3
+N04,N04-001,2002,milho,N sem descricao,sulco profunda (faca),>10 cm,4,10779.6,,4,8039.5,
+N04,N04-002,2002,milho,amonio,banda superficial,0 cm,4,8831.6,,4,8817.3,
+N04,N04-003,2002,milho,potassio,injecao profunda,>10 cm,8,10640.4,,8,11296.2,
+N04,N04-004,2002,milho,amonio,injecao profunda,>10 cm,3,9954.6,,3,9083.9,
+N05,N05-001,2009,centeio,potassio,banda rasa,5-10 cm,7,6651,1098,7,7185.6,1535.7
+N05,N05-002,2009,centeio,N sem descricao,banda profunda,>10 cm,5,4890.7,646.4,5,4366.6,688.3
+N05,N05-003,2009,centeio,P soluvel,banda rasa,5-10 cm,6,6306.9,1554.2,6,5773.1,1404.7
+N05,N05-004,2009,centeio,ureia,banda profunda,>10 cm,6,4957.6,727.4,6,4604.3,1100.6
+N05,N05-005,2009,centeio,ureia,banda rasa,5-10 cm,4,6109.1,934.7,4,5990.7,787.9
+N05,N05-006,2009,centeio,amonio,banda profunda,>10 cm,4,5759.3,1164.7,4,6667.5,1956.2
+N05,N05-007,2009,centeio,amonio,banda rasa,5-10 cm,3,5539.3,588.5,3,5757.5,351
+N05,N05-008,2009,centeio,esterco liquido,banda superficial,0 cm,4,5330.6,1059.9,4,4999.9,672.9
+N05,N05-009,2009,centeio,amonio + P soluvel,banda superficial,0 cm,7,6149.7,672.3,7,5982.4,961.3
+N05,N05-010,2009,centeio,N sem descricao,banda rasa,5-10 cm,5,5207.5,1011.8,5,6345.6,890.4
+N05,N05-011,2009,centeio,P soluvel,banda profunda,>10 cm,5,5252.9,408.5,5,7162.5,871
+N05,N05-012,2009,centeio,amonio + P soluvel,injecao profunda,>10 cm,3,5511.1,356.4,3,5176.6,216.9
+N05,N05-013,2009,centeio,amonio,injecao rasa,5-10 cm,4,5915.9,319.7,4,6256,268.1
+N05,N05-014,2009,centeio,P soluvel,injecao profunda,>10 cm,5,7905.8,959.8,5,7919.8,436
+N05,N05-015,2009,centeio,P soluvel,banda superficial,0 cm,4,4345.7,179.6,4,4258.8,399.9
+N06,N06-001,2014,trigo de inverno,amonio + P soluvel,banda rasa,5-10 cm,6,7860.4,1069.4,6,6253.8,365.1
+N06,N06-002,2014,trigo de inverno,amonio + P soluvel,banda rasa,5-10 cm,3,7458.5,1374.2,3,7168.2,1062.5
+N06,N06-003,2014,trigo de inverno,amonio + P soluvel,banda profunda,>10 cm,4,9852.6,1126.7,4,7637,635.3
+N06,N06-004,2014,trigo de inverno,amonio,banda superficial,0 cm,5,7489.1,1535.2,5,8057.9,1158.9
+N06,N06-005,2014,trigo de inverno,amonio + P soluvel,injecao rasa,5-10 cm,5,11078.7,2089.5,5,7973.3,1085.7
+N06,N06-006,2014,trigo de inverno,potassio,banda profunda,>10 cm,5,7638,825.7,5,7600.9,667.1
+N06,N06-007,2014,trigo de inverno,potassio,sulco rasa (faca),5-10 cm,4,8698.5,606.7,4,7491.4,664.2
+N06,N06-008,2014,trigo de inverno,amonio,sulco profunda (faca),>10 cm,5,11426.4,1899.5,5,8498.5,1591.2
+N06,N06-009,2014,trigo de inverno,potassio,semente,5-10 cm,4,6174.6,244.6,4,6394,281.2
+N06,N06-010,2014,trigo de inverno,amonio + P soluvel,banda rasa,5-10 cm,3,8424.8,1407,3,7467.9,412.5
+N07,N07-001,2002,milho,P soluvel,banda rasa,5-10 cm,3,10557.9,,3,9950,
+N07,N07-002,2002,milho,potassio,banda profunda,>10 cm,4,9153.7,,4,7917.6,
+N07,N07-003,2002,milho,ureia,banda rasa,5-10 cm,5,10245.8,,5,9034,
+N07,N07-004,2002,milho,amonio + P soluvel,banda rasa,5-10 cm,5,10401.9,,5,8820.6,
+N07,N07-005,2002,milho,N sem descricao,injecao profunda,>10 cm,3,9547.6,,3,8908,
+N07,N07-006,2002,milho,esterco liquido,banda superficial,0 cm,6,8721.8,,6,9120.1,
+N07,N07-007,2002,milho,ureia,sulco rasa (faca),5-10 cm,6,12329.5,,6,11375.5,
+N07,N07-008,2002,milho,amonio + P soluvel,injecao profunda,>10 cm,3,11694.5,,3,9624,
+N07,N07-009,2002,milho,ureia,banda rasa,5-10 cm,5,11977.1,,5,9813,
+N07,N07-010,2002,milho,amonio + P soluvel,banda rasa,5-10 cm,4,12047.7,,4,9915.4,
+N07,N07-011,2002,milho,P soluvel,injecao profunda,>10 cm,5,11222.5,,5,11137.1,
+N07,N07-012,2002,milho,amonio,injecao profunda,>10 cm,5,8531.4,,5,7696.6,
+N07,N07-013,2002,milho,amonio + P soluvel,banda rasa,5-10 cm,3,11140.1,,3,9656,
+N07,N07-014,2002,milho,P soluvel,injecao rasa,5-10 cm,7,9474.1,,7,9657.5,
+N07,N07-015,2002,milho,P soluvel,injecao rasa,5-10 cm,4,12527.2,,4,13158.2,
+N07,N07-016,2002,milho,potassio,ponto raso,5-10 cm,6,15170,,6,11803.8,
+N07,N07-017,2002,milho,esterco liquido,banda profunda,>10 cm,3,12037.5,,3,10376.3,
+N07,N07-018,2002,milho,amonio + P soluvel,sulco profunda (faca),>10 cm,5,16031.9,,5,10171,
+N07,N07-019,2002,milho,ureia,banda rasa,5-10 cm,8,9207.5,,8,8996.7,
+N07,N07-020,2002,milho,amonio + P soluvel,banda profunda,>10 cm,6,11778.3,,6,9214,
+N07,N07-021,2002,milho,amonio + P soluvel,banda rasa,5-10 cm,6,9895,,6,8338.2,
+N07,N07-022,2002,milho,amonio,sulco profunda (faca),>10 cm,4,10156.9,,4,9535,
+N07,N07-023,2002,milho,N sem descricao,sulco profunda (faca),>10 cm,7,12846.7,,7,10362.3,
+N07,N07-024,2002,milho,P soluvel,sulco profunda (faca),>10 cm,4,11833.7,,4,10425.1,
+N07,N07-025,2002,milho,ureia,banda rasa,5-10 cm,3,8710.3,,3,7476.2,
+N07,N07-026,2002,milho,potassio,banda profunda,>10 cm,5,7545.2,,5,6919.7,
+N07,N07-027,2002,milho,amonio + P soluvel,banda profunda,>10 cm,4,8171.8,,4,6791.7,
+N07,N07-028,2002,milho,N sem descricao,injecao rasa,5-10 cm,5,8962.5,,5,8122,
+N07,N07-029,2002,milho,amonio + P soluvel,semente,5-10 cm,7,9496.1,,7,8478.6,
+N07,N07-030,2002,milho,amonio + P soluvel,banda superficial,0 cm,3,12346.4,,3,9403.6,
+N07,N07-031,2002,milho,potassio,banda rasa,5-10 cm,5,8878.6,,5,9193.8,
+N07,N07-032,2002,milho,amonio + P soluvel,banda rasa,5-10 cm,6,8579.7,,6,8133.3,
+N07,N07-033,2002,milho,esterco solido,banda rasa,5-10 cm,5,11034.5,,5,8631.3,
+N07,N07-034,2002,milho,ureia + P soluvel,banda rasa,5-10 cm,3,11125.3,,3,10030.1,
+N07,N07-035,2002,milho,amonio + P soluvel,banda rasa,5-10 cm,3,9591.8,,3,8338.2,
+N07,N07-036,2002,milho,amonio,sulco profunda (faca),>10 cm,5,10916.9,,5,9307.3,
+N07,N07-037,2002,milho,ureia,banda rasa,5-10 cm,4,11360.4,,4,11408.6,
+N07,N07-038,2002,milho,ureia,banda rasa,5-10 cm,5,9398.3,,5,8416.6,
+N07,N07-039,2002,milho,amonio,injecao profunda,>10 cm,4,14172.9,,4,11337.2,
+N07,N07-040,2002,milho,P soluvel,banda rasa,5-10 cm,4,12404.4,,4,10304.8,
+N07,N07-041,2002,milho,P soluvel,injecao profunda,>10 cm,3,9655.4,,3,8810.7,
+N07,N07-042,2002,milho,amonio + P soluvel,banda superficial,0 cm,6,13565,,6,11447.4,
+N07,N07-043,2002,milho,N sem descricao,banda rasa,5-10 cm,4,9492.2,,4,9477.8,
+N07,N07-044,2002,milho,potassio,semente,5-10 cm,5,9141.1,,5,9568.1,
+N07,N07-045,2002,milho,amonio + P soluvel,banda rasa,5-10 cm,4,10123.3,,4,9338.7,
+N07,N07-046,2002,milho,potassio,injecao profunda,>10 cm,6,9588.5,,6,9051.8,
+N07,N07-047,2002,milho,P soluvel,banda profunda,>10 cm,5,10402.3,,5,9897.5,
+N07,N07-048,2002,milho,amonio + P soluvel,banda profunda,>10 cm,4,9965.4,,4,8602.4,
+N07,N07-049,2002,milho,amonio,injecao rasa,5-10 cm,8,8157.6,,8,8552.9,
+N07,N07-050,2002,milho,N sem descricao,banda rasa,5-10 cm,3,9544.2,,3,8555.5,
+N07,N07-051,2002,milho,amonio + P soluvel,injecao profunda,>10 cm,5,11372.8,,5,10362.2,
+N07,N07-052,2002,milho,esterco solido,injecao profunda,>10 cm,4,12362.4,,4,9543.6,
+N07,N07-053,2002,milho,amonio,banda rasa,5-10 cm,6,11465.8,,6,11049.4,
+N08,N08-001,2004,milho,amonio,banda superficial,0 cm,5,10352.6,318.1,5,10441.1,493.4
+N08,N08-002,2004,milho,P soluvel,banda rasa,5-10 cm,5,6599.1,464.1,5,6802.8,167.3
+N08,N08-003,2004,milho,amonio + P soluvel,banda rasa,5-10 cm,5,8262.7,508.5,5,7232.1,413.3
+N08,N08-004,2004,milho,amonio + P soluvel,banda rasa,5-10 cm,7,14058.8,1609.1,7,11808.9,1335.1
+N08,N08-005,2004,milho,amonio + P soluvel,sulco profunda (faca),>10 cm,4,10191.2,1221.8,4,8603.5,1282.6
+N08,N08-006,2004,milho,amonio + P soluvel,banda profunda,>10 cm,5,7442.1,426.3,5,6735.3,385.9
+N08,N08-007,2004,milho,potassio,injecao profunda,>10 cm,5,8448.6,517.3,5,7914.8,894.3
+N09,N09-001,2015,trigo de inverno,N sem descricao,injecao profunda,>10 cm,4,8227.5,,4,8550.7,
+N10,N10-001,2004,trigo de inverno,amonio,banda profunda,>10 cm,7,10108.3,482,7,9003.2,614.5
+N10,N10-002,2004,trigo de inverno,amonio + P soluvel,banda superficial,0 cm,6,10660.6,1089.5,6,8074.4,464.7
+N10,N10-003,2004,trigo de inverno,amonio,banda profunda,>10 cm,3,7313.5,1359.5,3,7130.5,180.7
+N10,N10-004,2004,trigo de inverno,ureia + P soluvel,banda rasa,5-10 cm,5,8901.6,322.4,5,6245.2,530
+N10,N10-005,2004,trigo de inverno,amonio,banda rasa,5-10 cm,6,8224.7,346.4,6,7684.5,335.3
+N10,N10-006,2004,trigo de inverno,potassio,banda superficial,0 cm,5,6398.2,291.5,5,5707.9,223.2
+N10,N10-007,2004,trigo de inverno,potassio,banda rasa,5-10 cm,4,5277.3,1662.2,4,5866.6,920.9
+N10,N10-008,2004,trigo de inverno,amonio + P soluvel,sulco profunda (faca),>10 cm,6,9420,1840.3,6,5726.9,945.3
+N10,N10-009,2004,trigo de inverno,potassio,banda superficial,0 cm,3,8285.2,216.2,3,8294.8,765.1
+N10,N10-010,2004,trigo de inverno,amonio,semente,5-10 cm,4,7689.3,1789.6,4,5920.4,1145.6
+N10,N10-011,2004,trigo de inverno,amonio + P soluvel,banda rasa,5-10 cm,5,7240,1223.8,5,5751.5,593.9
+N10,N10-012,2004,trigo de inverno,potassio,banda rasa,5-10 cm,8,5725.3,786.9,8,5524.7,554.7
+N10,N10-013,2004,trigo de inverno,P soluvel,banda superficial,0 cm,4,8441,674.2,4,7293.4,862.5
+N11,N11-001,2013,couve-flor,P soluvel,injecao profunda,>10 cm,4,25232.5,910.4,4,26774.2,1324.9
+N11,N11-002,2013,couve-flor,amonio,banda superficial,0 cm,5,26163.3,3226.7,5,25211.5,2179.6
+N12,N12-001,2003,trigo de inverno,amonio + P soluvel,banda rasa,5-10 cm,4,6543.2,,4,6516.7,
+N12,N12-002,2003,trigo de inverno,amonio,banda profunda,>10 cm,8,8612.1,,8,8261.9,
+N12,N12-003,2003,trigo de inverno,amonio + P soluvel,banda profunda,>10 cm,6,8506.7,,6,6894,
+N12,N12-004,2003,trigo de inverno,ureia,injecao profunda,>10 cm,4,7867.8,,4,6445.6,
+N12,N12-005,2003,trigo de inverno,P soluvel,banda superficial,0 cm,3,6488.6,,3,7018.8,
+N12,N12-006,2003,trigo de inverno,potassio,banda superficial,0 cm,5,6531.4,,5,6667.9,
+N12,N12-007,2003,trigo de inverno,amonio + P soluvel,banda superficial,0 cm,7,9202.1,,7,7980.2,
+N12,N12-008,2003,trigo de inverno,potassio,banda profunda,>10 cm,6,8520.3,,6,8445.5,
+N13,N13-001,1998,milho,amonio + P soluvel,banda profunda,>10 cm,3,10968.8,2973.7,3,12106.3,1121
+N13,N13-002,1998,milho,esterco liquido,banda profunda,>10 cm,4,9028,476.2,4,9438.1,721.4
+N13,N13-003,1998,milho,amonio,injecao rasa,5-10 cm,6,9326.8,1684.4,6,8988.6,1248.6
+N13,N13-004,1998,milho,amonio,banda profunda,>10 cm,3,9207.2,1153.8,3,11801,4445
+N13,N13-005,1998,milho,P soluvel,banda rasa,5-10 cm,4,7321.6,1203.2,4,8242.6,746.1
+N13,N13-006,1998,milho,ureia,banda profunda,>10 cm,5,11696.7,1146,5,9721.6,1108.7
+N13,N13-007,1998,milho,ureia + P soluvel,banda profunda,>10 cm,4,9706.9,417,4,7589.9,1035.1
+N13,N13-008,1998,milho,amonio + P soluvel,injecao rasa,5-10 cm,6,11385.1,1006.2,6,10119.9,1491.3
+N13,N13-009,1998,milho,amonio + P soluvel,injecao profunda,>10 cm,7,10275.1,539.2,7,9392.3,1358.3
+N13,N13-010,1998,milho,amonio,banda profunda,>10 cm,4,9064.8,638.5,4,9094.8,817.5
+N13,N13-011,1998,milho,amonio + P soluvel,sulco profunda (faca),>10 cm,4,11937.9,1285.7,4,8404.4,440.3
+N13,N13-012,1998,milho,P soluvel,banda rasa,5-10 cm,3,8255.6,2249.9,3,9383,569.6
+N13,N13-013,1998,milho,amonio + P soluvel,banda profunda,>10 cm,3,11166.4,612.3,3,10886,534.9
+N13,N13-014,1998,milho,amonio + P soluvel,sulco profunda (faca),>10 cm,4,17265.8,3043.7,4,13087.8,345.1
+N13,N13-015,1998,milho,amonio,banda superficial,0 cm,4,10841.4,803,4,11472.3,884.3
+N13,N13-016,1998,milho,ureia,banda superficial,0 cm,4,8950.7,1302.7,4,8390.2,504.5
+N13,N13-017,1998,milho,N sem descricao,injecao rasa,5-10 cm,8,5490.1,922.2,8,6123.6,1121.5
+N13,N13-018,1998,milho,amonio,injecao profunda,>10 cm,3,9207,701,3,8644.4,939.6
+N13,N13-019,1998,milho,potassio,banda superficial,0 cm,6,7787.4,526,6,7393.3,689.2
+N13,N13-020,1998,milho,ureia,injecao profunda,>10 cm,4,10443.1,586.2,4,8856.3,516.5
+N13,N13-021,1998,milho,N sem descricao,banda profunda,>10 cm,3,6536.6,1422.4,3,7493.6,308.4
+N13,N13-022,1998,milho,amonio,injecao profunda,>10 cm,4,9541.8,858.7,4,9396.4,1153.9
+N13,N13-023,1998,milho,ureia,sulco profunda (faca),>10 cm,3,7451.6,658.8,3,7508.8,749.7
+N13,N13-024,1998,milho,P soluvel,banda rasa,5-10 cm,4,6616.6,452.1,4,7504.9,907.7
+N13,N13-025,1998,milho,amonio,banda superficial,0 cm,6,8686.3,1136.4,6,9199.9,1289.1
+N13,N13-026,1998,milho,amonio,banda superficial,0 cm,8,8942.9,792.5,8,9325.4,869.5
+N13,N13-027,1998,milho,potassio,injecao rasa,5-10 cm,7,8731.3,1056.9,7,9268,1251.7
+N13,N13-028,1998,milho,amonio,banda rasa,5-10 cm,4,8009.5,710.3,4,8236.8,514.2
+N13,N13-029,1998,milho,amonio,banda profunda,>10 cm,5,7195.6,576.6,5,7415.7,300.5
+N13,N13-030,1998,milho,amonio,injecao profunda,>10 cm,7,7952.7,786.4,7,8083.9,764.8
+N13,N13-031,1998,milho,P soluvel,banda profunda,>10 cm,4,7581.3,857.4,4,8771.5,1812.6
+N13,N13-032,1998,milho,amonio + P soluvel,banda profunda,>10 cm,7,9071.2,1025.5,7,8677.1,266.3
+N13,N13-033,1998,milho,potassio,injecao rasa,5-10 cm,8,9497.7,1144.9,8,10325.8,964.3
+N13,N13-034,1998,milho,P soluvel,banda profunda,>10 cm,4,7778.5,1431.2,4,7860.3,803.8
+N13,N13-035,1998,milho,amonio + P soluvel,injecao profunda,>10 cm,5,10777.5,1578.1,5,9925.6,1299
+N13,N13-036,1998,milho,ureia,banda rasa,5-10 cm,4,9242.7,736.6,4,8898.5,248.3
+N13,N13-037,1998,milho,amonio,banda rasa,5-10 cm,7,9972.2,1341.6,7,9334.8,1062.5
+N13,N13-038,1998,milho,amonio + P soluvel,banda rasa,5-10 cm,3,13346.2,1502.3,3,11656.8,1212.6
+N13,N13-039,1998,milho,amonio + P soluvel,banda rasa,5-10 cm,5,9763.2,933.6,5,9556.8,1361.7
+N13,N13-040,1998,milho,amonio + P soluvel,injecao profunda,>10 cm,4,11288.8,629.5,4,8980.3,1295.9
+N13,N13-041,1998,milho,potassio,banda profunda,>10 cm,4,7533.3,775.4,4,7119.1,1865.6
+N13,N13-042,1998,milho,P soluvel,banda profunda,>10 cm,3,8536.6,487.9,3,9503.6,360.9
+N13,N13-043,1998,milho,P soluvel,banda rasa,5-10 cm,5,11026.4,1652.5,5,11766.8,797.6
+N13,N13-044,1998,milho,amonio,banda profunda,>10 cm,4,8615,406.4,4,8615.1,422.8
+N13,N13-045,1998,milho,potassio,semente,5-10 cm,4,8406.2,794.6,4,9408.6,305.7
+N13,N13-046,1998,milho,amonio + P soluvel,injecao profunda,>10 cm,6,9954.5,373.9,6,8718.4,274.6
+N13,N13-047,1998,milho,amonio,banda rasa,5-10 cm,5,8976.1,266.2,5,8753.7,862.6
+N13,N13-048,1998,milho,potassio,banda rasa,5-10 cm,7,10093.2,1524.2,7,10158.7,1188.3
+N13,N13-049,1998,milho,N sem descricao,banda rasa,5-10 cm,4,10643.6,1484.1,4,10219.5,1357.5
+N13,N13-050,1998,milho,esterco liquido,injecao profunda,>10 cm,5,8160.8,676.3,5,7529.3,832.5
+N13,N13-051,1998,milho,potassio,injecao profunda,>10 cm,4,9492.2,338.8,4,8725.9,472
+N13,N13-052,1998,milho,P soluvel,banda profunda,>10 cm,6,7263.1,591,6,8251.9,1274.1
+N13,N13-053,1998,milho,potassio,banda rasa,5-10 cm,4,6837.2,415.9,4,7469.8,661.9
+N13,N13-054,1998,milho,amonio + P soluvel,banda profunda,>10 cm,5,9290.6,630,5,9806.8,641.7
+N13,N13-055,1998,milho,N sem descricao,banda rasa,5-10 cm,4,9067.4,389,4,10377.5,357.7
+N13,N13-056,1998,milho,amonio + P soluvel,injecao profunda,>10 cm,3,9759.7,204.9,3,8565,745.5
+N13,N13-057,1998,milho,ureia,banda profunda,>10 cm,3,10021.9,2225.3,3,9727.4,144.1
+N13,N13-058,1998,milho,P soluvel,injecao profunda,>10 cm,8,8075.1,709.5,8,7961.7,797.9
+N13,N13-059,1998,milho,amonio,banda profunda,>10 cm,6,6644.4,1085.7,6,7563.1,1372.4
+N13,N13-060,1998,milho,potassio,banda profunda,>10 cm,4,9190.6,1095.9,4,9793.8,939.1
+N13,N13-061,1998,milho,potassio,banda profunda,>10 cm,5,7766.3,801.2,5,8666.7,591.6
+N13,N13-062,1998,milho,potassio,banda profunda,>10 cm,5,9011.2,1423.9,5,9280.7,1041.2
+N13,N13-063,1998,milho,P soluvel,banda rasa,5-10 cm,4,7941.3,669.7,4,8649.5,945.4
+N13,N13-064,1998,milho,P soluvel,injecao rasa,5-10 cm,4,11061.1,543.9,4,12047.2,1010.7
+N13,N13-065,1998,milho,amonio,injecao profunda,>10 cm,6,9249.3,655,6,8890,459.3
+N13,N13-066,1998,milho,amonio,banda rasa,5-10 cm,5,7109.4,1066.3,5,7099.8,728.7
+N13,N13-067,1998,milho,amonio,banda profunda,>10 cm,4,7632,926.1,4,6699.5,225
+N13,N13-068,1998,milho,amonio,injecao profunda,>10 cm,5,8436.9,2032.5,5,9210.5,1183.7
+N13,N13-069,1998,milho,N sem descricao,sulco rasa (faca),5-10 cm,3,9975.7,721.4,3,10361.9,163.8
+N13,N13-070,1998,milho,esterco liquido,injecao rasa,5-10 cm,6,10314.7,606,6,9975.6,490.2
+N13,N13-071,1998,milho,amonio,injecao profunda,>10 cm,6,8693.7,764.8,6,8481.4,810.4
+N13,N13-072,1998,milho,P soluvel,banda rasa,5-10 cm,5,8645,2277.7,5,10604.4,1615.1
+N13,N13-073,1998,milho,amonio,banda rasa,5-10 cm,4,7372.6,631.7,4,8429.3,852.9
+N13,N13-074,1998,milho,amonio + P soluvel,banda rasa,5-10 cm,4,10652.8,600.9,4,9460.7,502.7
+N13,N13-075,1998,milho,P soluvel,banda rasa,5-10 cm,8,7372.6,1633.6,8,7676.6,1992.8
+N13,N13-076,1998,milho,amonio,banda superficial,0 cm,4,5851.2,727.2,4,6168.3,716.4
+N13,N13-077,1998,milho,N sem descricao,banda profunda,>10 cm,6,8524.9,499.8,6,8676.5,400.5
+N13,N13-078,1998,milho,amonio,banda rasa,5-10 cm,3,8896.9,486.7,3,9573.3,1203.5
+N13,N13-079,1998,milho,potassio,banda profunda,>10 cm,5,10505.4,997.7,5,10416.7,1571.3
+N13,N13-080,1998,milho,amonio + P soluvel,banda superficial,0 cm,6,9527.2,530.3,6,8265.9,598
+N13,N13-081,1998,milho,potassio,semente,5-10 cm,4,11562.8,1392.7,4,13076.7,2430.2
+N13,N13-082,1998,milho,ureia,sulco rasa (faca),5-10 cm,5,12878.5,960.9,5,11180.2,903.5
+N13,N13-083,1998,milho,amonio + P soluvel,injecao rasa,5-10 cm,4,8356.1,602.3,4,8110.3,1267.3
+N13,N13-084,1998,milho,potassio,banda rasa,5-10 cm,6,10198.6,1622.1,6,9607.9,1775.6
+N13,N13-085,1998,milho,amonio + P soluvel,injecao rasa,5-10 cm,4,13395.2,1116.5,4,8516.2,619.3
+N13,N13-086,1998,milho,potassio,banda superficial,0 cm,4,9259,582.9,4,8423.9,621.2
+N13,N13-087,1998,milho,amonio + P soluvel,injecao profunda,>10 cm,5,12720.9,865.9,5,10871.3,1222
+N13,N13-088,1998,milho,P soluvel,banda profunda,>10 cm,4,9554.5,1025.9,4,8863.1,1665
+N13,N13-089,1998,milho,amonio + P soluvel,banda profunda,>10 cm,3,8878.9,497.7,3,7599.7,301.8
+N13,N13-090,1998,milho,potassio,semente,5-10 cm,4,9539.9,700.8,4,10621.3,652.6
+N13,N13-091,1998,milho,amonio,banda profunda,>10 cm,3,10668.4,1765.1,3,10992.8,1943.3
+N13,N13-092,1998,milho,N sem descricao,ponto profundo,5-10 cm,4,10980.3,1662.1,4,9458.1,1165.8
+N13,N13-093,1998,milho,potassio,banda rasa,5-10 cm,4,10045,871.6,4,10088.8,482.8
+N13,N13-094,1998,milho,potassio,injecao rasa,5-10 cm,4,6767,526.8,4,7082.8,981.6
+N13,N13-095,1998,milho,P soluvel,banda profunda,>10 cm,6,10884.2,632.9,6,11785.3,1063.4
+N13,N13-096,1998,milho,amonio + P soluvel,semente,5-10 cm,4,7329.9,849.8,4,7417.1,473.4
+N13,N13-097,1998,milho,N sem descricao,banda rasa,5-10 cm,5,8073.3,1160.1,5,8040.4,1369.1
+N13,N13-098,1998,milho,P soluvel,banda profunda,>10 cm,4,8667.5,445.1,4,9408,812.3
+N13,N13-099,1998,milho,ureia,banda profunda,>10 cm,6,8435.3,614.8,6,7659.4,707.8
+N13,N13-100,1998,milho,P soluvel,injecao profunda,>10 cm,6,9351.6,1072.7,6,10051.7,574.4
+N13,N13-101,1998,milho,amonio,injecao profunda,>10 cm,6,9113,1262.8,6,9401.5,810
+N13,N13-102,1998,milho,amonio,banda rasa,5-10 cm,8,9595.3,1662.8,8,8312.6,1618.5
+N13,N13-103,1998,milho,amonio,banda superficial,0 cm,5,7579.9,329.8,5,7666.3,78.7
+N13,N13-104,1998,milho,N sem descricao,banda profunda,>10 cm,4,8283.1,373.8,4,9696.1,405.9
+N14,N14-001,1986,colza,amonio,banda superficial,0 cm,4,4298.6,,4,3438.6,
+N14,N14-002,1986,colza,N sem descricao,banda profunda,>10 cm,4,3922.3,,4,4575.9,
+N14,N14-003,1986,colza,amonio,banda profunda,>10 cm,6,4618.3,,6,4124.3,
+N14,N14-004,1986,colza,potassio,banda profunda,>10 cm,5,3283.6,,5,2427.3,
+N14,N14-005,1986,colza,amonio + P soluvel,banda rasa,5-10 cm,4,4291.1,,4,3575.3,
+N15,N15-001,2010,colza,amonio,semente,5-10 cm,4,4521,494.4,4,3551.3,550.5
+N15,N15-002,2010,colza,ureia,banda superficial,0 cm,4,5112.3,546.6,4,4052,291.1
+N15,N15-003,2010,colza,amonio + P soluvel,sulco profunda (faca),>10 cm,4,5231.7,759.9,4,3222.6,247.6
+N15,N15-004,2010,colza,amonio + P soluvel,banda rasa,5-10 cm,4,4746.9,277.5,4,3443.9,357.7
+N15,N15-005,2010,colza,amonio + P soluvel,banda profunda,>10 cm,5,4964.4,649.8,5,4080.6,176.4
+N15,N15-006,2010,colza,esterco liquido,injecao profunda,>10 cm,4,4398.6,684,4,2576.6,366.8
+N15,N15-007,2010,colza,amonio,banda rasa,5-10 cm,3,5958.6,1072,3,4507.3,753.8
+N16,N16-001,2014,soja,P soluvel,banda rasa,5-10 cm,7,2499.9,,7,2585.4,
+N16,N16-002,2014,soja,amonio + P soluvel,injecao rasa,5-10 cm,5,3103.8,,5,3552.5,
+N16,N16-003,2014,soja,P soluvel,banda superficial,0 cm,4,2744.2,,4,3301,
+N16,N16-004,2014,soja,amonio + P soluvel,injecao profunda,>10 cm,5,2811.4,,5,2742.4,
+N16,N16-005,2014,soja,amonio,injecao profunda,>10 cm,5,2587.1,,5,2721.2,
+N16,N16-006,2014,soja,amonio,banda superficial,0 cm,3,2575.6,,3,3563.3,
+N16,N16-007,2014,soja,amonio + P soluvel,banda superficial,0 cm,7,2616.6,,7,2613.1,
+N16,N16-008,2014,soja,amonio,injecao profunda,>10 cm,5,2015.4,,5,2220.6,
+N17,N17-001,2010,nabo forrageiro,N sem descricao,injecao profunda,>10 cm,5,2741.5,395.7,5,2920.5,1419.5
+N17,N17-002,2010,nabo forrageiro,potassio,banda rasa,5-10 cm,3,2767.1,647.4,3,2718.8,157
+N17,N17-003,2010,nabo forrageiro,P soluvel,banda profunda,>10 cm,8,2891.5,258,8,3537.5,320.7
+N17,N17-004,2010,nabo forrageiro,P soluvel,banda profunda,>10 cm,5,2965.8,280,5,3252.7,143.4
+N18,N18-001,2012,repolho chines,N sem descricao,banda profunda,>10 cm,3,51347.6,,3,49584,
+N18,N18-002,2012,repolho chines,P soluvel,sulco profunda (faca),>10 cm,7,48733.4,,7,42093.2,
+N18,N18-003,2012,repolho chines,ureia,banda profunda,>10 cm,5,55057.6,,5,48505.4,
+N18,N18-004,2012,repolho chines,P soluvel,banda rasa,5-10 cm,6,59270.3,,6,55609.6,
+N19,N19-001,2013,sorgo,potassio,banda rasa,5-10 cm,6,4416.5,193.7,6,4255.5,323.3
+N19,N19-002,2013,sorgo,N sem descricao,banda profunda,>10 cm,5,3776.9,181.6,5,4079.9,220.4
+N19,N19-003,2013,sorgo,amonio,injecao profunda,>10 cm,4,5196,373,4,4661,276.5
+N19,N19-004,2013,sorgo,N sem descricao,injecao profunda,>10 cm,4,4650.2,428.3,4,4355,323
+N20,N20-001,1996,trigo de inverno,amonio + P soluvel,banda profunda,>10 cm,5,9318.7,1018.7,5,7359.5,667.4
+N20,N20-002,1996,trigo de inverno,potassio,semente,5-10 cm,3,9232.8,843.9,3,7731.1,1349.1
+N20,N20-003,1996,trigo de inverno,amonio + P soluvel,injecao profunda,>10 cm,6,12936.6,2073,6,11602.5,2143.6
+N20,N20-004,1996,trigo de inverno,esterco solido,banda profunda,>10 cm,5,7762.2,574.9,5,7398,770.8
+N20,N20-005,1996,trigo de inverno,N sem descricao,banda profunda,>10 cm,5,9475.1,835.2,5,7614.6,1397.9
+N21,N21-001,2010,milho,P soluvel,injecao rasa,5-10 cm,4,10772.7,,4,12020.6,
+N21,N21-002,2010,milho,ureia,banda rasa,5-10 cm,5,9548.6,,5,9574.5,
+N21,N21-003,2010,milho,amonio + P soluvel,banda rasa,5-10 cm,6,10093.3,,6,8442.6,
+N21,N21-004,2010,milho,esterco liquido,banda profunda,>10 cm,6,9604.1,,6,8902.7,
+N21,N21-005,2010,milho,potassio,banda superficial,0 cm,5,10543.5,,5,10196.6,
+N21,N21-006,2010,milho,amonio + P soluvel,injecao rasa,5-10 cm,8,10373.6,,8,9949.7,
+N21,N21-007,2010,milho,potassio,banda profunda,>10 cm,8,9154.7,,8,8684.9,
+N21,N21-008,2010,milho,N sem descricao,banda profunda,>10 cm,5,9641.6,,5,9783.4,
+N21,N21-009,2010,milho,potassio,banda superficial,0 cm,4,8579,,4,8788.8,
+N21,N21-010,2010,milho,P soluvel,semente,5-10 cm,5,6682.9,,5,6375.7,
+N21,N21-011,2010,milho,amonio,banda rasa,5-10 cm,8,8506,,8,8424.2,
+N21,N21-012,2010,milho,amonio,banda superficial,0 cm,4,8525.6,,4,9046.9,
+N21,N21-013,2010,milho,P soluvel,banda profunda,>10 cm,5,8838.4,,5,8535.2,
+N21,N21-014,2010,milho,amonio + P soluvel,sulco profunda (faca),>10 cm,7,10160,,7,7325.6,
+N21,N21-015,2010,milho,P soluvel,banda rasa,5-10 cm,5,6734.8,,5,6881.9,
+N21,N21-016,2010,milho,amonio,injecao profunda,>10 cm,4,9009.9,,4,8766.6,
+N21,N21-017,2010,milho,amonio,banda rasa,5-10 cm,3,7987.4,,3,7913.6,
+N21,N21-018,2010,milho,ureia,banda profunda,>10 cm,3,8546.5,,3,7183.7,
+N21,N21-019,2010,milho,ureia + P soluvel,injecao profunda,>10 cm,4,11771.8,,4,10354,
+N21,N21-020,2010,milho,esterco liquido,banda rasa,5-10 cm,8,9808,,8,8987.7,
+N21,N21-021,2010,milho,amonio,banda profunda,>10 cm,5,8860.9,,5,8549.5,
+N21,N21-022,2010,milho,potassio,banda superficial,0 cm,6,8911.6,,6,11840.1,
+N21,N21-023,2010,milho,potassio,banda rasa,5-10 cm,7,7359.9,,7,7873.6,
+N21,N21-024,2010,milho,amonio,banda superficial,0 cm,4,10488.6,,4,10365.3,
+N21,N21-025,2010,milho,potassio,banda rasa,5-10 cm,4,10889.9,,4,11712.7,
+N21,N21-026,2010,milho,P soluvel,banda rasa,5-10 cm,6,8374.5,,6,8436.9,
+N21,N21-027,2010,milho,amonio + P soluvel,semente,5-10 cm,4,9472.3,,4,8058.9,
+N21,N21-028,2010,milho,ureia,banda profunda,>10 cm,3,8517.6,,3,7686.8,
+N21,N21-029,2010,milho,P soluvel,banda rasa,5-10 cm,5,8851.7,,5,9887.7,
+N21,N21-030,2010,milho,potassio,banda profunda,>10 cm,5,8285.4,,5,9720.6,
+N21,N21-031,2010,milho,potassio,banda profunda,>10 cm,4,7501.5,,4,8762.3,
+N21,N21-032,2010,milho,P soluvel,banda profunda,>10 cm,3,6405.5,,3,5766.4,
+N21,N21-033,2010,milho,potassio,banda rasa,5-10 cm,8,9765.8,,8,10285.7,
+N21,N21-034,2010,milho,P soluvel,banda superficial,0 cm,4,8351.9,,4,7998.5,
+N21,N21-035,2010,milho,amonio,injecao profunda,>10 cm,4,8872.5,,4,9001.5,
+N21,N21-036,2010,milho,P soluvel,sulco profunda (faca),>10 cm,3,14845.6,,3,11141.7,
+N21,N21-037,2010,milho,potassio,banda rasa,5-10 cm,6,9967.4,,6,8906,
+N21,N21-038,2010,milho,P soluvel,semente,5-10 cm,5,8673.7,,5,9497.1,
+N21,N21-039,2010,milho,amonio,banda profunda,>10 cm,4,9422.6,,4,7813.8,
+N21,N21-040,2010,milho,P soluvel,sulco profunda (faca),>10 cm,4,10093,,4,7982.4,
+N21,N21-041,2010,milho,potassio,sulco profunda (faca),>10 cm,4,9952.1,,4,9673.3,
+N21,N21-042,2010,milho,ureia + P soluvel,banda rasa,5-10 cm,4,14218.3,,4,12064,
+N21,N21-043,2010,milho,amonio,banda superficial,0 cm,6,10545,,6,10865.6,
+N21,N21-044,2010,milho,amonio + P soluvel,sulco profunda (faca),>10 cm,3,13480.5,,3,10801.2,
+N21,N21-045,2010,milho,P soluvel,sulco profunda (faca),>10 cm,4,12084.9,,4,11435.1,
+N21,N21-046,2010,milho,P soluvel,banda profunda,>10 cm,6,7811.2,,6,8336.4,
+N21,N21-047,2010,milho,amonio + P soluvel,banda superficial,0 cm,7,8188.5,,7,7253.1,
+N21,N21-048,2010,milho,amonio + P soluvel,banda rasa,5-10 cm,5,10299.3,,5,10150.3,
+N21,N21-049,2010,milho,amonio,banda profunda,>10 cm,5,11824.4,,5,11069.5,
+N21,N21-050,2010,milho,N sem descricao,banda profunda,>10 cm,6,10497.2,,6,11125.7,
+N21,N21-051,2010,milho,amonio + P soluvel,banda profunda,>10 cm,5,11797.1,,5,10381.5,
+N21,N21-052,2010,milho,ureia,injecao profunda,>10 cm,4,14090.9,,4,12954.4,
+N21,N21-053,2010,milho,ureia,banda profunda,>10 cm,5,10331.7,,5,9512.3,
+N21,N21-054,2010,milho,amonio + P soluvel,banda profunda,>10 cm,3,11347.1,,3,9714.9,
+N21,N21-055,2010,milho,amonio + P soluvel,ponto profundo,5-10 cm,4,9150.6,,4,6621.7,
+N21,N21-056,2010,milho,N sem descricao,injecao rasa,5-10 cm,4,6281.7,,4,7617.4,
+N21,N21-057,2010,milho,P soluvel,banda rasa,5-10 cm,5,7363.5,,5,6106.1,
+N21,N21-058,2010,milho,amonio + P soluvel,banda superficial,0 cm,3,8410,,3,7084.5,
+N21,N21-059,2010,milho,P soluvel,banda rasa,5-10 cm,6,9416.3,,6,9647.4,
+N21,N21-060,2010,milho,amonio + P soluvel,banda superficial,0 cm,4,8826.8,,4,8196.5,
+N21,N21-061,2010,milho,ureia + P soluvel,banda rasa,5-10 cm,3,10192.5,,3,9636,
+N21,N21-062,2010,milho,N sem descricao,injecao profunda,>10 cm,4,9825.8,,4,7781.1,
+N21,N21-063,2010,milho,ureia + P soluvel,banda rasa,5-10 cm,3,9892.2,,3,6624.9,
+N21,N21-064,2010,milho,potassio,semente,5-10 cm,3,6946.4,,3,7596.2,
+N22,N22-001,2014,milho,amonio + P soluvel,semente,5-10 cm,5,9901.9,,5,10784.6,
+N22,N22-002,2014,milho,amonio,banda profunda,>10 cm,4,7909.3,,4,8414.8,
+N22,N22-003,2014,milho,N sem descricao,banda superficial,0 cm,3,8569.1,,3,9141.5,
+N22,N22-004,2014,milho,P soluvel,injecao profunda,>10 cm,5,7684.8,,5,8139.5,
+N23,N23-001,2002,milho,amonio,banda profunda,>10 cm,6,10485.2,1157.7,6,9793.7,1237
+N23,N23-002,2002,milho,potassio,banda profunda,>10 cm,6,9715.4,1978.5,6,10180.6,1310.7
+N23,N23-003,2002,milho,potassio,banda profunda,>10 cm,8,10857.1,2701.7,8,11300.4,3263.1
+N23,N23-004,2002,milho,P soluvel,banda profunda,>10 cm,3,6963,1716.8,3,7761.8,779.5
+N23,N23-005,2002,milho,ureia,banda rasa,5-10 cm,6,11578,1290.1,6,10152.5,456.8
+N23,N23-006,2002,milho,P soluvel,injecao profunda,>10 cm,4,8916.4,412.4,4,9230.4,604
+N23,N23-007,2002,milho,N sem descricao,banda rasa,5-10 cm,4,10523.7,1486.6,4,10867.6,1610.3
+N23,N23-008,2002,milho,amonio + P soluvel,banda superficial,0 cm,5,8660.2,852.9,5,7702,1008.5
+N23,N23-009,2002,milho,P soluvel,banda rasa,5-10 cm,4,8570.9,1361.8,4,9155.9,1243.7
+N23,N23-010,2002,milho,potassio,banda profunda,>10 cm,8,8964.9,811.5,8,9626,1441.4
+N23,N23-011,2002,milho,amonio,banda profunda,>10 cm,3,11214.1,3622.1,3,10405.8,1010.7
+N23,N23-012,2002,milho,amonio + P soluvel,semente,5-10 cm,4,8692.2,462.3,4,8117.2,1782.3
+N23,N23-013,2002,milho,P soluvel,banda profunda,>10 cm,6,8537.7,666.5,6,8025.8,1114.4
+N23,N23-014,2002,milho,P soluvel,semente,5-10 cm,4,7344,604.1,4,7597.9,1699
+N23,N23-015,2002,milho,potassio,banda rasa,5-10 cm,6,9327.1,664.5,6,7759.3,1401.3
+N23,N23-016,2002,milho,ureia,banda profunda,>10 cm,3,11294.2,257.5,3,11089.4,456.6
+N23,N23-017,2002,milho,P soluvel,banda profunda,>10 cm,4,8302.4,295.9,4,8171.4,229.9
+N23,N23-018,2002,milho,P soluvel,banda rasa,5-10 cm,4,7761.6,455.6,4,7091.6,554.3
+N23,N23-019,2002,milho,P soluvel,banda superficial,0 cm,4,10085.9,411.7,4,9466.5,488.2
+N23,N23-020,2002,milho,ureia,banda profunda,>10 cm,7,12354.9,2567.8,7,13773.9,1412.8
+N23,N23-021,2002,milho,amonio,banda rasa,5-10 cm,4,11725.5,922.1,4,11058.3,898.3
+N23,N23-022,2002,milho,potassio,banda rasa,5-10 cm,4,12406.1,2989.7,4,11600,1077.7
+N23,N23-023,2002,milho,P soluvel,banda superficial,0 cm,7,7598.9,713.2,7,7650.1,567.5
+N23,N23-024,2002,milho,amonio,banda profunda,>10 cm,4,10464.1,1679.3,4,11904.3,1761.3
+N23,N23-025,2002,milho,potassio,semente,5-10 cm,5,9386.2,1725.7,5,7279.7,1305.6
+N24,N24-001,2014,soja,ureia,banda profunda,>10 cm,6,2516,385.3,6,2708,308.9
+N24,N24-002,2014,soja,P soluvel,injecao profunda,>10 cm,3,4177.1,232.3,3,3945.7,307.8
+N24,N24-003,2014,soja,potassio,banda profunda,>10 cm,6,2700.5,348.1,6,2640.2,225.1
+N24,N24-004,2014,soja,P soluvel,banda rasa,5-10 cm,3,3701,297.4,3,3169.5,308.1
+N24,N24-005,2014,soja,ureia,banda rasa,5-10 cm,5,3411.1,215.5,5,3669.8,327.3
+N24,N24-006,2014,soja,amonio,banda superficial,0 cm,5,2734.3,200.9,5,2682.1,218
+N24,N24-007,2014,soja,amonio,banda profunda,>10 cm,4,2650,161.9,4,2760.7,292.1
+N24,N24-008,2014,soja,amonio,banda rasa,5-10 cm,5,3917.5,270.2,5,3880.4,391.3
+N24,N24-009,2014,soja,potassio,banda rasa,5-10 cm,5,2955.3,181.2,5,3208.3,254.7
+N24,N24-010,2014,soja,amonio,injecao rasa,5-10 cm,6,2627.5,185.7,6,2910.6,233
+N24,N24-011,2014,soja,ureia,banda rasa,5-10 cm,3,3751,560.9,3,3726.6,642.2
+N24,N24-012,2014,soja,amonio + P soluvel,banda superficial,0 cm,6,4542.6,267.7,6,3914.9,253.8
+N24,N24-013,2014,soja,ureia,banda profunda,>10 cm,3,2669.4,260.8,3,2874,55.9
+N24,N24-014,2014,soja,amonio,banda rasa,5-10 cm,3,2833.6,62.7,3,3306.7,282.2
+N24,N24-015,2014,soja,ureia,injecao profunda,>10 cm,5,2826.3,308.3,5,3012.3,281.5
+N24,N24-016,2014,soja,amonio + P soluvel,injecao rasa,5-10 cm,4,3359,148.4,4,3432.2,290.3
+N24,N24-017,2014,soja,potassio,banda rasa,5-10 cm,3,3415,519.1,3,3448.8,654.4
+N24,N24-018,2014,soja,amonio,injecao profunda,>10 cm,5,2709.3,410.9,5,2710.2,429.6
+N24,N24-019,2014,soja,amonio + P soluvel,banda profunda,>10 cm,5,3915.4,468.2,5,3700.9,209.9
+N24,N24-020,2014,soja,amonio + P soluvel,banda profunda,>10 cm,3,3260.3,341.7,3,3001.5,274.9
+N24,N24-021,2014,soja,amonio,banda profunda,>10 cm,4,2992.2,264.3,4,3030.4,358.5
+N24,N24-022,2014,soja,ureia,injecao profunda,>10 cm,5,3369.3,473.1,5,3065.3,232.6
+N24,N24-023,2014,soja,N sem descricao,injecao profunda,>10 cm,7,3222.6,322,7,3467.7,193.4
+N24,N24-024,2014,soja,esterco liquido,semente,5-10 cm,5,2364.6,509.7,5,2362.5,205.4
+N24,N24-025,2014,soja,potassio,banda profunda,>10 cm,3,3257.4,147.3,3,3337.5,545.7
+N24,N24-026,2014,soja,potassio,banda profunda,>10 cm,4,2872.9,663.3,4,2728.9,249.6
+N24,N24-027,2014,soja,ureia,banda profunda,>10 cm,5,3216.9,342.3,5,2985.2,276.6
+N24,N24-028,2014,soja,potassio,banda superficial,0 cm,6,2633.9,179,6,2811.3,111.3
+N24,N24-029,2014,soja,amonio + P soluvel,banda rasa,5-10 cm,4,3409.2,282.4,4,3143.9,127.7
+N24,N24-030,2014,soja,P soluvel,ponto profundo,5-10 cm,5,3994.1,326.7,5,3595.4,572.6
+N24,N24-031,2014,soja,potassio,semente,5-10 cm,4,2702.1,710.9,4,2462.9,256.2
+N24,N24-032,2014,soja,amonio + P soluvel,banda superficial,0 cm,5,4017,754.9,5,4094.9,498.9
+N24,N24-033,2014,soja,amonio,banda profunda,>10 cm,5,3282,201.7,5,3685.4,285.5
+N24,N24-034,2014,soja,amonio,banda rasa,5-10 cm,6,2789.8,171.7,6,2972.6,259.1
+N24,N24-035,2014,soja,amonio + P soluvel,banda superficial,0 cm,5,2684.8,583,5,2543.1,181.8
+N24,N24-036,2014,soja,P soluvel,injecao profunda,>10 cm,5,3284.4,206.3,5,3221.4,214.8
+N24,N24-037,2014,soja,esterco solido,injecao profunda,>10 cm,3,3150.9,903.8,3,3162.7,231
+N24,N24-038,2014,soja,N sem descricao,banda superficial,0 cm,4,2862,322,4,2596.4,479.6
+N24,N24-039,2014,soja,amonio,banda rasa,5-10 cm,4,2742.7,240.1,4,3249.2,375.3
+N24,N24-040,2014,soja,potassio,banda rasa,5-10 cm,6,2782.5,267.6,6,3097.5,439.9
+N24,N24-041,2014,soja,potassio,banda superficial,0 cm,5,3331,190.9,5,3387.6,159.5
+N24,N24-042,2014,soja,P soluvel,banda superficial,0 cm,7,3861.8,549.4,7,3505.7,604.3
+N24,N24-043,2014,soja,amonio,injecao profunda,>10 cm,6,4024.3,905.7,6,3962.4,894
+N24,N24-044,2014,soja,amonio + P soluvel,semente,5-10 cm,7,3579.1,552.6,7,3596.8,319
+N24,N24-045,2014,soja,amonio + P soluvel,semente,5-10 cm,5,3506.3,688.6,5,3588.3,282.3
+N24,N24-046,2014,soja,amonio + P soluvel,banda profunda,>10 cm,4,3154.4,279.1,4,2887.1,266.9
+N24,N24-047,2014,soja,P soluvel,sulco profunda (faca),>10 cm,4,3651.6,647.6,4,3134.3,596.4
+N24,N24-048,2014,soja,potassio,banda rasa,5-10 cm,6,3168.3,176.8,6,3354.7,95.6
+N24,N24-049,2014,soja,amonio,banda rasa,5-10 cm,3,2935.9,454.6,3,2951.7,750
+N24,N24-050,2014,soja,P soluvel,banda superficial,0 cm,4,3049.9,130.3,4,3205.9,195.9
+N24,N24-051,2014,soja,amonio + P soluvel,banda profunda,>10 cm,4,3173.4,185.4,4,2996.1,203.7
+N24,N24-052,2014,soja,amonio,banda superficial,0 cm,7,2769,568.4,7,2777.6,406.8
+N24,N24-053,2014,soja,potassio,banda rasa,5-10 cm,4,2679.7,230.3,4,2507.1,455.3
+N25,N25-001,2013,milho,potassio,banda superficial,0 cm,5,9535,,5,8040.4,
+N25,N25-002,2013,milho,ureia,banda profunda,>10 cm,4,6864.1,,4,6508.5,
+N25,N25-003,2013,milho,amonio,banda profunda,>10 cm,5,8790.7,,5,8386.3,
+N25,N25-004,2013,milho,esterco solido,banda profunda,>10 cm,4,8233.1,,4,8016.1,
+N25,N25-005,2013,milho,amonio,sulco rasa (faca),5-10 cm,4,7348.7,,4,7880.7,
+N25,N25-006,2013,milho,amonio,banda rasa,5-10 cm,4,8640,,4,9941.5,
+N25,N25-007,2013,milho,P soluvel,sulco profunda (faca),>10 cm,7,10274.5,,7,9904.9,
+N25,N25-008,2013,milho,amonio + P soluvel,banda profunda,>10 cm,5,10797.9,,5,9638,
+N25,N25-009,2013,milho,potassio,banda rasa,5-10 cm,3,10007.2,,3,10563.2,
+N25,N25-010,2013,milho,P soluvel,banda rasa,5-10 cm,3,8716.4,,3,7954.7,
+N25,N25-011,2013,milho,ureia,banda superficial,0 cm,5,9269.8,,5,8644.7,
+N25,N25-012,2013,milho,amonio + P soluvel,banda rasa,5-10 cm,4,11189.5,,4,10563.1,
+N25,N25-013,2013,milho,potassio,banda superficial,0 cm,4,10203.3,,4,12597.3,
+N25,N25-014,2013,milho,potassio,banda profunda,>10 cm,4,8528.4,,4,8508.1,
+N25,N25-015,2013,milho,ureia,injecao profunda,>10 cm,4,9876.5,,4,9529.8,
+N25,N25-016,2013,milho,amonio,banda rasa,5-10 cm,6,7038.3,,6,7146.6,
+N25,N25-017,2013,milho,amonio,sulco rasa (faca),5-10 cm,5,8570.3,,5,8060.5,
+N25,N25-018,2013,milho,potassio,banda profunda,>10 cm,5,10048,,5,11549.3,
+N25,N25-019,2013,milho,ureia,banda rasa,5-10 cm,7,12102.4,,7,11423.9,
+N25,N25-020,2013,milho,potassio,injecao rasa,5-10 cm,4,9574,,4,9507.7,
+N25,N25-021,2013,milho,amonio + P soluvel,banda superficial,0 cm,3,8678.1,,3,8948.3,
+N25,N25-022,2013,milho,amonio + P soluvel,banda rasa,5-10 cm,4,11258.3,,4,10289.8,
+N25,N25-023,2013,milho,amonio + P soluvel,semente,5-10 cm,7,12070.6,,7,11762.2,
+N25,N25-024,2013,milho,N sem descricao,injecao profunda,>10 cm,8,9144.6,,8,8961.4,
+N25,N25-025,2013,milho,amonio + P soluvel,banda profunda,>10 cm,6,9616.4,,6,9129,
+N25,N25-026,2013,milho,ureia,banda profunda,>10 cm,5,8957.2,,5,9253.8,
+N25,N25-027,2013,milho,amonio,banda rasa,5-10 cm,4,7874.6,,4,7691.8,
+N26,N26-001,2009,milho,P soluvel,banda profunda,>10 cm,4,9256.4,,4,7918.9,
+N26,N26-002,2009,milho,amonio,injecao rasa,5-10 cm,8,8193.3,,8,9062,
+N26,N26-003,2009,milho,amonio + P soluvel,banda profunda,>10 cm,5,9221.9,,5,9036.3,
+N26,N26-004,2009,milho,amonio,banda rasa,5-10 cm,5,9970.9,,5,9448.6,
+N26,N26-005,2009,milho,potassio,banda profunda,>10 cm,4,8711.3,,4,8866.3,
+N26,N26-006,2009,milho,ureia,banda rasa,5-10 cm,4,10018.2,,4,10688.8,
+N26,N26-007,2009,milho,N sem descricao,injecao rasa,5-10 cm,6,8640.2,,6,8736.5,
+N26,N26-008,2009,milho,amonio + P soluvel,sulco rasa (faca),5-10 cm,4,9786.8,,4,8315.8,
+N26,N26-009,2009,milho,amonio + P soluvel,banda rasa,5-10 cm,4,10213.3,,4,8700,
+N26,N26-010,2009,milho,P soluvel,injecao profunda,>10 cm,6,6894.6,,6,7554.8,
+N26,N26-011,2009,milho,amonio,injecao profunda,>10 cm,5,8343.7,,5,8132.3,
+N26,N26-012,2009,milho,P soluvel,banda rasa,5-10 cm,5,8124.6,,5,8080.7,
+N26,N26-013,2009,milho,amonio,banda rasa,5-10 cm,4,8473.7,,4,9026.5,
+N26,N26-014,2009,milho,N sem descricao,semente,5-10 cm,6,8182.8,,6,8215.7,
+N26,N26-015,2009,milho,amonio + P soluvel,ponto profundo,5-10 cm,6,10438.1,,6,8472.2,
+N26,N26-016,2009,milho,N sem descricao,banda profunda,>10 cm,5,8878.2,,5,8476.2,
+N26,N26-017,2009,milho,potassio,banda profunda,>10 cm,5,10082,,5,9427.9,
+N26,N26-018,2009,milho,potassio,banda profunda,>10 cm,5,10525.3,,5,11180.5,
+N26,N26-019,2009,milho,amonio + P soluvel,injecao profunda,>10 cm,8,9462.2,,8,9000.1,
+N26,N26-020,2009,milho,P soluvel,banda rasa,5-10 cm,5,9657.8,,5,10919.5,
+N26,N26-021,2009,milho,ureia,banda profunda,>10 cm,4,8027.4,,4,7402.3,
+N26,N26-022,2009,milho,potassio,banda superficial,0 cm,5,11000.4,,5,10337.2,
+N26,N26-023,2009,milho,ureia + P soluvel,injecao profunda,>10 cm,5,10560,,5,9389.1,
+N26,N26-024,2009,milho,amonio + P soluvel,sulco profunda (faca),>10 cm,4,10329.3,,4,7861.1,
+N26,N26-025,2009,milho,amonio + P soluvel,banda superficial,0 cm,5,10751.6,,5,10137.3,
+N26,N26-026,2009,milho,amonio + P soluvel,injecao profunda,>10 cm,8,8349.5,,8,7353.9,
+N26,N26-027,2009,milho,N sem descricao,banda superficial,0 cm,4,8687.1,,4,9199.7,
+N26,N26-028,2009,milho,amonio + P soluvel,injecao profunda,>10 cm,3,9102.2,,3,8558.6,
+N26,N26-029,2009,milho,amonio + P soluvel,banda profunda,>10 cm,6,11252.4,,6,10673.5,
+N26,N26-030,2009,milho,amonio,banda rasa,5-10 cm,5,6903.1,,5,6637,
+N26,N26-031,2009,milho,potassio,semente,5-10 cm,3,8520.3,,3,9783.2,
+N26,N26-032,2009,milho,P soluvel,injecao profunda,>10 cm,7,7346.4,,7,6938,
+N26,N26-033,2009,milho,N sem descricao,banda profunda,>10 cm,6,9711.6,,6,10165.8,
+N27,N27-001,2002,beterraba,amonio,banda profunda,>10 cm,6,64130.9,,6,81394.3,
+N27,N27-002,2002,beterraba,amonio,semente,5-10 cm,4,54112.7,,4,65151,
+N27,N27-003,2002,beterraba,ureia,injecao rasa,5-10 cm,4,78003.9,,4,73433.2,
+N27,N27-004,2002,beterraba,amonio,banda superficial,0 cm,5,74015.1,,5,77942.2,
+N27,N27-005,2002,beterraba,ureia,banda rasa,5-10 cm,6,86004.4,,6,82260.5,
+N27,N27-006,2002,beterraba,P soluvel,banda profunda,>10 cm,4,50872.1,,4,62583,
+N27,N27-007,2002,beterraba,P soluvel,sulco profunda (faca),>10 cm,4,67161.8,,4,64625.3,
+N27,N27-008,2002,beterraba,amonio,injecao profunda,>10 cm,3,75476.5,,3,66328.8,
+N27,N27-009,2002,beterraba,amonio,injecao rasa,5-10 cm,6,74375.3,,6,78741.5,
+N27,N27-010,2002,beterraba,amonio + P soluvel,banda rasa,5-10 cm,5,71571.5,,5,66948.5,
+N27,N27-011,2002,beterraba,P soluvel,sulco profunda (faca),>10 cm,5,59688.6,,5,53146.3,
+N27,N27-012,2002,beterraba,P soluvel,injecao profunda,>10 cm,7,84064.6,,7,82652,
+N27,N27-013,2002,beterraba,P soluvel,banda rasa,5-10 cm,4,64314,,4,65699.5,
+N27,N27-014,2002,beterraba,potassio,banda superficial,0 cm,6,55990.1,,6,55682.3,
+N27,N27-015,2002,beterraba,amonio,banda superficial,0 cm,5,68593,,5,68472.3,
+N27,N27-016,2002,beterraba,potassio,banda profunda,>10 cm,4,61586.4,,4,58588.2,
+N27,N27-017,2002,beterraba,amonio,banda rasa,5-10 cm,6,67593.4,,6,73212,
+N27,N27-018,2002,beterraba,amonio + P soluvel,banda superficial,0 cm,8,57040.1,,8,57045.3,
+N28,N28-001,2006,gramineas,amonio,banda profunda,>10 cm,7,6246.2,,7,7772.7,
+N28,N28-002,2006,gramineas,amonio,banda rasa,5-10 cm,8,7831.4,,8,8756.6,
+N28,N28-003,2006,gramineas,potassio,injecao profunda,>10 cm,4,6943.5,,4,7535.9,
+N29,N29-001,2006,batata,P soluvel,banda rasa,5-10 cm,5,54389.7,5794.4,5,44854.4,4587.2
+N29,N29-002,2006,batata,amonio + P soluvel,injecao rasa,5-10 cm,5,52279.1,5328.4,5,37509.3,2967.4
+N29,N29-003,2006,batata,amonio + P soluvel,injecao profunda,>10 cm,4,65111.4,7098.2,4,47789.5,7889.6
+N29,N29-004,2006,batata,amonio + P soluvel,banda rasa,5-10 cm,5,51713.5,6470.1,5,35587.8,5731.5
+N29,N29-005,2006,batata,potassio,banda profunda,>10 cm,4,44777.2,3032.8,4,38245,4009.5
+N29,N29-006,2006,batata,potassio,banda rasa,5-10 cm,6,35739.8,5054.5,6,32746,7956.1
+N30,N30-001,1987,milho,potassio,semente,5-10 cm,6,7203.7,,6,7493.3,
+N30,N30-002,1987,milho,P soluvel,injecao rasa,5-10 cm,4,8193.8,,4,8523.3,
+N30,N30-003,1987,milho,amonio + P soluvel,banda rasa,5-10 cm,3,8257.6,,3,7966.6,
+N30,N30-004,1987,milho,potassio,banda superficial,0 cm,3,10537.4,,3,11141.3,
+N30,N30-005,1987,milho,esterco liquido,banda profunda,>10 cm,5,11893,,5,9140.8,
+N30,N30-006,1987,milho,amonio,injecao profunda,>10 cm,6,10337.8,,6,9271.1,
+N30,N30-007,1987,milho,amonio,banda profunda,>10 cm,5,11047.8,,5,10797.5,
+N30,N30-008,1987,milho,esterco liquido,banda rasa,5-10 cm,5,10130.6,,5,8721.2,
+N30,N30-009,1987,milho,N sem descricao,sulco profunda (faca),>10 cm,4,9228.7,,4,6464.2,
+N30,N30-010,1987,milho,esterco liquido,banda profunda,>10 cm,5,12124.9,,5,11533.8,
+N30,N30-011,1987,milho,P soluvel,injecao profunda,>10 cm,4,12532.8,,4,10958.7,
+N30,N30-012,1987,milho,potassio,banda profunda,>10 cm,3,6409.6,,3,7487.9,
+N30,N30-013,1987,milho,amonio + P soluvel,banda rasa,5-10 cm,7,11147,,7,10326.1,
+N30,N30-014,1987,milho,amonio,banda profunda,>10 cm,4,8978,,4,9637.2,
+N30,N30-015,1987,milho,P soluvel,banda rasa,5-10 cm,3,7977.7,,3,6254.2,
+N30,N30-016,1987,milho,amonio + P soluvel,injecao rasa,5-10 cm,3,10000.4,,3,9199.7,
+N30,N30-017,1987,milho,amonio,banda rasa,5-10 cm,6,11195.2,,6,10848.8,
+N31,N31-001,2013,milho,P soluvel,banda rasa,5-10 cm,4,8210.8,467.7,4,8205.9,368.1
+N31,N31-002,2013,milho,amonio + P soluvel,banda profunda,>10 cm,3,8487.4,268.1,3,8193.7,214.7
+N31,N31-003,2013,milho,P soluvel,banda profunda,>10 cm,4,9513,1183.3,4,9812.7,840.2
+N31,N31-004,2013,milho,amonio,injecao profunda,>10 cm,4,7305.9,1113.9,4,7835.1,492.5
+N31,N31-005,2013,milho,amonio + P soluvel,injecao profunda,>10 cm,4,11793.8,703.3,4,10454.2,719
+N31,N31-006,2013,milho,P soluvel,banda superficial,0 cm,5,9584,838.2,5,11016.3,1030.7
+N31,N31-007,2013,milho,P soluvel,injecao profunda,>10 cm,4,7634.3,321.5,4,8410.1,439.6
+N31,N31-008,2013,milho,potassio,injecao profunda,>10 cm,3,9582.3,1503.9,3,9186.3,1166.8
+N31,N31-009,2013,milho,amonio,banda profunda,>10 cm,3,11141.9,254.5,3,11278.6,1587
+N31,N31-010,2013,milho,N sem descricao,banda profunda,>10 cm,4,10695.9,1712.1,4,9018.5,529.5
+N31,N31-011,2013,milho,amonio + P soluvel,banda rasa,5-10 cm,5,8516.5,1119.3,5,7858,835.3
+N31,N31-012,2013,milho,amonio,banda profunda,>10 cm,4,9890.6,519.2,4,10353.8,1414.5
+N31,N31-013,2013,milho,esterco liquido,banda superficial,0 cm,5,12790,979.2,5,10707.4,1642.5
+N32,N32-001,2001,milho,potassio,banda rasa,5-10 cm,4,10689.7,1297.5,4,10713,522.6
+N32,N32-002,2001,milho,amonio + P soluvel,banda rasa,5-10 cm,4,10709.2,1033.1,4,8590.2,1079
+N32,N32-003,2001,milho,P soluvel,banda superficial,0 cm,4,7261.4,882.2,4,7808.3,880.5
+N32,N32-004,2001,milho,amonio,banda rasa,5-10 cm,5,10391,1062.4,5,10010.7,948.1
+N32,N32-005,2001,milho,amonio,banda superficial,0 cm,4,9400.3,635.9,4,10049.5,873.1
+N32,N32-006,2001,milho,amonio,banda profunda,>10 cm,7,9253.1,1363.7,7,10431.2,2079.7
+N32,N32-007,2001,milho,amonio + P soluvel,banda profunda,>10 cm,4,8215.7,905.3,4,8126.6,387.1
+N32,N32-008,2001,milho,amonio + P soluvel,banda rasa,5-10 cm,3,7413.7,748.4,3,6616.9,860
+N32,N32-009,2001,milho,potassio,banda rasa,5-10 cm,5,7141.5,1135.9,5,8336.1,548.1
+N32,N32-010,2001,milho,amonio,injecao rasa,5-10 cm,7,8371,1196.5,7,8920.2,1464.4
+N32,N32-011,2001,milho,amonio + P soluvel,ponto profundo,5-10 cm,4,11292.3,973.3,4,8669.8,965.7
+N32,N32-012,2001,milho,amonio,sulco profunda (faca),>10 cm,4,10065.4,737.8,4,7796.3,702.8
+N32,N32-013,2001,milho,amonio,banda profunda,>10 cm,4,8559.2,84.7,4,7644,1244.8
+N32,N32-014,2001,milho,P soluvel,banda superficial,0 cm,6,7375.4,1375.1,6,8438.7,734.4
+N32,N32-015,2001,milho,amonio,injecao rasa,5-10 cm,5,8596.8,2047.2,5,7639.6,1385.6
+N32,N32-016,2001,milho,amonio + P soluvel,sulco profunda (faca),>10 cm,8,11379.4,893.5,8,8333.3,1256.2
+N32,N32-017,2001,milho,amonio,injecao profunda,>10 cm,4,7514.5,1050.9,4,6733.7,594.3
+N32,N32-018,2001,milho,P soluvel,banda profunda,>10 cm,7,9216.5,816.7,7,9913.3,1122.8
+N32,N32-019,2001,milho,P soluvel,banda profunda,>10 cm,5,9984.8,1731.5,5,9112.2,2092.5
+N32,N32-020,2001,milho,amonio + P soluvel,banda rasa,5-10 cm,3,9886,866.5,3,9416.7,698.3
+N32,N32-021,2001,milho,potassio,banda rasa,5-10 cm,4,10678.7,998,4,9897.4,1344.6
+N32,N32-022,2001,milho,P soluvel,banda rasa,5-10 cm,6,10127.1,913.4,6,9517.8,1671.7
+N32,N32-023,2001,milho,amonio,injecao rasa,5-10 cm,4,9553.1,1256.9,4,9727.6,736.3
+N32,N32-024,2001,milho,amonio,banda superficial,0 cm,4,7533.2,384.3,4,7517.3,629
+N32,N32-025,2001,milho,amonio + P soluvel,semente,5-10 cm,4,9129.4,1178.7,4,8957.8,1715.9
+N32,N32-026,2001,milho,amonio + P soluvel,banda profunda,>10 cm,4,6357.4,1404.1,4,6379.9,1662.1
+N32,N32-027,2001,milho,ureia + P soluvel,banda profunda,>10 cm,6,10691.1,1696.7,6,8721.8,2000.6
+N32,N32-028,2001,milho,ureia + P soluvel,banda profunda,>10 cm,7,9905.1,844.3,7,7724,1018.3
+N32,N32-029,2001,milho,amonio + P soluvel,banda rasa,5-10 cm,5,13542.7,866.6,5,12185.9,1037.9
+N32,N32-030,2001,milho,amonio,banda rasa,5-10 cm,7,8859,321.4,7,9738.8,1001.9
+N32,N32-031,2001,milho,amonio + P soluvel,abaixo da semente,5-10 cm,4,9484.3,356,4,8586.2,597.1
+N32,N32-032,2001,milho,potassio,sulco profunda (faca),>10 cm,4,8058.9,955.3,4,7665.1,674
+N32,N32-033,2001,milho,amonio,banda superficial,0 cm,3,6937.4,1124.4,3,7438.1,703
+N32,N32-034,2001,milho,amonio + P soluvel,injecao profunda,>10 cm,4,9795.4,1301.1,4,8201.4,1941.7
+N32,N32-035,2001,milho,amonio,injecao profunda,>10 cm,6,11989.6,2250,6,14179.9,2368
+N32,N32-036,2001,milho,potassio,injecao profunda,>10 cm,5,10394,406.6,5,9301.1,452.6
+N32,N32-037,2001,milho,potassio,banda profunda,>10 cm,7,7270.3,729.2,7,7222.3,581.5
+N32,N32-038,2001,milho,N sem descricao,banda rasa,5-10 cm,4,8303.1,472.6,4,8893.5,370.5
+N32,N32-039,2001,milho,N sem descricao,ponto profundo,5-10 cm,3,11247.7,281.5,3,9539.4,613
+N32,N32-040,2001,milho,amonio + P soluvel,banda profunda,>10 cm,4,10867.3,803,4,8898.2,1546.7
+N32,N32-041,2001,milho,esterco liquido,banda rasa,5-10 cm,4,7096.3,1067.2,4,7225.6,1151.5
+N32,N32-042,2001,milho,amonio,semente,5-10 cm,4,8456.9,625.7,4,10106.5,1400.8
+N32,N32-043,2001,milho,ureia,banda rasa,5-10 cm,4,9807.9,1065.5,4,8440.4,348.4
+N32,N32-044,2001,milho,ureia,banda profunda,>10 cm,3,10242.6,702.9,3,9130.9,477.3
+N32,N32-045,2001,milho,potassio,sulco profunda (faca),>10 cm,4,10377.1,3387.4,4,7648.4,2644.7
+N32,N32-046,2001,milho,esterco liquido,abaixo da semente,5-10 cm,5,11658.3,2158.9,5,9868.7,1765.3
+N32,N32-047,2001,milho,amonio + P soluvel,banda profunda,>10 cm,5,11122.6,1889,5,10384.8,898.1
+N32,N32-048,2001,milho,esterco liquido,banda rasa,5-10 cm,4,9400,1359.3,4,7453.7,1033.9
+N32,N32-049,2001,milho,ureia,semente,5-10 cm,4,10357.7,850.7,4,10003.2,1026.6
+N32,N32-050,2001,milho,P soluvel,banda rasa,5-10 cm,3,8882.5,41.2,3,9493.5,690.4
+N32,N32-051,2001,milho,amonio,sulco profunda (faca),>10 cm,5,10751.6,410.9,5,9322.2,874.3
+N32,N32-052,2001,milho,esterco liquido,banda profunda,>10 cm,4,7559.9,1077.8,4,7384.8,506.3
+N32,N32-053,2001,milho,amonio,banda profunda,>10 cm,4,7892.7,640.8,4,8720.4,684.1
+N32,N32-054,2001,milho,P soluvel,banda profunda,>10 cm,3,8480.4,1264.4,3,9080.7,36.9
+N32,N32-055,2001,milho,P soluvel,banda superficial,0 cm,6,12556.9,1434.5,6,12624.5,1128.3
+N32,N32-056,2001,milho,amonio,banda rasa,5-10 cm,5,9810.8,844.4,5,9797.1,750.8
+N32,N32-057,2001,milho,potassio,banda superficial,0 cm,6,7957.2,528.5,6,8811.9,419.9
+N33,N33-001,1992,centeio,amonio + P soluvel,banda rasa,5-10 cm,3,5685.2,,3,6143.5,
+N34,N34-001,2001,arroz,ureia,banda profunda,>10 cm,5,8022.6,595.4,5,7550.7,409.2
+N34,N34-002,2001,arroz,P soluvel,injecao profunda,>10 cm,5,9687.6,516.6,5,9062.2,658.6
+N34,N34-003,2001,arroz,potassio,semente,5-10 cm,5,7321.7,298.3,5,6745.1,380
+N34,N34-004,2001,arroz,amonio + P soluvel,banda profunda,>10 cm,3,8237,222.4,3,5497,600.9
+N34,N34-005,2001,arroz,P soluvel,semente,5-10 cm,3,5801.8,614.2,3,5931.7,783.2
+N34,N34-006,2001,arroz,potassio,banda profunda,>10 cm,3,6863.9,526.3,3,7725.2,748.6
+N35,N35-001,1997,trigo de inverno,amonio + P soluvel,banda profunda,>10 cm,5,8877.1,,5,7599.2,
+N35,N35-002,1997,trigo de inverno,ureia,injecao profunda,>10 cm,3,5515.3,,3,4535.4,
+N35,N35-003,1997,trigo de inverno,potassio,injecao rasa,5-10 cm,4,5532.8,,4,5147.9,
+N35,N35-004,1997,trigo de inverno,amonio + P soluvel,banda rasa,5-10 cm,3,7316,,3,6721.5,
+N35,N35-005,1997,trigo de inverno,potassio,banda profunda,>10 cm,6,6609.5,,6,7209.6,
+N35,N35-006,1997,trigo de inverno,amonio,semente,5-10 cm,4,5345,,4,5772.6,
+N35,N35-007,1997,trigo de inverno,amonio + P soluvel,banda rasa,5-10 cm,4,8868.3,,4,8559.1,
+N35,N35-008,1997,trigo de inverno,P soluvel,banda rasa,5-10 cm,4,5866.6,,4,6410.5,
+N35,N35-009,1997,trigo de inverno,amonio,injecao profunda,>10 cm,5,7608.4,,5,7048.4,
+N35,N35-010,1997,trigo de inverno,potassio,banda rasa,5-10 cm,5,6505,,5,5908.6,
+N35,N35-011,1997,trigo de inverno,ureia,banda profunda,>10 cm,6,6939.8,,6,7269.6,
+N35,N35-012,1997,trigo de inverno,amonio + P soluvel,banda rasa,5-10 cm,7,6764.1,,7,6457.9,
+N35,N35-013,1997,trigo de inverno,amonio,banda superficial,0 cm,4,6979.8,,4,7031.2,
+N35,N35-014,1997,trigo de inverno,N sem descricao,ponto raso,5-10 cm,4,8297.1,,4,6536.4,
+N36,N36-001,2004,soja,amonio,banda rasa,5-10 cm,5,4445.4,556.5,5,4580.6,261.8
+N36,N36-002,2004,soja,amonio + P soluvel,banda rasa,5-10 cm,7,2822.4,353.6,7,2560.4,357.5
+N36,N36-003,2004,soja,esterco liquido,banda rasa,5-10 cm,3,3071.4,498.2,3,2954.9,232.4
+N36,N36-004,2004,soja,P soluvel,banda profunda,>10 cm,4,2188.7,206.8,4,2321.3,289.8
+N36,N36-005,2004,soja,ureia,banda rasa,5-10 cm,4,2791.7,300.7,4,2802.2,323.4
+N36,N36-006,2004,soja,amonio + P soluvel,banda rasa,5-10 cm,5,3187.5,276.4,5,3200.6,487.8
+N36,N36-007,2004,soja,N sem descricao,sulco rasa (faca),5-10 cm,4,3534.5,393.2,4,3896.9,675.8
+N36,N36-008,2004,soja,amonio,banda rasa,5-10 cm,4,2449.2,214.7,4,3275.4,761.7
+N36,N36-009,2004,soja,amonio + P soluvel,banda superficial,0 cm,6,3164.9,105.2,6,3196.6,134
+N36,N36-010,2004,soja,P soluvel,injecao profunda,>10 cm,3,3129.3,267.6,3,3916.5,640.7
+N36,N36-011,2004,soja,potassio,banda rasa,5-10 cm,4,3045.8,330.2,4,3213.9,92.3
+N36,N36-012,2004,soja,potassio,abaixo da semente,5-10 cm,7,3241.6,521.9,7,3265.4,642
+N36,N36-013,2004,soja,amonio + P soluvel,injecao profunda,>10 cm,5,5125.9,588.7,5,4439.4,151
+N36,N36-014,2004,soja,amonio + P soluvel,banda profunda,>10 cm,3,3154.4,86.4,3,2776.6,240.3
+N36,N36-015,2004,soja,ureia,banda superficial,0 cm,4,2545.6,234,4,2462.2,276.1
+N36,N36-016,2004,soja,potassio,banda profunda,>10 cm,4,3113.8,155.9,4,3291,207.5
+N36,N36-017,2004,soja,P soluvel,injecao profunda,>10 cm,5,3355.4,231.3,5,3533.5,377.9
+N36,N36-018,2004,soja,potassio,injecao profunda,>10 cm,6,4258.9,658.7,6,5021.1,899.2
+N36,N36-019,2004,soja,amonio,banda rasa,5-10 cm,5,2895.3,382.4,5,3262.1,117.7
+N36,N36-020,2004,soja,amonio,injecao profunda,>10 cm,8,3614.6,547.9,8,3391.7,1282.1
+N36,N36-021,2004,soja,potassio,semente,5-10 cm,3,3143.3,104.8,3,3722.5,394.7
+N36,N36-022,2004,soja,P soluvel,banda profunda,>10 cm,5,2561.8,339.8,5,2740,94.5
+N36,N36-023,2004,soja,P soluvel,banda superficial,0 cm,4,2787.6,173.6,4,3090.7,243.5
+N36,N36-024,2004,soja,potassio,banda profunda,>10 cm,3,2483.2,157,3,3287.7,130.2
+N36,N36-025,2004,soja,esterco liquido,banda profunda,>10 cm,8,2706.7,622.8,8,2995.8,408.9
+N36,N36-026,2004,soja,amonio,semente,5-10 cm,8,3431,678.7,8,3513.3,741
+N36,N36-027,2004,soja,amonio,banda profunda,>10 cm,5,3309.7,114.5,5,3615,174.5
+N36,N36-028,2004,soja,potassio,banda superficial,0 cm,6,2018.5,77.3,6,2300.8,110.7
+N36,N36-029,2004,soja,amonio,banda rasa,5-10 cm,4,2473,458.5,4,2572.8,498.8
+N36,N36-030,2004,soja,amonio + P soluvel,banda profunda,>10 cm,4,2425.9,75.2,4,2453.5,134.8
+N36,N36-031,2004,soja,potassio,banda profunda,>10 cm,6,2696.4,560,6,2915.1,686.5
+N36,N36-032,2004,soja,amonio,banda rasa,5-10 cm,7,2616.3,205,7,2855.1,243.4
+N36,N36-033,2004,soja,potassio,banda superficial,0 cm,4,3615,240.4,4,3940.5,557.5
+N36,N36-034,2004,soja,amonio,banda rasa,5-10 cm,3,3045.8,370.5,3,3629.6,170.2
+N36,N36-035,2004,soja,P soluvel,banda rasa,5-10 cm,3,3225.2,677,3,3494.5,478.2
+N36,N36-036,2004,soja,amonio,banda profunda,>10 cm,7,2641.9,559.2,7,2621,465
+N36,N36-037,2004,soja,potassio,banda rasa,5-10 cm,4,2119,179.7,4,2163,127.6
+N36,N36-038,2004,soja,P soluvel,banda rasa,5-10 cm,6,3637.9,253.3,6,3970.5,801.6
+N36,N36-039,2004,soja,P soluvel,banda rasa,5-10 cm,8,2990.5,541.6,8,3384,432.6
+N36,N36-040,2004,soja,P soluvel,banda superficial,0 cm,7,3776.5,395.5,7,3689.4,593.9
+N36,N36-041,2004,soja,amonio,semente,5-10 cm,6,3205.3,694.5,6,2783.6,431.2
+N36,N36-042,2004,soja,P soluvel,banda rasa,5-10 cm,4,2843.5,139.2,4,3355.9,268.7
+N36,N36-043,2004,soja,amonio,banda rasa,5-10 cm,4,3727,217.2,4,3956.8,212.3
+N36,N36-044,2004,soja,ureia,banda rasa,5-10 cm,6,3282.4,274.3,6,3098.1,196.5
+N36,N36-045,2004,soja,P soluvel,injecao profunda,>10 cm,7,2793.1,367.3,7,3238.5,454.4
+N36,N36-046,2004,soja,potassio,injecao profunda,>10 cm,3,2381.5,817.1,3,2322.1,374.2
+N36,N36-047,2004,soja,amonio,banda profunda,>10 cm,3,3699.2,236.1,3,3549.4,332.8
+N36,N36-048,2004,soja,amonio + P soluvel,banda rasa,5-10 cm,4,3187.8,291.2,4,3620,1216.2
+N36,N36-049,2004,soja,amonio + P soluvel,banda rasa,5-10 cm,4,2790.1,90.3,4,2884.6,225
+N36,N36-050,2004,soja,amonio + P soluvel,banda rasa,5-10 cm,3,2363.8,493.5,3,2924.1,105.5
+N37,N37-001,2007,alface,potassio,banda rasa,5-10 cm,4,29090.7,,4,28451.6,
+N37,N37-002,2007,alface,amonio,banda profunda,>10 cm,5,45505.7,,5,41740.5,
+N38,N38-001,2015,trigo de inverno,potassio,banda rasa,5-10 cm,3,6232.5,,3,5798.5,
+N38,N38-002,2015,trigo de inverno,potassio,banda rasa,5-10 cm,4,7495.4,,4,6991.7,
+N38,N38-003,2015,trigo de inverno,amonio,injecao profunda,>10 cm,8,8323,,8,7011.2,
+N38,N38-004,2015,trigo de inverno,P soluvel,banda rasa,5-10 cm,5,7357,,5,6609.7,
+N38,N38-005,2015,trigo de inverno,P soluvel,injecao profunda,>10 cm,6,8271.9,,6,6719.8,
+N38,N38-006,2015,trigo de inverno,P soluvel,banda rasa,5-10 cm,4,9914.9,,4,8654.2,
+N38,N38-007,2015,trigo de inverno,amonio,injecao rasa,5-10 cm,4,6380,,4,6767.4,
+N38,N38-008,2015,trigo de inverno,amonio + P soluvel,banda profunda,>10 cm,7,6803.2,,7,5937.1,
+N38,N38-009,2015,trigo de inverno,amonio + P soluvel,injecao rasa,5-10 cm,7,5596.1,,7,5439.2,
+N38,N38-010,2015,trigo de inverno,P soluvel,ponto profundo,5-10 cm,3,7548.1,,3,7241.5,
+N38,N38-011,2015,trigo de inverno,P soluvel,banda profunda,>10 cm,5,7704.5,,5,7802.8,
+N38,N38-012,2015,trigo de inverno,amonio,injecao profunda,>10 cm,7,6562.5,,7,6237.9,
+N38,N38-013,2015,trigo de inverno,potassio,banda superficial,0 cm,5,9407.1,,5,9059.4,
+N38,N38-014,2015,trigo de inverno,amonio,semente,5-10 cm,4,7010.5,,4,6699.7,
+N38,N38-015,2015,trigo de inverno,amonio,banda profunda,>10 cm,5,7687.6,,5,7621.9,
+N38,N38-016,2015,trigo de inverno,P soluvel,banda superficial,0 cm,8,8979.5,,8,8830.1,
+N38,N38-017,2015,trigo de inverno,P soluvel,semente,5-10 cm,5,6937.1,,5,7022.9,
+N38,N38-018,2015,trigo de inverno,amonio,banda rasa,5-10 cm,4,7799.3,,4,7073.5,
+N38,N38-019,2015,trigo de inverno,amonio,banda profunda,>10 cm,5,8169.3,,5,7421.9,
+N38,N38-020,2015,trigo de inverno,amonio,banda profunda,>10 cm,5,5876.2,,5,5297.7,
+N38,N38-021,2015,trigo de inverno,amonio,injecao profunda,>10 cm,4,6330.2,,4,6683.3,
+N38,N38-022,2015,trigo de inverno,P soluvel,injecao profunda,>10 cm,7,7597.5,,7,7211.4,
+N38,N38-023,2015,trigo de inverno,amonio,banda profunda,>10 cm,5,7136.1,,5,6745,
+N38,N38-024,2015,trigo de inverno,ureia,injecao profunda,>10 cm,5,9282.1,,5,8585.9,
+N38,N38-025,2015,trigo de inverno,amonio + P soluvel,banda profunda,>10 cm,8,10418.8,,8,8280.4,
+N38,N38-026,2015,trigo de inverno,amonio,banda profunda,>10 cm,3,8398.7,,3,7362.2,
+N38,N38-027,2015,trigo de inverno,amonio + P soluvel,banda profunda,>10 cm,4,8403.9,,4,7409.6,
+N38,N38-028,2015,trigo de inverno,amonio,banda rasa,5-10 cm,5,8887.6,,5,8044,
+N38,N38-029,2015,trigo de inverno,amonio,banda superficial,0 cm,4,8634.3,,4,6754.8,
+N38,N38-030,2015,trigo de inverno,potassio,injecao profunda,>10 cm,5,7964.1,,5,7226.7,
+N38,N38-031,2015,trigo de inverno,amonio,injecao profunda,>10 cm,5,7593.7,,5,6827.4,
+N38,N38-032,2015,trigo de inverno,amonio + P soluvel,sulco profunda (faca),>10 cm,3,11808.8,,3,7892.7,
+N38,N38-033,2015,trigo de inverno,P soluvel,banda rasa,5-10 cm,3,7080.4,,3,6664.2,
+N38,N38-034,2015,trigo de inverno,amonio,banda profunda,>10 cm,4,6844.4,,4,6476.7,
+N38,N38-035,2015,trigo de inverno,amonio + P soluvel,banda profunda,>10 cm,4,9121.7,,4,7793.6,
+N38,N38-036,2015,trigo de inverno,amonio,banda profunda,>10 cm,4,8199.1,,4,6973.6,
+N38,N38-037,2015,trigo de inverno,amonio,banda superficial,0 cm,7,6510.8,,7,5880.8,
+N38,N38-038,2015,trigo de inverno,amonio,banda profunda,>10 cm,5,9168.6,,5,8683.3,
+N38,N38-039,2015,trigo de inverno,P soluvel,banda rasa,5-10 cm,4,7548,,4,6905.2,
+N38,N38-040,2015,trigo de inverno,amonio + P soluvel,injecao profunda,>10 cm,4,7780.7,,4,5757.3,
+N38,N38-041,2015,trigo de inverno,potassio,banda rasa,5-10 cm,3,8120.2,,3,7614.8,
+N38,N38-042,2015,trigo de inverno,amonio,banda superficial,0 cm,5,6730.7,,5,5944,
+N38,N38-043,2015,trigo de inverno,amonio,banda profunda,>10 cm,6,8235.2,,6,6715,
+N38,N38-044,2015,trigo de inverno,P soluvel,ponto profundo,5-10 cm,5,9283.9,,5,7086.7,
+N38,N38-045,2015,trigo de inverno,potassio,banda rasa,5-10 cm,3,5287.7,,3,5948.9,
+N38,N38-046,2015,trigo de inverno,P soluvel,sulco rasa (faca),5-10 cm,8,8326.3,,8,7063.8,
+N38,N38-047,2015,trigo de inverno,amonio,injecao profunda,>10 cm,4,7752.5,,4,7045.9,
+N38,N38-048,2015,trigo de inverno,amonio,sulco profunda (faca),>10 cm,5,10168.7,,5,8777.5,
+N38,N38-049,2015,trigo de inverno,esterco liquido,banda profunda,>10 cm,3,7391.5,,3,5810.3,
+N38,N38-050,2015,trigo de inverno,P soluvel,banda rasa,5-10 cm,7,8272.6,,7,8298.8,
+N38,N38-051,2015,trigo de inverno,ureia,banda rasa,5-10 cm,5,8605.1,,5,7123,
+N38,N38-052,2015,trigo de inverno,amonio,banda rasa,5-10 cm,5,7773.8,,5,7014.8,
+N38,N38-053,2015,trigo de inverno,amonio + P soluvel,semente,5-10 cm,7,8300.2,,7,6548.6,
+N38,N38-054,2015,trigo de inverno,amonio,banda rasa,5-10 cm,5,5919.9,,5,5737.9,
+N38,N38-055,2015,trigo de inverno,P soluvel,banda superficial,0 cm,6,8068.7,,6,8648.1,
+N38,N38-056,2015,trigo de inverno,ureia,injecao profunda,>10 cm,5,8562.9,,5,7230.1,
+N38,N38-057,2015,trigo de inverno,amonio,sulco profunda (faca),>10 cm,4,8403.7,,4,7411.5,
+N38,N38-058,2015,trigo de inverno,amonio,injecao profunda,>10 cm,6,6993.7,,6,6020.7,
+N38,N38-059,2015,trigo de inverno,N sem descricao,banda profunda,>10 cm,6,7957.4,,6,7515.5,
+N38,N38-060,2015,trigo de inverno,amonio + P soluvel,banda profunda,>10 cm,5,7799.9,,5,5694.7,
+N38,N38-061,2015,trigo de inverno,potassio,injecao profunda,>10 cm,8,7400.2,,8,6552.9,
+N39,N39-001,2003,nabo forrageiro,amonio,banda profunda,>10 cm,3,2893.2,217.9,3,4042.8,461.3
+N39,N39-002,2003,nabo forrageiro,potassio,injecao profunda,>10 cm,3,2257.2,84.6,3,2428.9,254.2
+N39,N39-003,2003,nabo forrageiro,amonio + P soluvel,banda superficial,0 cm,3,3155.8,1094.2,3,3336.3,970.7
+N39,N39-004,2003,nabo forrageiro,amonio,banda superficial,0 cm,6,2471.9,532.4,6,2646.3,357.6
+N39,N39-005,2003,nabo forrageiro,amonio + P soluvel,sulco profunda (faca),>10 cm,4,2805.8,369.7,4,2241.5,145.4
+N39,N39-006,2003,nabo forrageiro,P soluvel,banda rasa,5-10 cm,3,2160.5,188.4,3,2317.2,504.4
+N39,N39-007,2003,nabo forrageiro,N sem descricao,banda superficial,0 cm,4,2197.4,227,4,2354.6,248.6
+N39,N39-008,2003,nabo forrageiro,P soluvel,banda superficial,0 cm,5,2355.9,122.3,5,2677.3,177.5
+N39,N39-009,2003,nabo forrageiro,P soluvel,semente,5-10 cm,3,2074.3,120.9,3,2507.1,238.5
+N39,N39-010,2003,nabo forrageiro,amonio + P soluvel,banda rasa,5-10 cm,4,3704.2,342.7,4,3736.4,245.5
+N39,N39-011,2003,nabo forrageiro,amonio + P soluvel,banda profunda,>10 cm,7,2958.5,359.6,7,2726,507.6
+N39,N39-012,2003,nabo forrageiro,amonio,banda superficial,0 cm,4,2858.6,135.6,4,2988.5,40.1
+N39,N39-013,2003,nabo forrageiro,amonio,banda rasa,5-10 cm,5,2896.8,370.6,5,3267.9,234
+N39,N39-014,2003,nabo forrageiro,potassio,semente,5-10 cm,3,3037.1,266.1,3,4003.4,467.6
+N39,N39-015,2003,nabo forrageiro,amonio,sulco profunda (faca),>10 cm,5,2271.5,540.3,5,2624.4,450.4
+N39,N39-016,2003,nabo forrageiro,ureia,banda profunda,>10 cm,3,3664.6,493,3,3561.8,438.3
+N39,N39-017,2003,nabo forrageiro,amonio + P soluvel,injecao profunda,>10 cm,3,3349.8,310.9,3,3443.2,220.3
+N39,N39-018,2003,nabo forrageiro,ureia,banda profunda,>10 cm,4,2718.9,318.6,4,3669.3,323.8
+N39,N39-019,2003,nabo forrageiro,amonio + P soluvel,banda profunda,>10 cm,4,2801.7,120.3,4,2470.2,321.4
+N39,N39-020,2003,nabo forrageiro,potassio,banda rasa,5-10 cm,4,2652,248.1,4,3466.6,709.1
+N39,N39-021,2003,nabo forrageiro,amonio,banda profunda,>10 cm,3,2519.1,136.2,3,2693.4,113
+N39,N39-022,2003,nabo forrageiro,amonio + P soluvel,banda rasa,5-10 cm,4,2932.4,102.2,4,2743.2,123.2
+N39,N39-023,2003,nabo forrageiro,P soluvel,sulco rasa (faca),5-10 cm,5,3156.1,301.9,5,3789.3,484
+N39,N39-024,2003,nabo forrageiro,ureia,banda rasa,5-10 cm,4,3416.4,334.7,4,3813.5,116.1
+N39,N39-025,2003,nabo forrageiro,potassio,injecao profunda,>10 cm,4,3123.1,173.4,4,3361.5,289.3
+N39,N39-026,2003,nabo forrageiro,potassio,injecao rasa,5-10 cm,4,2815.3,299.3,4,3114.4,270.6
+N39,N39-027,2003,nabo forrageiro,amonio,banda superficial,0 cm,4,2419.7,151.7,4,2531.7,151.7
+N39,N39-028,2003,nabo forrageiro,esterco liquido,banda rasa,5-10 cm,4,3045.5,333.7,4,3024.9,219.7
+N39,N39-029,2003,nabo forrageiro,ureia,banda rasa,5-10 cm,5,2096.9,253.9,5,2007.1,215.7
+N39,N39-030,2003,nabo forrageiro,amonio,banda profunda,>10 cm,7,3407.2,843.5,7,3715.3,457.9
+N39,N39-031,2003,nabo forrageiro,N sem descricao,banda superficial,0 cm,3,3329.2,386.2,3,4284.8,387.6
+N39,N39-032,2003,nabo forrageiro,potassio,banda superficial,0 cm,6,3109.3,575.6,6,3108.9,698.8
+N39,N39-033,2003,nabo forrageiro,potassio,sulco profunda (faca),>10 cm,5,3084.5,359.5,5,3156.4,631
+N39,N39-034,2003,nabo forrageiro,ureia + P soluvel,banda profunda,>10 cm,4,3730.3,362.9,4,3018,86.3
+N39,N39-035,2003,nabo forrageiro,amonio + P soluvel,banda rasa,5-10 cm,5,2383.9,166.5,5,2312.4,175.3
+N39,N39-036,2003,nabo forrageiro,esterco liquido,banda profunda,>10 cm,4,2651.8,308.7,4,2171,297

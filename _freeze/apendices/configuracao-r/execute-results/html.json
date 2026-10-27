@@ -1,0 +1,15 @@
+{
+  "hash": "b5c267edd8ee122044a913c0f43f922f",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Configuração do R\"\n---\n\n1. Instale o [R](https://cran.r-project.org/) e o\n   [RStudio](https://posit.co/download/rstudio-desktop/) (ou Positron).\n2. Instale os pacotes usados na disciplina:\n\n\n::: {.cell}\n\n```{.r .cell-code}\ninstall.packages(c(\"tidyverse\", \"metafor\"))\n```\n:::\n\n\n3. Teste a instalação:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(metafor)\ndat <- escalc(measure = \"RR\", ai = tpos, bi = tneg, ci = cpos, di = cneg,\n              data = dat.bcg)\nrma(yi, vi, data = dat)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n\nRandom-Effects Model (k = 13; tau^2 estimator: REML)\n\ntau^2 (estimated amount of total heterogeneity): 0.3132 (SE = 0.1664)\ntau (square root of estimated tau^2 value):      0.5597\nI^2 (total heterogeneity / total variability):   92.22%\nH^2 (total variability / sampling variability):  12.86\n\nTest for Heterogeneity:\nQ(df = 12) = 152.2330, p-val < .0001\n\nModel Results:\n\nestimate      se     zval    pval    ci.lb    ci.ub      \n -0.7145  0.1798  -3.9744  <.0001  -1.0669  -0.3622  *** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n```\n\n\n:::\n:::\n\n\nSe a última linha imprimir um resumo do modelo, está tudo pronto.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

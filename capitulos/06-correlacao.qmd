@@ -1,0 +1,64 @@
+---
+title: "6. Medidas de efeito: correlação"
+---
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+::: {.callout-note}
+## Objetivos
+- Usar o coeficiente de correlação como medida de efeito.
+- Aplicar a transformação Z de Fisher e voltar à escala de *r*.
+:::
+
+## Quando não há comparação entre tratamentos
+
+Quando o interesse é a associação entre duas respostas, a medida de efeito é
+o *r* de Pearson. Como sua distribuição é assimétrica, usa-se o **Z de
+Fisher**:
+
+$$z = \frac{1}{2}\ln\left(\frac{1 + r}{1 - r}\right), \qquad v_z = \frac{1}{n - 3}$$
+
+em que $n$ é o número de pares.
+
+## Exemplo
+
+> Qual é a magnitude da associação entre a severidade da ferrugem asiática
+> e a produtividade da soja?
+
+Cada estudo fornece parcelas com severidade e produtividade. Primeiro
+calculamos *r* por estudo, depois combinamos.
+
+```{r}
+parcelas <- read_csv("dados/ferrugem_parcelas.csv")
+parcelas
+
+dat_cor <- parcelas |>
+  group_by(estudo, altitude) |>
+  summarise(r = cor(severidade, produtividade), n = n(), .groups = "drop")
+
+dat_cor <- escalc(measure = "ZCOR", ri = r, ni = n, data = dat_cor)
+dat_cor
+```
+
+::: {.callout-important}
+## Exercício 6.1
+Faça um histograma de `r` e de `yi` (Z). Qual das duas distribuições é
+mais simétrica?
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+dat_cor |>
+  as_tibble() |>
+  pivot_longer(c(r, yi), names_to = "escala") |>
+  ggplot(aes(value)) +
+  geom_histogram(bins = 8) +
+  facet_wrap(~escala, scales = "free_x")
+```
+
+A volta para a escala de *r* é feita depois do modelo, com
+`predict(modelo, transf = transf.ztor)` (capítulo 7).

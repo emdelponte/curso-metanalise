@@ -1,0 +1,75 @@
+---
+title: "5. Medidas de efeito: dados binários"
+---
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+::: {.callout-note}
+## Objetivos
+- Diferenciar chance (*odds*) de risco (probabilidade).
+- Calcular razão de chances (OR) e risco relativo (RR).
+:::
+
+## Definições
+
+- **Risco (probabilidade)**: eventos ÷ total sob risco. Ex.: 13 espadas em
+  52 cartas → 0,25.
+- **Chance (*odds*)**: probabilidade de o evento ocorrer ÷ probabilidade de
+  não ocorrer. Ex.: 0,25 / 0,75 = 0,33.
+
+Tabela 2 × 2:
+
+|  | Evento | Não evento |
+|---|---|---|
+| Tratamento | a | b |
+| Controle | c | d |
+
+- **Razão de chances**: $OR = \dfrac{a/b}{c/d}$. Eventos independentes têm
+  OR = 1.
+- **Risco relativo**: $RR = \dfrac{a/(a+b)}{c/(c+d)}$.
+
+Ambos são analisados na escala log.
+
+## No R
+
+O arquivo `tombamento_sementes.csv` traz o número de plântulas com
+tombamento (doentes) e sadias em parcelas com sementes tratadas e não
+tratadas (dados simulados):
+
+```{r}
+tombamento <- read_csv("dados/tombamento_sementes.csv")
+
+dat_rr <- escalc(measure = "RR",
+                 ai = doentes_trat, bi = sadias_trat,
+                 ci = doentes_ctrl, di = sadias_ctrl,
+                 data = tombamento)
+dat_rr |> select(estudo, yi, vi)
+```
+
+::: {.callout-important}
+## Exercício 5.1
+Recalcule com `measure = "OR"`. Compare `exp(yi)` de OR e RR, ordenando os
+estudos pela incidência na testemunha. Quando eles divergem?
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+dat_or <- escalc(measure = "OR",
+                 ai = doentes_trat, bi = sadias_trat,
+                 ci = doentes_ctrl, di = sadias_ctrl,
+                 data = tombamento)
+
+tombamento |>
+  mutate(incid_ctrl = doentes_ctrl / (doentes_ctrl + sadias_ctrl),
+         RR = exp(dat_rr$yi),
+         OR = exp(dat_or$yi)) |>
+  select(estudo, incid_ctrl, RR, OR) |>
+  arrange(desc(incid_ctrl))
+```
+
+Quanto maior a incidência, mais o OR se afasta do RR. Com eventos raros, os
+dois são praticamente iguais.

@@ -1,0 +1,99 @@
+---
+title: "2. Revisão sistemática e passos de uma metanálise"
+---
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+::: {.callout-note}
+## Objetivos
+- Diferenciar revisão narrativa de revisão sistemática com metanálise.
+- Entender o problema da "contagem de votos".
+- Conhecer o protocolo PRISMA e os passos de uma metanálise.
+:::
+
+## Revisão narrativa × sistemática
+
+Na **revisão narrativa**, os estudos são escolhidos de forma arbitrária e as
+conclusões vêm do número de estudos em que o tratamento "funcionou" ou não:
+é a **contagem de votos**.
+
+Na **revisão sistemática**, a busca, a exclusão de estudos e a amostra final
+seguem critérios explícitos. A metanálise deve ser feita sobre estudos
+selecionados dessa forma.
+
+## O protocolo PRISMA
+
+*Preferred Reporting Items for Systematic Reviews and Meta-Analyses*
+[@page2021] define critérios para:
+
+- a pesquisa bibliográfica,
+- a exclusão de estudos,
+- a amostra final.
+
+<!-- TODO: incluir fluxograma PRISMA (4 etapas) do slide -->
+
+## Contagem de votos × metanálise
+
+O exemplo de @harrison2011 compara o sucesso reprodutivo de mutantes e
+selvagens: a contagem de votos é inconclusiva, mas a medida sumário
+padronizada mostra um efeito claro.
+
+### Média ponderada
+
+Na metanálise cada estudo recebe um peso, em geral o **inverso da
+variância** ($w_i = 1/v_i$). Estudos mais precisos pesam mais:
+
+$$\bar{y} = \frac{\sum w_i y_i}{\sum w_i}$$
+
+## Passos de uma metanálise
+
+1. Definir a questão a ser respondida.
+2. Revisar a literatura ou outras fontes (dados de pesquisadores).
+3. Definir critérios e selecionar os estudos.
+4. Calcular a medida de efeito e sua variância.
+5. Organizar os dados em uma planilha.
+6. Definir o modelo metanalítico para sumarizar o efeito geral.
+7. Verificar se há heterogeneidade (e tentar explicá-la).
+8. Construir tabelas e gráficos.
+
+## No R: contagem de votos × média ponderada
+
+```{r}
+estudos <- tibble(
+  estudo = paste("Estudo", 1:8),
+  yi = c(0.40, 0.10, 0.55, -0.05, 0.30, 0.20, 0.65, 0.15),
+  vi = c(0.04, 0.10, 0.20, 0.08, 0.02, 0.15, 0.30, 0.03)
+) |>
+  mutate(
+    ic_inf = yi - 1.96 * sqrt(vi),
+    ic_sup = yi + 1.96 * sqrt(vi),
+    significativo = ic_inf > 0,
+    w = 1 / vi
+  )
+
+estudos
+
+# Contagem de votos
+table(estudos$significativo)
+
+# Média aritmética vs. ponderada
+mean(estudos$yi)
+weighted.mean(estudos$yi, estudos$w)
+```
+
+::: {.callout-important}
+## Exercício 2.1
+Calcule o erro padrão da média ponderada ($1/\sqrt{\sum w_i}$) e o seu IC
+95%. A conclusão difere da contagem de votos?
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+ep <- 1 / sqrt(sum(estudos$w))
+media_p <- weighted.mean(estudos$yi, estudos$w)
+c(media = media_p, inf = media_p - 1.96 * ep, sup = media_p + 1.96 * ep)
+```

@@ -1,0 +1,92 @@
+---
+title: "9. Subgrupos e meta-regressão"
+---
+
+```{r}
+#| include: false
+source("R/setup.R")
+fungicida <- read_csv("dados/fungicida_soja.csv") |>
+  mutate(sd = cv / 100 * media_geral)
+dat <- escalc(measure = "MD",
+              m1i = prod_trat, sd1i = sd, n1i = n,
+              m2i = prod_ctrl, sd2i = sd, n2i = n,
+              data = fungicida, slab = estudo)
+```
+
+::: {.callout-note}
+## Objetivos
+- Explicar heterogeneidade com moderadoras categóricas (subgrupos) e
+  contínuas (meta-regressão).
+- Visualizar o efeito de moderadoras.
+:::
+
+## Quando há heterogeneidade
+
+Podemos tentar explicá-la com características dos estudos (moderadoras),
+em um **modelo de efeitos mistos**:
+
+- **Análise de subgrupos**: moderadora categórica (região, cultivar,
+  pressão de doença).
+- **Meta-regressão**: moderadora contínua (latitude, ano, severidade na
+  testemunha).
+
+Exemplos em fitopatologia: @ngugi2011, @paul2005, @paul2011.
+
+## Subgrupos
+
+Nos ensaios de fungicida, a resposta difere entre regiões ou entre níveis
+de pressão de doença?
+
+```{r}
+m_sub <- rma(yi, vi, mods = ~ pressao, data = dat)
+m_sub
+```
+
+O teste `QM` (*Test of Moderators*) indica se a moderadora explica parte da
+heterogeneidade. Para obter a média de cada grupo, retire o intercepto:
+
+```{r}
+rma(yi, vi, mods = ~ pressao - 1, data = dat)
+```
+
+## Meta-regressão
+
+```{r}
+m_reg <- rma(yi, vi, mods = ~ latitude, data = dat)
+m_reg
+```
+
+```{r}
+regplot(m_reg, xlab = "Latitude (°S)",
+        ylab = "Diferença de produtividade (kg/ha)")
+```
+
+A mesma figura com `ggplot2` (tamanho do ponto ∝ peso):
+
+```{r}
+dat |>
+  as_tibble() |>
+  ggplot(aes(latitude, yi, size = 1 / vi)) +
+  geom_point(shape = 1) +
+  geom_abline(intercept = coef(m_reg)[1], slope = coef(m_reg)[2]) +
+  labs(x = "Latitude (°S)", y = "Diferença de produtividade (kg/ha)",
+       size = "Peso")
+```
+
+::: {.callout-important}
+## Exercício 9.1
+Ajuste modelos com `regiao`, `latitude + pressao` e `ano`. Quanto da
+heterogeneidade ($R^2$) cada um explica? Qual faz mais sentido agronômico?
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+tibble(
+  modelo = c("regiao", "latitude", "latitude + pressao", "ano"),
+  R2 = c(rma(yi, vi, mods = ~ regiao, data = dat)$R2,
+         m_reg$R2,
+         rma(yi, vi, mods = ~ latitude + pressao, data = dat)$R2,
+         rma(yi, vi, mods = ~ ano, data = dat)$R2)
+)
+```

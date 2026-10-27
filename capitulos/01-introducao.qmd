@@ -1,0 +1,98 @@
+---
+title: "1. O que é metanálise"
+---
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+::: {.callout-note}
+## Objetivos
+- Definir metanálise e diferenciá-la das análises primária e secundária.
+- Conhecer a origem do método e do termo.
+- Reconhecer quando a metanálise é útil e quais são as principais críticas.
+:::
+
+## Definição
+
+> Metanálise é uma síntese estatística de resultados de um conjunto de
+> estudos primários. [@borenstein2009]
+
+Outras definições:
+
+- "Estimativa do resultado médio entre estudos" [@hunter2004].
+- "Combinação de resultados de múltiplos estudos independentes" (Sutton & Higgins, 2008).
+
+## Origens da abordagem e do termo
+
+- **Karl Pearson** combinou correlações de diferentes amostras.
+- **Ronald Fisher** propôs combinar p-valores.
+- **Gene Glass** cunhou o termo *meta-analysis* em 1976; o primeiro artigo
+  foi a síntese sobre psicoterapia de @smith1977, em resposta às críticas de
+  Eysenck.
+
+## Análise primária, secundária e metanálise
+
+<!-- TODO: incluir figura do slide (primária → secundária → MA) em imagens/ -->
+
+- **Primária**: análise dos dados originais pelo próprio pesquisador.
+- **Secundária**: reanálise dos dados originais por outros pesquisadores.
+- **Metanálise**: análise dos *resultados* (estatísticas) de vários estudos.
+
+## A questão básica
+
+> "Um único estudo não irá resolver uma grande questão. De fato, um estudo
+> com amostra pequena não irá resolver uma pequena questão."
+> [@hunter2004]
+
+## Quando usar a metanálise?
+
+- Há uma questão bem definida.
+- Os estudos primários têm amostras pequenas.
+- É difícil conduzir experimentos "grandes".
+- Os resultados individuais são inconclusivos ou conflitantes.
+
+## Controvérsias e críticas
+
+<!-- TODO: completar com os pontos do slide (misturar "maçãs e laranjas",
+"lixo entra, lixo sai", viés de publicação) -->
+
+A maior parte das críticas pode ser contornada com uma seleção formal dos
+estudos, baseada em critérios definidos *a priori* (**entra → sai**).
+Apesar delas, a metanálise tornou-se o paradigma de síntese de evidência em
+medicina, psicologia e, cada vez mais, na agricultura.
+
+## No R: por que um estudo só não basta?
+
+Vamos simular 10 ensaios pequenos de um fungicida com efeito verdadeiro de
+300 kg/ha e ver quantos deles são "significativos" sozinhos.
+
+```{r}
+n_ensaios <- 10
+efeito_real <- 300   # kg/ha
+dp <- 600            # desvio padrão dentro do ensaio
+n <- 4               # repetições por tratamento
+
+ensaios <- map_dfr(1:n_ensaios, function(i) {
+  trat <- rnorm(n, 3000 + efeito_real, dp)
+  ctrl <- rnorm(n, 3000, dp)
+  teste <- t.test(trat, ctrl)
+  tibble(ensaio = i, D = mean(trat) - mean(ctrl), p = teste$p.value)
+})
+
+ensaios |> mutate(significativo = p < 0.05)
+```
+
+::: {.callout-important}
+## Exercício 1.1
+Aumente `n` para 20 e depois `n_ensaios` para 50. O que acontece com a
+proporção de ensaios significativos? E com a média de `D`?
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+mean(ensaios$p < 0.05)   # poder de cada ensaio isolado
+mean(ensaios$D)          # a média se aproxima do efeito real
+```

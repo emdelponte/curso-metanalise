@@ -1,0 +1,120 @@
+---
+title: "4. Medidas de efeito: dados contínuos"
+---
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+::: {.callout-note}
+## Objetivos
+- Calcular diferença média (MD), diferença média padronizada (SMD) e razão
+  de resposta (ROM).
+- Saber quando usar cada uma.
+- Usar a função `escalc()` do `metafor`.
+:::
+
+## O que é uma medida de efeito?
+
+É a magnitude da diferença entre dois grupos (tratamento × controle) ou da
+associação entre duas variáveis.
+
+| Tipo de dado | Comparação | Medida | `escalc(measure = )` |
+|---|---|---|---|
+| Contínuo | Tratamento × controle | Diferença média | `"MD"` |
+| Contínuo | Tratamento × controle | Diferença média padronizada | `"SMD"` |
+| Contínuo | Tratamento × controle | Razão de resposta (log) | `"ROM"` |
+| Binário | Tratamento × controle | Razão de chances (log) | `"OR"` |
+| Binário | Tratamento × controle | Risco relativo (log) | `"RR"` |
+| Contínuo | Associação | Correlação | `"COR"` |
+| Contínuo | Associação | Z de Fisher | `"ZCOR"` |
+
+## Diferença média (MD)
+
+$D = \bar{y}_T - \bar{y}_C$. Use quando todos os estudos medem a resposta
+na **mesma escala** (ex.: kg/ha).
+
+## Diferença média padronizada (SMD)
+
+Quando os estudos usam escalas diferentes (notas × percentual), padroniza-se
+pela variabilidade combinada (*d* de Cohen). O argumento `"SMD"` do
+`escalc()` aplica a correção para amostras pequenas e retorna o **g de
+Hedges**.
+
+<!-- TODO: tabela de interpretação do d de Cohen (0,2 pequeno; 0,5 médio; 0,8 grande) -->
+
+## Razão de resposta (ROM)
+
+Quando interessa a diferença **relativa**. Como a razão não tem boa
+distribuição, usa-se o log natural:
+
+$$\ln RR = \ln\left(\frac{\bar{y}_T}{\bar{y}_C}\right) = \ln \bar{y}_T - \ln \bar{y}_C$$
+
+A variável precisa ter um zero natural.
+
+### Exemplo: tebuconazol e giberela do trigo
+
+A eficácia de controle é obtida da razão de resposta:
+$C = (1 - e^{\ln RR}) \times 100$. Se a severidade no tratado é 20% da
+testemunha, $\ln RR = \ln 0{,}2$ e $C = 80\%$.
+
+## No R
+
+A função `escalc()` precisa de média, desvio padrão e *n* de cada grupo.
+Quando o artigo traz apenas o CV, usamos $\sqrt{V} = \frac{CV}{100}\bar{Y}$
+como desvio padrão dos dois grupos, o que resulta em $V_D = 2V/n$
+(capítulo 3).
+
+```{r}
+fungicida <- read_csv("dados/fungicida_soja.csv") |>
+  mutate(sd = cv / 100 * media_geral)
+
+dat_md <- escalc(measure = "MD",
+                 m1i = prod_trat, sd1i = sd, n1i = n,
+                 m2i = prod_ctrl, sd2i = sd, n2i = n,
+                 data = fungicida)
+dat_md |> select(estudo, yi, vi)
+```
+
+::: {.callout-important}
+## Exercício 4.1
+Recalcule o efeito com `measure = "SMD"` e `measure = "ROM"`. Para o ROM,
+converta `yi` em ganho percentual: $(e^{y_i} - 1) \times 100$.
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+dat_rom <- escalc(measure = "ROM",
+                  m1i = prod_trat, sd1i = sd, n1i = n,
+                  m2i = prod_ctrl, sd2i = sd, n2i = n,
+                  data = fungicida)
+dat_rom |>
+  mutate(ganho_pct = (exp(yi) - 1) * 100) |>
+  select(estudo, yi, vi, ganho_pct)
+```
+
+::: {.callout-important}
+## Exercício 4.2 (eficácia de controle)
+O arquivo `giberela_tebuconazol.csv` traz a severidade (%) média e o desvio
+padrão em parcelas tratadas com tebuconazol e testemunhas. Calcule o log
+da razão de resposta e a eficácia de controle de cada ensaio.
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+giberela <- read_csv("dados/giberela_tebuconazol.csv")
+
+dat_gib <- escalc(measure = "ROM",
+                  m1i = sev_trat, sd1i = sd_trat, n1i = n,
+                  m2i = sev_ctrl, sd2i = sd_ctrl, n2i = n,
+                  data = giberela)
+
+dat_gib |>
+  mutate(eficacia = (1 - exp(yi)) * 100) |>
+  select(estudo, yi, vi, eficacia)
+```
+
+A eficácia **média** será estimada no capítulo 7.

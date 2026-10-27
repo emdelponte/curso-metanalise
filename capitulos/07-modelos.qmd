@@ -1,0 +1,128 @@
+---
+title: "7. Modelos de efeito fixo e aleatório"
+---
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+::: {.callout-note}
+## Objetivos
+- Entender as premissas dos modelos de efeito fixo e aleatório.
+- Ajustar ambos com `rma()` e interpretar a saída.
+- Construir um gráfico de floresta.
+:::
+
+## Modelo de efeito fixo
+
+Há **um efeito verdadeiro comum** a todos os estudos. A variação observada
+é apenas erro amostral:
+
+$$y_i = \theta + \varepsilon_i, \qquad \varepsilon_i \sim N(0, v_i)$$
+
+O efeito sumário é a média ponderada com $w_i = 1/v_i$.
+
+## Modelo de efeitos aleatórios
+
+1. O efeito verdadeiro **varia** de um estudo para outro.
+2. Os estudos são uma amostra aleatória da população de estudos possíveis.
+
+$$y_i = \mu + u_i + \varepsilon_i, \qquad u_i \sim N(0, \tau^2)$$
+
+Há duas fontes de variação: **dentro** do estudo ($v_i$) e **entre**
+estudos ($\tau^2$). Os pesos passam a ser $w_i = 1/(v_i + \tau^2)$.
+$\tau^2$ pode ser estimado por vários métodos (DL, REML etc.).
+
+## No R
+
+O fluxo mínimo no `metafor`:
+
+```r
+dat <- escalc(...)          # yi e vi
+m   <- rma(yi, vi, data = dat)
+forest(m)
+```
+
+Com os ensaios de fungicida na soja (capítulo 4):
+
+```{r}
+fungicida <- read_csv("dados/fungicida_soja.csv") |>
+  mutate(sd = cv / 100 * media_geral)
+dat <- escalc(measure = "MD",
+              m1i = prod_trat, sd1i = sd, n1i = n,
+              m2i = prod_ctrl, sd2i = sd, n2i = n,
+              data = fungicida, slab = estudo)
+
+m_fixo  <- rma(yi, vi, data = dat, method = "FE")
+m_aleat <- rma(yi, vi, data = dat, method = "REML")
+
+m_aleat
+predict(m_aleat)
+```
+
+O ganho médio estimado é de `r round(coef(m_aleat))` kg/ha.
+
+```{r}
+#| fig-height: 8
+forest(m_aleat, showweights = TRUE, refline = 0,
+       xlab = "Diferença de produtividade (kg/ha)",
+       header = c("Ensaio", "D [IC 95%]"))
+```
+
+::: {.callout-important}
+## Exercício 7.1
+Compare os pesos dos ensaios nos dois modelos (`weights(m_fixo)` e
+`weights(m_aleat)`). O que acontece com os ensaios mais precisos?
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+tibble(estudo = dat$estudo, vi = dat$vi,
+       peso_fixo = weights(m_fixo),
+       peso_aleat = weights(m_aleat)) |>
+  arrange(vi)
+```
+
+No modelo aleatório os pesos ficam mais parecidos entre si, porque
+$\tau^2$ é somado à variância de todos os ensaios.
+
+::: {.callout-important}
+## Exercício 7.2
+Estime a eficácia média do tebuconazol (capítulo 4, `giberela_tebuconazol.csv`).
+Lembre que o modelo é ajustado na escala log: transforme o resultado com
+`transf = function(x) (1 - exp(x)) * 100`.
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+giberela <- read_csv("dados/giberela_tebuconazol.csv")
+dat_gib <- escalc(measure = "ROM",
+                  m1i = sev_trat, sd1i = sd_trat, n1i = n,
+                  m2i = sev_ctrl, sd2i = sd_ctrl, n2i = n,
+                  data = giberela)
+m_gib <- rma(yi, vi, data = dat_gib)
+predict(m_gib, transf = function(x) (1 - exp(x)) * 100)
+```
+
+Note que os limites do IC aparecem invertidos (inferior > superior),
+porque a transformação é decrescente.
+
+::: {.callout-important}
+## Exercício 7.3
+Ajuste o modelo aleatório aos dados de correlação do capítulo 6 e
+transforme o resultado de volta para *r* com `transf = transf.ztor`.
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Ver solução"
+dat_cor <- read_csv("dados/ferrugem_parcelas.csv") |>
+  group_by(estudo, altitude) |>
+  summarise(r = cor(severidade, produtividade), n = n(), .groups = "drop") |>
+  escalc(measure = "ZCOR", ri = r, ni = n, data = _)
+m_cor <- rma(yi, vi, data = dat_cor)
+predict(m_cor, transf = transf.ztor)
+```
